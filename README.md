@@ -2,6 +2,13 @@
 
 A [Storyblok](https://www.storyblok.com/) + [Next.js 16](https://nextjs.org/) project.
 
+## Tech stack
+
+- **Next.js 16** — React framework (App Router)
+- **Storyblok** — headless CMS
+- **TypeScript**
+- **Tailwind CSS**
+
 ## Getting started
 
 ```bash

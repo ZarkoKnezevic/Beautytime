@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Beautytime Traun – Unser Team</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F7F0E6;color:#49382E;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
+.it{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400}
+.cap{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#897465}
+.disp{font-size:clamp(48px,7.8vw,112px);line-height:.98;letter-spacing:-.05em;font-weight:400;margin:0}
+.h2{font-size:clamp(36px,5vw,72px);line-height:1.02;letter-spacing:-.04em;font-weight:400;margin:0}
+.body{font-size:19px;line-height:1.45}
+.muted{color:#897465}
+.wrap{max-width:1440px;margin:0 auto;padding-left:clamp(20px,4.7vw,68px);padding-right:clamp(20px,4.7vw,68px);box-sizing:border-box}
+.two{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+.nav-links{display:flex;gap:40px}
+.ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}.ln>span{display:block;transform:translateY(112%);transition:transform 1.2s cubic-bezier(.19,1,.22,1)}
+.in .ln>span,.ln.in>span{transform:none}
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
+.in .rv,.rv.in{opacity:1;transform:none}
+.clip{clip-path:inset(100% 0 0 0);transition:clip-path 1.4s cubic-bezier(.77,0,.18,1)}
+.clipl{clip-path:inset(0 100% 0 0);transition:clip-path 1.4s cubic-bezier(.77,0,.18,1)}
+.in .clip,.clip.in,.in .clipl,.clipl.in{clip-path:inset(0 0 0 0)}
+.imgw{overflow:hidden;position:relative;background:#E7D7C5}.imgw img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.14);transition:transform 1.8s cubic-bezier(.22,1,.36,1)}
+.in .imgw img,.imgw.in img{transform:scale(1)}
+.plxw{position:relative;overflow:hidden}.plxw img{position:absolute;left:0;top:-15%;width:100%;height:130%;object-fit:cover;will-change:transform}
+.ul{position:relative;display:inline-block}.ul::after{content:"";position:absolute;left:0;bottom:-4px;height:1px;width:100%;background:#B99552;transform:scaleX(0);transform-origin:right;transition:transform .55s cubic-bezier(.22,1,.36,1)}.ul:hover::after{transform:scaleX(1);transform-origin:left}
+.btn{display:inline-flex;align-items:center;gap:14px;border:1px solid #B99552;padding:18px 28px;border-radius:2px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;position:relative;overflow:hidden;transition:color .5s;color:#49382E;background:transparent}
+.btn::before{content:"";position:absolute;inset:0;background:#B99552;transform:translateY(101%);transition:transform .55s cubic-bezier(.22,1,.36,1)}
+.btn:hover::before{transform:none}.btn:hover{color:#FFF9F0}.btn>*{position:relative}
+.btn svg{transition:transform .5s cubic-bezier(.22,1,.36,1)}.btn:hover svg{transform:translateX(6px)}
+.btn.solid{background:#B99552;color:#FFF9F0}.btn.solid::before{background:#8C6935}
+.spark{position:absolute;width:6px;height:6px;background:#DCC394;border-radius:50%;animation:tw 3.2s ease-in-out infinite;box-shadow:0 0 12px 2px rgba(220,195,148,.9)}
+.spin{animation:spin 26s linear infinite;transform-origin:50% 50%}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes tw{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1.2)}}
+.orn{width:1px;height:72px;background:linear-gradient(#B99552,transparent)}
+.member{padding-top:120px;padding-bottom:120px;border-top:1px solid #CDB99E}
+.member .imgw img{transition:transform 1.8s cubic-bezier(.22,1,.36,1),filter 1.1s}
+.member:hover .imgw img{transform:scale(1.05);transition-duration:1.1s}
+.member .gold{position:absolute;left:0;bottom:0;height:3px;width:100%;background:#B99552;transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.member:hover .gold{transform:none}
+.member .nm{transition:transform .6s cubic-bezier(.22,1,.36,1);color:#B99552;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(52px,6.4vw,96px);letter-spacing:-.01em;line-height:1}
+.member:hover .nm{transform:translateX(16px)}
+.member .frame{position:absolute;inset:16px;border:1px solid rgba(220,195,148,.0);transition:border-color .8s,inset .8s cubic-bezier(.22,1,.36,1);pointer-events:none}
+.member:hover .frame{border-color:rgba(220,195,148,.9);inset:24px}
+@media (max-width:760px){
+  .nav-links{display:none !important}
+  .two{display:flex !important;flex-direction:column;gap:32px}
+  .m-hide{display:none !important}
+  .m-sm{height:440px !important}
+  .m-h{height:auto !important;aspect-ratio:4/5}
+  .member{padding-top:72px !important;padding-bottom:72px !important}
+  .member .nm{transform:none !important}
+}
+@media (prefers-reduced-motion:reduce){.ln>span,.rv,.clip,.clipl,.imgw img{transition:none !important;transform:none !important;opacity:1 !important;clip-path:none !important}.spark{animation:none}}
+</style>
+</helmet>
+<div style="width: 100%; min-width: 0; display: flex; flex-direction: column; overflow-x: hidden">
+
+<!-- NAV -->
+<nav class="wrap" data-load style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 28px; padding-bottom: 28px">
+  <a href="Main.dc.html" class="rv" style="display: flex; align-items: center; gap: 12px; transition-delay: .1s">
+    <img src="/_blob/bb5328707e89093fdace83666c8e4bda" alt="Beautytime Traun" style="width: 88px; height: 88px; border-radius: 50%; object-fit: cover">
+    <span class="ul" style="font-size: 14px">Startseite</span>
+  </a>
+  <div class="nav-links rv" style="transition-delay: .2s">
+    <a href="Leistungen.dc.html" class="ul" style="font-size: 14px">Leistungen</a>
+    <a href="Team.dc.html" class="ul" style="font-size: 14px; color: #8C6935">Unser Team</a>
+  </div>
+  <a href="tel:+436603008300" class="ul rv" style="font-size: 14px; display: inline-flex; align-items: center; gap: 10px; transition-delay: .3s">Termin vereinbaren
+    <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+  </a>
+</nav>
+
+<!-- HERO -->
+<header class="wrap" data-load style="padding-top: 64px; padding-bottom: 120px; position: relative">
+  <div class="two" style="align-items: start">
+    <div style="grid-column: 1 / span 7; position: relative; z-index: 2">
+      <div class="cap rv" style="margin-bottom: 32px; transition-delay: .4s">Die Menschen hinter Beautytime</div>
+      <h1 class="disp" style="font-size: clamp(56px, 10.4vw, 150px)">
+        <span class="ln" style="transition-delay: .5s"><span>Unser</span></span>
+        <span class="ln" style="transition-delay: .62s"><span><em class="it" style="color: #B99552">Team.</em></span></span>
+      </h1>
+      <p class="body rv" style="max-width: 440px; margin: 48px 0 0; transition-delay: .9s">Kosmetik, Nageldesign, Friseur, Fußpflege und Wimpern – jede Behandlung in den Händen von Menschen, die ihr Handwerk lieben.</p>
+    </div>
+    <div style="grid-column: 8 / span 5; position: relative">
+      <div class="imgw clip m-sm" style="height: 620px; transition-delay: .7s">
+        <img src="/_blob/6bffc2d1585dc333b5531c380aa4f197" alt="Lounge im Beautytime Studio mit Marmortisch und goldenem Fuß" style="object-position: center 40%; transition-delay: .7s">
+      </div>
+      <div class="cap rv" style="margin-top: 14px; transition-delay: 1.1s">Unsere Lounge · Bahnhofstraße 21, Traun</div>
+      <div class="spark" style="top: -10px; left: 24px"></div>
+      <div class="spark" style="bottom: 90px; right: -8px; animation-delay: 1.5s; width: 4px; height: 4px"></div>
+    </div>
+  </div>
+</header>
+
+<!-- MEMBER 1 Bojana -->
+<article class="wrap member two" data-io style="align-items: center">
+  <div style="grid-column: 1 / span 6; position: relative">
+    <div class="imgw clip" style="aspect-ratio: 4 / 5; height: auto">
+      <img src="/_blob/7f6f8f8325f68e2ecc1f78f1737049ea" alt="Bojana, Gründerin und CEO von Beautytime Traun" style="object-position: center top">
+      <div class="frame"></div>
+      <div class="gold"></div>
+    </div>
+  </div>
+  <div style="grid-column: 8 / span 5">
+    <h2 class="h2 nm" style="margin-top: 0"><span class="ln" style="transition-delay: .1s"><span>Bojana</span></span></h2>
+    <div class="cap rv" style="margin-top: 20px; transition-delay: .25s">Gründerin &amp; CEO</div>
+    <p class="body rv" style="max-width: 440px; margin: 32px 0 0; transition-delay: .35s">[Kurzbiografie: Ausbildung, Spezialisierung, Lieblingsbehandlung. Zwei bis drei Sätze.]</p>
+    <a href="https://instagram.com" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Instagram [@handle]
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </a>
+  </div>
+</article>
+
+<!-- MEMBER 2 Sara -->
+<article class="wrap member two" data-io style="align-items: center">
+  <div style="grid-column: 1 / span 5">
+    <h2 class="h2 nm" style="margin-top: 0"><span class="ln" style="transition-delay: .1s"><span>Sara</span></span></h2>
+    <div class="cap rv" style="margin-top: 20px; transition-delay: .25s">Gründerin &amp; CEO</div>
+    <p class="body rv" style="max-width: 440px; margin: 32px 0 0; transition-delay: .35s">[Kurzbiografie: Ausbildung, Spezialisierung, Lieblingsbehandlung. Zwei bis drei Sätze.]</p>
+    <a href="https://instagram.com" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Instagram [@handle]
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </a>
+  </div>
+  <div style="grid-column: 7 / span 6; position: relative">
+    <div class="imgw clip" style="aspect-ratio: 4 / 5; height: auto">
+      <img src="/_blob/47fd2c7065f93133a8bc9dd14f2421ed" alt="Sara, Gründerin und CEO von Beautytime Traun" style="object-position: center top">
+      <div class="frame"></div>
+      <div class="gold"></div>
+    </div>
+  </div>
+</article>
+
+<!-- MEMBER 3 Nikola -->
+<article class="wrap member two" data-io style="align-items: center">
+  <div style="grid-column: 1 / span 6; position: relative">
+    <div class="imgw clip" style="aspect-ratio: 4 / 5; height: auto">
+      <img src="/_blob/a66e6557ff381e15719b21fe1d573db3" alt="Nikola, Gründer und CEO von Beautytime Traun" style="object-position: center top">
+      <div class="frame"></div>
+      <div class="gold"></div>
+    </div>
+  </div>
+  <div style="grid-column: 8 / span 5">
+    <h2 class="h2 nm" style="margin-top: 0"><span class="ln" style="transition-delay: .1s"><span>Nikola</span></span></h2>
+    <div class="cap rv" style="margin-top: 20px; transition-delay: .25s">Gründer &amp; CEO</div>
+    <p class="body rv" style="max-width: 440px; margin: 32px 0 0; transition-delay: .35s">[Kurzbiografie: Ausbildung, Spezialisierung, Lieblingsbehandlung. Zwei bis drei Sätze.]</p>
+    <a href="https://instagram.com" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Instagram [@handle]
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </a>
+  </div>
+</article>
+
+<!-- MEMBER 4 Duško -->
+<article class="wrap member two" data-io style="align-items: center">
+  <div style="grid-column: 1 / span 5">
+    <h2 class="h2 nm" style="margin-top: 0"><span class="ln" style="transition-delay: .1s"><span>Duško</span></span></h2>
+    <div class="cap rv" style="margin-top: 20px; transition-delay: .25s">Friseurmeister</div>
+    <p class="body rv" style="max-width: 440px; margin: 32px 0 0; transition-delay: .35s">[Kurzbiografie: Ausbildung, Spezialisierung, Lieblingsbehandlung. Zwei bis drei Sätze.]</p>
+    <a href="https://instagram.com" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Instagram [@handle]
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </a>
+  </div>
+  <div style="grid-column: 7 / span 6; position: relative">
+    <div class="imgw clip" style="aspect-ratio: 4 / 5; height: auto">
+      <img src="/_blob/0bd9cd41ba6b3d45bf31834b18dd89b0" alt="Duško, Friseurmeister" style="object-position: center top">
+      <div class="frame"></div>
+      <div class="gold"></div>
+    </div>
+  </div>
+</article>
+
+<!-- MEMBER 5 Ana -->
+<article class="wrap member two" data-io style="align-items: center">
+  <div style="grid-column: 1 / span 6; position: relative">
+    <div class="imgw clip" style="aspect-ratio: 4 / 5; height: auto">
+      <img src="/_blob/f7ba329b3a27b44663dc2ad3467c52d2" alt="Ana, Kosmetik und Fußpflege" style="object-position: center top">
+      <div class="frame"></div>
+      <div class="gold"></div>
+    </div>
+  </div>
+  <div style="grid-column: 8 / span 5">
+    <h2 class="h2 nm" style="margin-top: 0"><span class="ln" style="transition-delay: .1s"><span>Ana</span></span></h2>
+    <div class="cap rv" style="margin-top: 20px; transition-delay: .25s">Kosmetik &amp; Fußpflege</div>
+    <p class="body rv" style="max-width: 440px; margin: 32px 0 0; transition-delay: .35s">[Kurzbiografie: Ausbildung, Spezialisierung, Lieblingsbehandlung. Zwei bis drei Sätze.]</p>
+    <a href="https://instagram.com" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Instagram [@handle]
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </a>
+  </div>
+</article>
+
+<!-- MEMBER 6 Magdalena -->
+<article class="wrap member two" data-io style="align-items: center">
+  <div style="grid-column: 1 / span 5">
+    <h2 class="h2 nm" style="margin-top: 0"><span class="ln" style="transition-delay: .1s"><span>Magdalena</span></span></h2>
+    <div class="cap rv" style="margin-top: 20px; transition-delay: .25s">Kosmetik &amp; Fußpflege</div>
+    <p class="body rv" style="max-width: 440px; margin: 32px 0 0; transition-delay: .35s">[Kurzbiografie: Ausbildung, Spezialisierung, Lieblingsbehandlung. Zwei bis drei Sätze.]</p>
+    <a href="https://instagram.com" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Instagram [@handle]
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </a>
+  </div>
+  <div style="grid-column: 7 / span 6; position: relative">
+    <div class="imgw clip" style="aspect-ratio: 4 / 5; height: auto">
+      <img src="/_blob/d1a857890d3eb3995b5e5c02db2643dc" alt="Magdalena, Kosmetik und Fußpflege" style="object-position: center top">
+      <div class="frame"></div>
+      <div class="gold"></div>
+    </div>
+  </div>
+</article>
+
+<!-- MEMBER 7 Dajana -->
+<article class="wrap member two" data-io style="align-items: center">
+  <div style="grid-column: 1 / span 6; position: relative">
+    <div class="imgw clip" style="aspect-ratio: 4 / 5; height: auto">
+      <img src="/_blob/50b2ca13fd664243d8f72e2b16b582d9" alt="Dajana, Kosmetikerin" style="object-position: center top">
+      <div class="frame"></div>
+      <div class="gold"></div>
+    </div>
+  </div>
+  <div style="grid-column: 8 / span 5">
+    <h2 class="h2 nm" style="margin-top: 0"><span class="ln" style="transition-delay: .1s"><span>Dajana</span></span></h2>
+    <div class="cap rv" style="margin-top: 20px; transition-delay: .25s">Kosmetikerin</div>
+    <p class="body rv" style="max-width: 440px; margin: 32px 0 0; transition-delay: .35s">[Kurzbiografie: Ausbildung, Spezialisierung, Lieblingsbehandlung. Zwei bis drei Sätze.]</p>
+    <a href="https://instagram.com" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Instagram [@handle]
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </a>
+  </div>
+</article>
+
+<!-- MEMBER 8 Kornelija -->
+<article class="wrap member two" data-io style="align-items: center">
+  <div style="grid-column: 1 / span 5">
+    <h2 class="h2 nm" style="margin-top: 0"><span class="ln" style="transition-delay: .1s"><span>Kornelija</span></span></h2>
+    <div class="cap rv" style="margin-top: 20px; transition-delay: .25s">Kosmetikerin</div>
+    <p class="body rv" style="max-width: 440px; margin: 32px 0 0; transition-delay: .35s">[Kurzbiografie: Ausbildung, Spezialisierung, Lieblingsbehandlung. Zwei bis drei Sätze.]</p>
+    <a href="https://instagram.com" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Instagram [@handle]
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </a>
+  </div>
+  <div style="grid-column: 7 / span 6; position: relative">
+    <div class="imgw clip" style="aspect-ratio: 4 / 5; height: auto">
+      <img src="/_blob/01e17d12a72123cef0a7ddb8951ff38f" alt="Kornelija, Kosmetikerin" style="object-position: center top">
+      <div class="frame"></div>
+      <div class="gold"></div>
+    </div>
+  </div>
+</article>
+
+<!-- MEMBER 9 Bogi -->
+<article class="wrap member two" data-io style="align-items: center">
+  <div style="grid-column: 1 / span 6; position: relative">
+    <div class="imgw clip" style="aspect-ratio: 4 / 5; height: auto">
+      <img src="/_blob/b9600c4170fa21ae82cdaa623f608d32" alt="Bogi, Wimpernstylistin" style="object-position: center top">
+      <div class="frame"></div>
+      <div class="gold"></div>
+    </div>
+  </div>
+  <div style="grid-column: 8 / span 5">
+    <h2 class="h2 nm" style="margin-top: 0"><span class="ln" style="transition-delay: .1s"><span>Bogi</span></span></h2>
+    <div class="cap rv" style="margin-top: 20px; transition-delay: .25s">Wimpernstylistin</div>
+    <p class="body rv" style="max-width: 440px; margin: 32px 0 0; transition-delay: .35s">[Kurzbiografie: Ausbildung, Spezialisierung, Lieblingsbehandlung. Zwei bis drei Sätze.]</p>
+    <a href="https://instagram.com" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Instagram [@handle]
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+    </a>
+  </div>
+</article>
+
+<!-- PHILOSOPHY -->
+<section class="plxw m-h" data-io style="height: 680px">
+  <img src="/_blob/7743ac0f98e6db7ac158a91503d7fdc8" alt="" aria-hidden="true" class="plx" style="object-position: center 50%">
+  <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(73,56,46,0.2) 0%, rgba(73,56,46,0.6) 100%)"></div>
+  <div style="position: absolute; inset: 0; background: rgba(185,149,82,0.18); mix-blend-mode: multiply"></div>
+  <div class="wrap" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #FFF9F0">
+    <div class="cap rv" style="color: #DCC394; margin-bottom: 28px">Unsere Haltung</div>
+    <h2 class="h2" style="color: #FFF9F0; max-width: 900px">
+      <span class="ln"><span>Wir nehmen uns Zeit –</span></span>
+      <span class="ln" style="transition-delay: .14s"><span>weil Schönheit <em class="it" style="color: #DCC394">keine Eile</em> kennt.</span></span>
+    </h2>
+    <p class="body rv" style="max-width: 520px; margin: 32px 0 0; color: #EDE1D2; transition-delay: .4s">[Teamstatement ergänzen: Was uns verbindet, wofür wir stehen, wie wir arbeiten.]</p>
+  </div>
+  <div class="spark" style="top: 20%; left: 14%"></div>
+  <div class="spark" style="top: 70%; right: 16%; animation-delay: 1.1s"></div>
+</section>
+
+<!-- CTA -->
+<section class="wrap" data-io style="padding-top: 120px; padding-bottom: 160px; text-align: center; display: flex; flex-direction: column; align-items: center">
+  <div class="orn rv" style="margin-bottom: 40px"></div>
+  <h2 class="disp">
+    <span class="ln"><span>Lern uns</span></span>
+    <span class="ln" style="transition-delay: .14s"><span><em class="it" style="color: #B99552">persönlich</em> kennen.</span></span>
+  </h2>
+  <p class="body muted rv" style="max-width: 460px; margin: 36px 0 0; transition-delay: .35s">Telefonisch, per WhatsApp oder online. [Buchungslink ergänzen, falls vorhanden.]</p>
+  <div class="rv" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; transition-delay: .5s">
+    <a href="https://www.instagram.com/beautytime_traun/" class="btn solid"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Nachricht auf Instagram</span></a>
+    <a href="https://wa.me/436603008300" class="btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1L4 20z"/><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.5 1.8 2.6 2.4.2.1.3.1.4 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.5-.1.8-.7 1.5-1.5 1.6-1.3.2-2.9-.5-4.3-1.9-1.4-1.4-2.1-3-1.9-4.3z"/></svg><span>WhatsApp</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer data-io style="background: #EDE1D2; padding-top: 96px; padding-bottom: 32px">
+  <div class="wrap">
+    <div class="two" style="row-gap: 40px">
+      <div class="rv" style="grid-column: 1 / span 4; display: flex; flex-direction: column; gap: 16px">
+        <div style="position: relative; width: 168px; height: 168px">
+          <svg class="spin" viewBox="0 0 200 200" width="168" height="168" role="img" aria-label="die beste Zeit ist Beautytime Traun" style="position: absolute; inset: 0">
+            <defs><path id="ringpath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+            <text font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="26" fill="#8C6935"><textPath href="#ringpath" startOffset="0" textLength="480" lengthAdjust="spacing">Die beste Zeit ist BeautyTime.</textPath></text>
+          </svg>
+          <img src="/_blob/bb5328707e89093fdace83666c8e4bda" alt="Beautytime Traun" style="position: absolute; left: 50%; top: 50%; width: 96px; height: 96px; transform: translate(-50%, -50%); border-radius: 50%; object-fit: cover">
+        </div>
+      </div>
+      <div class="rv" style="grid-column: 5 / span 2; display: flex; flex-direction: column; gap: 12px; transition-delay: .1s">
+        <div class="cap">Navigation</div>
+        <a href="Main.dc.html" class="ul" style="font-size: 15px">Startseite</a>
+        <a href="Leistungen.dc.html" class="ul" style="font-size: 15px">Leistungen</a>
+        <a href="Team.dc.html" class="ul" style="font-size: 15px">Unser Team</a>
+      </div>
+      <div class="rv" style="grid-column: 7 / span 3; display: flex; flex-direction: column; gap: 12px; transition-delay: .2s">
+        <div class="cap">Kontakt</div>
+        <a href="tel:+436603008300" class="ul" style="font-size: 15px">0660 300 83 00</a>
+        <a href="mailto:info@example.at" class="ul" style="font-size: 15px">[E-Mail-Adresse]</a>
+        <a href="https://www.instagram.com/beautytime_traun/" class="ul" style="font-size: 15px">Instagram @beautytime_traun</a>
+        <div style="font-size: 15px; line-height: 1.5; margin-top: 8px">Bahnhofstraße 21<br>4050 Traun, Österreich</div>
+      </div>
+      <div class="rv" style="grid-column: 10 / span 3; display: flex; flex-direction: column; gap: 12px; transition-delay: .3s">
+        <div class="cap">Öffnungszeiten</div>
+        <div style="font-size: 15px; line-height: 1.6">Montag ab 8:30 Uhr<br>[Dienstag–Samstag ergänzen]<br>Sonntag geschlossen</div>
+      </div>
+    </div>
+    <div class="rv" style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-top: 1px solid #CDB99E; margin-top: 72px; padding-top: 20px; transition-delay: .4s">
+      <div class="cap">© 2026 Beautytime · Traun</div>
+      <div style="display: flex; gap: 24px">
+        <a href="#impressum" class="cap ul">Impressum</a>
+        <a href="#datenschutz" class="cap ul">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":10600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+  componentDidMount() {
+    const q = (s) => Array.from(document.querySelectorAll(s));
+    this._t = setTimeout(() => q('[data-load]').forEach((el) => el.classList.add('in')), 120);
+    const els = q('.rv,.ln,.clip,.clipl,.imgw,[data-io]');
+    if ('IntersectionObserver' in window) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); this._io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      els.forEach((el) => this._io.observe(el));
+    } else {
+      els.forEach((el) => el.classList.add('in'));
+    }
+    const plx = q('.plx');
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._onScroll = () => {
+      if (reduce) return;
+      const vh = window.innerHeight || 1;
+      plx.forEach((img) => {
+        const r = img.parentElement.getBoundingClientRect();
+        const p = (r.top + r.height / 2 - vh / 2) / vh;
+        img.style.transform = 'translateY(' + (p * -9).toFixed(2) + '%)';
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    clearTimeout(this._t);
+    if (this._io) this._io.disconnect();
+    window.removeEventListener('scroll', this._onScroll);
+  }
+}
+</script>
+</body>
+</html>

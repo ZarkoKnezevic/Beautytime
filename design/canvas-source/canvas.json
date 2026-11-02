@@ -1,0 +1,73 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Leistungen.dc.html": {
+      "expand": "fill",
+      "h": 8000,
+      "is_interactive": true,
+      "title": "Leistungen",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 7700,
+      "is_interactive": true,
+      "title": "Startseite",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Mobile.dc.html": {
+      "expand": "fill",
+      "h": 6200,
+      "is_interactive": true,
+      "title": "Startseite – Mobil",
+      "w": 390,
+      "x": 4560,
+      "y": 0
+    },
+    "Team.dc.html": {
+      "expand": "fill",
+      "h": 10600,
+      "is_interactive": true,
+      "title": "Unser Team",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-01T12:00:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {
+    "t1": {
+      "kind": "title1",
+      "maxW": 4950,
+      "text": "Beautytime Traun · Forner × Balkan Glam · animierte Seiten",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Leistungen.dc.html",
+    "Team.dc.html",
+    "Mobile.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "Page 1"
+    }
+  ],
+  "title": "Beauty Time Traun"
+}

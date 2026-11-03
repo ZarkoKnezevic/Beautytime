@@ -1,0 +1,7 @@
+.next
+node_modules
+build
+out
+design
+src/generated
+package-lock.json

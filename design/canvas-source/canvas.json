@@ -20,6 +20,15 @@
       "x": 0,
       "y": 0
     },
+    "Menu.dc.html": {
+      "expand": "fill",
+      "h": 844,
+      "is_interactive": true,
+      "title": "Menü – Mobil",
+      "w": 390,
+      "x": 5030,
+      "y": 0
+    },
     "Mobile.dc.html": {
       "expand": "fill",
       "h": 6200,
@@ -31,7 +40,7 @@
     },
     "Team.dc.html": {
       "expand": "fill",
-      "h": 10600,
+      "h": 8000,
       "is_interactive": true,
       "title": "Unser Team",
       "w": 1440,
@@ -50,7 +59,7 @@
   "notes": {
     "t1": {
       "kind": "title1",
-      "maxW": 4950,
+      "maxW": 5420,
       "text": "Beautytime Traun · Forner × Balkan Glam · animierte Seiten",
       "w": 240,
       "x": 0,
@@ -61,7 +70,8 @@
     "Main.dc.html",
     "Leistungen.dc.html",
     "Team.dc.html",
-    "Mobile.dc.html"
+    "Mobile.dc.html",
+    "Menu.dc.html"
   ],
   "pages": [
     {

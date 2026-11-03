@@ -1,0 +1,23 @@
+[
+  {
+    "name": "items",
+    "id": 237398170453262,
+    "uuid": "e7cb137e-18a2-4cf1-9de2-ceb9627f1c17",
+    "parent_id": 237398170072333,
+    "parent_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765"
+  },
+  {
+    "name": "Page Blocks",
+    "id": 237398169392396,
+    "uuid": "e82da9eb-3d8e-4504-80a0-f131ce5bd356",
+    "parent_id": null,
+    "parent_uuid": null
+  },
+  {
+    "name": "Universal Components",
+    "id": 237398170072333,
+    "uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "parent_id": null,
+    "parent_uuid": null
+  }
+]

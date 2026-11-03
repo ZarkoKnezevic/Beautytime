@@ -57,40 +57,125 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
   .m-sm{height:380px !important}
   .cat{padding-top:72px !important;padding-bottom:72px !important}
 }
-@media (prefers-reduced-motion:reduce){.ln>span,.rv,.clip,.clipl,.imgw img{transition:none !important;transform:none !important;opacity:1 !important;clip-path:none !important}.spark{animation:none}}
+@media (prefers-reduced-motion:reduce){.ch{opacity:1 !important;transform:none !important;letter-spacing:-.05em !important}.ln>span,.rv,.clip,.clipl,.imgw img{transition:none !important;transform:none !important;opacity:1 !important;clip-path:none !important}.spark{animation:none}}
+/* letter-by-letter headline */
+.lt{display:block}
+.wd{display:inline-block;white-space:nowrap}
+.ch{display:inline-block;opacity:.08;transform:scaleX(.28);transform-origin:left center;letter-spacing:.2em;transition:opacity .7s ease,transform .9s cubic-bezier(.22,1,.36,1),letter-spacing .9s cubic-bezier(.22,1,.36,1);transition-delay:calc(.35s + var(--l,0s) + var(--i,0) * 38ms)}
+.in .ch{opacity:1;transform:none;letter-spacing:-.05em}
+/* mobile menu */
+.site-nav{width:100%}
+.nav-right{display:flex;align-items:center;gap:40px}
+.nav-lang{font-size:14px;letter-spacing:.08em}
+@media (max-width:1000px){.nav-right{gap:24px}.nav-right a{font-size:13px !important}}
+@media (max-width:600px){.nav-right{display:none !important}}
+.nav-soc{display:none !important}
+@media (max-width:600px){.site-nav .nav-soc{display:inline-flex !important}}
+.burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:none;border:0;padding:0;cursor:pointer;color:#49382E}
+.burger span{display:block;width:26px;height:1px;background:currentColor;position:relative}
+.burger span::after{content:"";position:absolute;left:6px;right:0;top:8px;height:1px;background:currentColor;transition:left .45s cubic-bezier(.22,1,.36,1)}
+.burger span::before{content:"";position:absolute;left:0;right:0;top:-8px;height:1px;background:currentColor}
+.burger:hover span::after{left:0}
+.mm-ic{display:inline-flex;align-items:center;justify-content:center;width:38px;height:44px;color:#49382E;transition:color .3s}
+.mm-ic:hover{color:#8C6935}
+.mm{position:fixed;inset:0;z-index:300;background:#3B2C24;color:#FFF9F0;display:flex;flex-direction:column;overflow-y:auto;transform:translateX(100%);visibility:hidden;transition:transform .9s cubic-bezier(.77,0,.18,1),visibility 0s linear .9s}
+.mm.open{transform:none;visibility:visible;transition:transform .9s cubic-bezier(.77,0,.18,1)}
+.mm.static{position:relative;inset:auto;min-height:100%;transform:none;visibility:visible}
+.mm a{color:#FFF9F0}.mm a:hover{color:#DCC394}
+.mm .cap{color:#CDB99E}
+.mm .mm-ic{color:#FFF9F0}.mm .mm-ic:hover{color:#DCC394}
+.mm-top{display:flex;align-items:center;gap:0;padding:18px 20px;border-bottom:1px solid rgba(255,249,240,.2)}
+.mm-x{position:relative;width:44px;height:44px;background:none;border:0;padding:0;cursor:pointer;margin-left:4px}
+.mm-x::before,.mm-x::after{content:"";position:absolute;left:11px;right:11px;top:50%;height:1px;background:#FFF9F0;transform:rotate(45deg)}
+.mm-x::after{transform:rotate(-45deg)}
+.mm-nav{display:flex;flex-direction:column;align-items:center;gap:6px;padding:64px 20px 56px;text-align:center}
+.mm-nav a{font-family:'Inter',system-ui,sans-serif;font-weight:400;font-size:32px;line-height:1.3;letter-spacing:-.02em;position:relative;padding:4px 6px}
+.mm-nav a.cur{color:#DCC394}
+.mm-nav a.cur::after{content:"";position:absolute;left:10%;right:10%;bottom:4px;height:1px;background:#B99552}
+.mm-cta{display:flex;flex-direction:column;gap:12px;padding:0 20px 8px}
+.mm-cta .btn{width:100%;justify-content:center;box-sizing:border-box;padding:18px 12px;border-color:#DCC394;color:#FFF9F0}
+.mm-cta .btn::before{background:#B99552}
+.mm-cta .btn.solid{background:#B99552;color:#FFF9F0}.mm-cta .btn.solid::before{background:#8C6935}
+.mm-cta .half{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mm-cta .half .btn{padding:16px 8px;gap:10px;font-size:12px}
+.mm-cta .btn:hover svg{transform:none}
+.mm-info{padding:40px 20px 40px;display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.6;margin-top:auto}
+.mm .mi{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease,letter-spacing .45s ease}
+.mm .mw{letter-spacing:.3em;transform:translateX(16px)}
+.mm.open .mi,.mm.static .mi{opacity:1;transform:none;transition:opacity .9s ease,transform 1.3s cubic-bezier(.22,1,.36,1),letter-spacing 1.3s cubic-bezier(.22,1,.36,1);transition-delay:calc(.4s + var(--d,0s))}
+.mm.open .mw,.mm.static .mw{letter-spacing:-.02em}
+body.mm-lock{overflow:hidden}
+@media (max-width:600px){.burger{display:inline-flex}.nav-cta{display:none !important}}
+@media (max-width:600px){
+  .site-nav{width:100% !important;max-width:none !important;margin:0 !important;padding:18px 20px !important;border-bottom:1px solid #49382E;gap:6px !important}
+  .site-nav .nav-logo{width:56px !important;height:56px !important}
+  .site-nav .nav-home{display:none !important}
+  .site-nav{gap:0 !important}
+  .site-nav>a:first-child{margin-right:auto}
+  .site-nav .nav-soc{display:inline-flex}
+  .site-nav .burger{margin-left:4px}
+}
 </style>
 </helmet>
 <div style="width: 100%; min-width: 0; display: flex; flex-direction: column; overflow-x: hidden">
 
+<!-- MOBILE MENU -->
+<div class="mm" aria-hidden="true" data-menu role="dialog" aria-label="Menü">
+  <div class="mm-top">
+    <a href="Main.dc.html" style="margin-right: auto; display: flex"><img src="/_blob/bb5328707e89093fdace83666c8e4bda" alt="Beautytime Traun" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover"></a>
+    <a href="https://www.instagram.com/beautytime_traun/" class="mm-ic" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://wa.me/436603008300" class="mm-ic" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1L4 20z"/><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.5 1.8 2.6 2.4.2.1.3.1.4 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.5-.1.8-.7 1.5-1.5 1.6-1.3.2-2.9-.5-4.3-1.9-1.4-1.4-2.1-3-1.9-4.3z"/></svg></a>
+    <button class="mm-x" type="button" aria-label="Menü schließen" data-menu-close></button>
+  </div>
+  <nav class="mm-nav">
+    <a href="Main.dc.html" class="mi mw" style="--d: 0.00s">Startseite</a>
+    <a href="Leistungen.dc.html" class="mi mw cur" style="--d: 0.08s">Leistungen</a>
+    <a href="Team.dc.html" class="mi mw" style="--d: 0.16s">Unser Team</a>
+    <a href="#en" class="mi mw" hreflang="en" lang="en" style="--d: 0.24s">EN</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="tel:+436603008300" class="btn solid mi" style="--d: .36s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M8 13h.01M12 13h.01M16 13h.01M8 16.5h.01M12 16.5h.01" stroke-width="2.2" stroke-linecap="round"/></svg><span>Termin vereinbaren</span></a>
+    <div class="half mi" style="--d: .44s">
+      <a href="https://www.instagram.com/beautytime_traun/" class="btn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
+      <a href="https://wa.me/436603008300" class="btn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1L4 20z"/><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.5 1.8 2.6 2.4.2.1.3.1.4 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.5-.1.8-.7 1.5-1.5 1.6-1.3.2-2.9-.5-4.3-1.9-1.4-1.4-2.1-3-1.9-4.3z"/></svg><span>WhatsApp</span></a>
+    </div>
+  </div>
+  <div class="mm-info mi" style="--d: .52s">
+    <div class="cap">Öffnungszeiten</div>
+    <div>Montag ab 8:30 Uhr<br>[Dienstag–Samstag ergänzen]<br>Sonntag geschlossen</div>
+    <div class="cap" style="margin-top: 16px">Adresse</div>
+    <div>Bahnhofstraße 21<br>4050 Traun, Österreich</div>
+  </div>
+</div>
+
 <!-- NAV -->
-<nav class="wrap" data-load style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 28px; padding-bottom: 28px">
-  <a href="Main.dc.html" class="rv" style="display: flex; align-items: center; gap: 12px; transition-delay: .1s">
-    <img src="/_blob/bb5328707e89093fdace83666c8e4bda" alt="Beautytime Traun" style="width: 88px; height: 88px; border-radius: 50%; object-fit: cover">
-    <span class="ul" style="font-size: 14px">Startseite</span>
+<nav class="wrap site-nav" data-load="" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 28px; padding-bottom: 28px">
+  <a href="Main.dc.html" class="rv" style="display: flex; align-items: center; gap: 12px; transition-delay: .1s; --d: .1s">
+    <img src="/_blob/bb5328707e89093fdace83666c8e4bda" alt="Beautytime Traun" class="nav-logo" style="width: 88px; height: 88px; border-radius: 50%; object-fit: cover">
   </a>
-  <div class="nav-links rv" style="transition-delay: .2s">
+  <div class="nav-right nav-cta rv" style="transition-delay: .2s; --d: .2s">
+    <a href="Main.dc.html" class="ul" style="font-size: 14px">Startseite</a>
     <a href="Leistungen.dc.html" class="ul" style="font-size: 14px; color: #8C6935">Leistungen</a>
     <a href="Team.dc.html" class="ul" style="font-size: 14px">Unser Team</a>
+    <a href="tel:+436603008300" class="ul" style="font-size: 14px; display: inline-flex; align-items: center; gap: 10px;">Termin vereinbaren
+    <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
+    </a>
+    <a href="#en" class="ul nav-lang" hreflang="en" lang="en">EN</a>
   </div>
-  <a href="tel:+436603008300" class="ul rv" style="font-size: 14px; display: inline-flex; align-items: center; gap: 10px; transition-delay: .3s">Termin vereinbaren
-    <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
-  </a>
-</nav>
-
-<!-- HERO -->
-<header class="wrap" data-load style="padding-top: 64px; padding-bottom: 120px; position: relative">
-  <div class="cap rv" style="margin-bottom: 32px; transition-delay: .4s">Unser Angebot · Traun</div>
-  <h1 class="disp" style="font-size: clamp(56px, 10.4vw, 150px)">
-    <span class="ln" style="transition-delay: .5s"><span>Leistungen</span></span>
-  </h1>
+  <a href="https://www.instagram.com/beautytime_traun/" class="mm-ic nav-soc" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+  <a href="https://wa.me/436603008300" class="mm-ic nav-soc" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1L4 20z"></path><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.5 1.8 2.6 2.4.2.1.3.1.4 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.5-.1.8-.7 1.5-1.5 1.6-1.3.2-2.9-.5-4.3-1.9-1.4-1.4-2.1-3-1.9-4.3z"></path></svg></a>
+  <button class="burger rv" type="button" aria-label="Menü öffnen" data-menu-open="" style="transition-delay: .3s; --d: .3s"><span></span></button>
+</nav><header class="wrap" data-load="" style="padding-top: 64px; padding-bottom: 120px; position: relative">
+  <div class="cap rv" style="margin-bottom: 32px; transition-delay: .4s; --d: .4s">Unser Angebot · Traun</div>
+  <h1 class="disp" style="font-size: clamp(56px, 10.4vw, 150px)"><span class="lt" style="--l: 0s"><span class="wd"><span class="ch" style="--i: 0">L</span><span class="ch" style="--i: 1">e</span><span class="ch" style="--i: 2">i</span><span class="ch" style="--i: 3">s</span><span class="ch" style="--i: 4">t</span><span class="ch" style="--i: 5">u</span><span class="ch" style="--i: 6">n</span><span class="ch" style="--i: 7">g</span><span class="ch" style="--i: 8">e</span><span class="ch" style="--i: 9">n</span></span></span></h1>
   <div class="two" style="margin-top: 40px; align-items: start">
     <div style="grid-column: 1 / span 6">
-      <div class="it rv" style="font-size: clamp(28px, 3.2vw, 46px); color: #B99552; line-height: 1.1; transition-delay: .7s">für Haut, Haar, Hände und Füße –<br>sieben Bereiche, ein Studio.</div>
-      <p class="body rv" style="max-width: 460px; margin: 32px 0 0; transition-delay: .85s">Jede Behandlung mit Zeit, Ruhe und Blick fürs Detail. Dauer und Preise erfahren Sie direkt im Studio oder telefonisch – [Preise ergänzen].</p>
+      <div class="it rv" style="font-size: clamp(28px, 3.2vw, 46px); color: #B99552; line-height: 1.1; transition-delay: .7s; --d: .7s">für Haut, Haar, Hände und Füße –<br>sieben Bereiche, ein Studio.</div>
+      <p class="body rv" style="max-width: 460px; margin: 32px 0 0; transition-delay: .85s; --d: .85s">Jede Behandlung mit Zeit, Ruhe und Blick fürs Detail. Dauer und Preise erfahren Sie direkt im Studio oder telefonisch – [Preise ergänzen].</p>
     </div>
     <div style="grid-column: 8 / span 5; display: grid; grid-template-columns: 3fr 2fr; gap: 24px; align-items: end">
-      <div class="imgw clip m-sm" style="height: 440px; transition-delay: .6s"><img src="/_blob/c7af21fc44d504e461cf7bccd6c31f23" alt="Rosenwand mit Neonschriftzug Where the magic happens" style="object-position: center 50%; transition-delay: .6s"></div>
-      <div class="imgw clip m-sm" style="height: 320px; transition-delay: .8s"><img src="/_blob/a0e40a4405243fa9cc54f4003daf51d7" alt="Beautytime-Logo mit goldenem Pampasgras" style="object-position: center 30%; transition-delay: .8s"></div>
+      <div class="imgw clip m-sm" style="height: 440px; transition-delay: .6s; --d: .6s"><img src="/_blob/c7af21fc44d504e461cf7bccd6c31f23" alt="Rosenwand mit Neonschriftzug Where the magic happens" style="object-position: center 50%; transition-delay: .6s; --d: .6s"></div>
+      <div class="imgw clip m-sm" style="height: 320px; transition-delay: .8s; --d: .8s"><img src="/_blob/a0e40a4405243fa9cc54f4003daf51d7" alt="Beautytime-Logo mit goldenem Pampasgras" style="object-position: center 30%; transition-delay: .8s; --d: .8s"></div>
     </div>
   </div>
   <div class="spark" style="top: 120px; right: 22%"></div>
@@ -98,7 +183,10 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
 </header>
 
 <!-- 01 KOSMETIK -->
-<section class="wrap cat two" data-io id="kosmetik">
+
+
+<!-- 02 NÄGEL -->
+<section class="wrap cat two" data-io="" id="kosmetik">
   <div style="grid-column: 1 / span 5">
     <div class="stick hz"><div class="imgw clip" style="height: 600px"><img src="/_blob/9d6efaf319f44baa0178b20215c6542a" alt="Kosmetik-Werkzeuge und Pinsel auf weißem Tuch" style="object-position: center 50%"></div></div>
   </div>
@@ -120,13 +208,10 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
       <div class="row"><span>Ultraschall mit Vitamin C / Hyaluron / Kollagen</span><span class="it pr">[Preis]</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Termin für Kosmetik vereinbaren
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
     </a>
   </div>
-</section>
-
-<!-- 02 NÄGEL -->
-<section class="wrap cat two" data-io id="naegel">
+</section><section class="wrap cat two" data-io="" id="naegel">
   <div style="grid-column: 1 / span 6">
     <div class="it rv" style="font-size: 26px; color: #B99552">02</div>
     <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>Nagelstudio</span></span></h2>
@@ -143,7 +228,7 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
       <div class="row"><span>Verlängerung / extra Nagellänge</span><span class="it pr">[Preis]</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Termin im Nagelstudio vereinbaren
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
     </a>
   </div>
   <div style="grid-column: 8 / span 5">
@@ -152,7 +237,7 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
 </section>
 
 <!-- 03 HAARE -->
-<section class="wrap cat two" data-io id="haare">
+<section class="wrap cat two" data-io="" id="haare">
   <div style="grid-column: 1 / span 5">
     <div class="stick hz"><div class="imgw clip" style="height: 600px"><img src="/_blob/0e37c8fa9cbd2975920a01eb6b680c9e" alt="Glänzende blonde Wellen mit Balayage" style="object-position: center 50%"></div></div>
   </div>
@@ -173,13 +258,13 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
       <div class="row"><span>Bartpflege &amp; Bart trimmen</span><span class="it pr">[Preis]</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Friseurtermin vereinbaren
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
     </a>
   </div>
 </section>
 
 <!-- 04 LASER -->
-<section class="wrap cat two" data-io id="laser">
+<section class="wrap cat two" data-io="" id="laser">
   <div style="grid-column: 1 / span 6">
     <div class="it rv" style="font-size: 26px; color: #B99552">04</div>
     <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>Dauerhafte</span></span><span class="ln" style="transition-delay: .2s"><span>Haarentfernung</span></span></h2>
@@ -197,7 +282,7 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
       <div class="row"><span>Paket Unterschenkel &amp; Intim</span><span class="it pr">[Preis]</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Beratung vereinbaren
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
     </a>
   </div>
   <div style="grid-column: 8 / span 5">
@@ -206,7 +291,7 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
 </section>
 
 <!-- 05 WAXING -->
-<section class="wrap cat two" data-io id="waxing">
+<section class="wrap cat two" data-io="" id="waxing">
   <div style="grid-column: 1 / span 5">
     <div class="stick hz"><div class="imgw clip" style="height: 600px"><img src="/_blob/63ac313600810119ca07c6111bc585e0" alt="Cremige Wachs-Textur in Elfenbein" style="object-position: center 50%"></div></div>
   </div>
@@ -228,13 +313,13 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
       <div class="row"><span>Paket Beine komplett inkl. Zehen</span><span class="it pr">[Preis]</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Waxing-Termin vereinbaren
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
     </a>
   </div>
 </section>
 
 <!-- 06 FUSSPFLEGE -->
-<section class="wrap cat two" data-io id="fusspflege">
+<section class="wrap cat two" data-io="" id="fusspflege">
   <div style="grid-column: 1 / span 6">
     <div class="it rv" style="font-size: 26px; color: #B99552">06</div>
     <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>Fußpflege</span></span></h2>
@@ -252,7 +337,7 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
       <div class="row"><span>Fußmassage extra</span><span class="it pr">[Preis]</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Fußpflege-Termin vereinbaren
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
     </a>
   </div>
   <div style="grid-column: 8 / span 5">
@@ -261,7 +346,7 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
 </section>
 
 <!-- 07 WIMPERN -->
-<section class="wrap cat two" data-io id="wimpern">
+<section class="wrap cat two" data-io="" id="wimpern">
   <div style="grid-column: 1 / span 5">
     <div class="stick hz"><div class="imgw clip" style="height: 600px"><img src="/_blob/39d7c64b1b6071b14dbe6ea0e6ecc792" alt="Nahaufnahme Auge mit Wimpernverlängerung" style="object-position: center 45%"></div></div>
   </div>
@@ -280,13 +365,13 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
       <div class="row"><span>Kombi Augenbrauen &amp; Wimpern (färben &amp; formen)</span><span class="it pr">[Preis]</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Wimpern-Termin vereinbaren
-      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
     </a>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="wrap" data-io style="padding-top: 120px; padding-bottom: 160px; border-top: 1px solid #CDB99E; text-align: center; display: flex; flex-direction: column; align-items: center">
+<section class="wrap" data-io="" style="padding-top: 120px; padding-bottom: 160px; border-top: 1px solid #CDB99E; text-align: center; display: flex; flex-direction: column; align-items: center">
   <div class="orn rv" style="margin-bottom: 40px"></div>
   <h2 class="disp">
     <span class="ln"><span>Dein Termin</span></span>
@@ -294,19 +379,19 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
   </h2>
   <p class="body muted rv" style="max-width: 460px; margin: 36px 0 0; transition-delay: .35s">Telefonisch, per WhatsApp oder online. [Buchungslink ergänzen, falls vorhanden.]</p>
   <div class="rv" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; transition-delay: .5s">
-    <a href="https://www.instagram.com/beautytime_traun/" class="btn solid"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Nachricht auf Instagram</span></a>
-    <a href="https://wa.me/436603008300" class="btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1L4 20z"/><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.5 1.8 2.6 2.4.2.1.3.1.4 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.5-.1.8-.7 1.5-1.5 1.6-1.3.2-2.9-.5-4.3-1.9-1.4-1.4-2.1-3-1.9-4.3z"/></svg><span>WhatsApp</span></a>
+    <a href="https://www.instagram.com/beautytime_traun/" class="btn solid"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg><span>Nachricht auf Instagram</span></a>
+    <a href="https://wa.me/436603008300" class="btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1L4 20z"></path><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.5 1.8 2.6 2.4.2.1.3.1.4 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.5-.1.8-.7 1.5-1.5 1.6-1.3.2-2.9-.5-4.3-1.9-1.4-1.4-2.1-3-1.9-4.3z"></path></svg><span>WhatsApp</span></a>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer data-io style="background: #EDE1D2; padding-top: 96px; padding-bottom: 32px">
+<footer data-io="" style="background: #EDE1D2; padding-top: 96px; padding-bottom: 32px">
   <div class="wrap">
     <div class="two" style="row-gap: 40px">
       <div class="rv" style="grid-column: 1 / span 4; display: flex; flex-direction: column; gap: 16px">
         <div style="position: relative; width: 168px; height: 168px">
           <svg class="spin" viewBox="0 0 200 200" width="168" height="168" role="img" aria-label="die beste Zeit ist Beautytime Traun" style="position: absolute; inset: 0">
-            <defs><path id="ringpath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+            <defs><path id="ringpath" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"></path></defs>
             <text font-family="'Cormorant Garamond', Georgia, serif" font-style="italic" font-size="26" fill="#8C6935"><textPath href="#ringpath" startOffset="0" textLength="480" lengthAdjust="spacing">Die beste Zeit ist BeautyTime.</textPath></text>
           </svg>
           <img src="/_blob/bb5328707e89093fdace83666c8e4bda" alt="Beautytime Traun" style="position: absolute; left: 50%; top: 50%; width: 96px; height: 96px; transform: translate(-50%, -50%); border-radius: 50%; object-fit: cover">
@@ -347,22 +432,65 @@ class Component extends DCLogic {
   renderVals() {
     return {};
   }
-  componentDidMount() {
+  _menu() {
+    if (this._menuBound) return;
+    this._menuBound = true;
+    this._menuOpen = false;
+    this._setMenu = (o) => {
+      this._menuOpen = o;
+      const mm = document.querySelector('[data-menu]');
+      if (!mm) return;
+      mm.classList.toggle('open', o);
+      mm.setAttribute('aria-hidden', o ? 'false' : 'true');
+      document.body.classList.toggle('mm-lock', o);
+    };
+    this._onDocClick = (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      if (t.closest('[data-menu-open]')) { e.preventDefault(); this._setMenu(true); }
+      else if (t.closest('[data-menu-close]')) { e.preventDefault(); this._setMenu(false); }
+      else if (t.closest('[data-menu] a')) this._setMenu(false);
+    };
+    document.addEventListener('click', this._onDocClick);
+  }
+  _arm() {
     const q = (s) => Array.from(document.querySelectorAll(s));
-    this._t = setTimeout(() => q('[data-load]').forEach((el) => el.classList.add('in')), 120);
-    const els = q('.rv,.ln,.clip,.clipl,.imgw,[data-io]');
-    if ('IntersectionObserver' in window) {
+    const opts = { threshold: 0.12, rootMargin: '0px 0px -6% 0px' };
+    if (!this._io && 'IntersectionObserver' in window) {
       this._io = new IntersectionObserver((entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) { e.target.classList.add('in'); this._io.unobserve(e.target); }
+          if (e.isIntersecting) { e.target.classList.add('in'); e.target.setAttribute('data-seen', '1'); this._io.unobserve(e.target); }
         });
-      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-      els.forEach((el) => this._io.observe(el));
-    } else {
-      els.forEach((el) => el.classList.add('in'));
+      }, opts);
+    }
+    const apply = () => {
+      q('[data-load],[data-seen]').forEach((el) => el.classList.add('in'));
+      if (this._setMenu && this._menuOpen) this._setMenu(true);
+      const els = q('.rv,.ln,.clip,.clipl,.imgw,[data-io]').filter((el) => !el.classList.contains('in') && !el.closest('[data-load]'));
+      if (this._io) els.forEach((el) => this._io.observe(el));
+      else els.forEach((el) => { el.classList.add('in'); el.setAttribute('data-seen', '1'); });
+    };
+    apply();
+    if (!this._mo && 'MutationObserver' in window) {
+      this._mo = new MutationObserver(() => {
+        if (this._raf) return;
+        this._raf = setTimeout(() => { this._raf = 0; apply(); }, 16);
+      });
+      this._mo.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
     }
   }
+  componentDidUpdate() {
+    this._arm();
+  }
+  componentDidMount() {
+    const q = (s) => Array.from(document.querySelectorAll(s));
+    this._menu();
+    this._arm();
+  }
   componentWillUnmount() {
+    if (this._mo) this._mo.disconnect();
+    if (this._raf) clearTimeout(this._raf);
+    document.removeEventListener('click', this._onDocClick);
     clearTimeout(this._t);
     if (this._io) this._io.disconnect();
   }

@@ -1,0 +1,117 @@
+{
+  "components": [
+    {
+      "name": "page",
+      "display_name": "Page",
+      "is_root": true,
+      "is_nestable": false,
+      "schema": {
+        "body": {
+          "type": "bloks",
+          "pos": 0,
+          "description": "Content blocks for this page."
+        },
+        "seoTitle": { "type": "text", "pos": 1 },
+        "seoDescription": { "type": "textarea", "pos": 2 },
+        "ogImage": { "type": "asset", "filetypes": ["images"], "pos": 3 },
+        "robots": {
+          "type": "option",
+          "pos": 4,
+          "default_value": "index",
+          "options": [
+            { "name": "index", "value": "index" },
+            { "name": "noindex", "value": "noindex" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "settings",
+      "display_name": "Settings",
+      "is_root": true,
+      "is_nestable": false,
+      "schema": {
+        "header": {
+          "type": "bloks",
+          "pos": 0,
+          "maximum": 1,
+          "restrict_components": true,
+          "component_whitelist": ["header"]
+        },
+        "footer": {
+          "type": "bloks",
+          "pos": 1,
+          "maximum": 1,
+          "restrict_components": true,
+          "component_whitelist": ["footer"]
+        }
+      }
+    },
+    {
+      "name": "nav_link",
+      "display_name": "Nav Link",
+      "is_root": false,
+      "is_nestable": true,
+      "schema": {
+        "label": { "type": "text", "pos": 0 },
+        "link": { "type": "multilink", "pos": 1 }
+      }
+    },
+    {
+      "name": "header",
+      "display_name": "Header",
+      "is_root": false,
+      "is_nestable": true,
+      "schema": {
+        "logo": { "type": "asset", "filetypes": ["images"], "pos": 0 },
+        "logo_label": { "type": "text", "pos": 1, "default_value": "Startseite" },
+        "home_link": { "type": "multilink", "pos": 2 },
+        "nav_links": {
+          "type": "bloks",
+          "pos": 3,
+          "restrict_components": true,
+          "component_whitelist": ["nav_link"]
+        },
+        "cta_label": { "type": "text", "pos": 4, "default_value": "Termin vereinbaren" },
+        "cta_link": { "type": "multilink", "pos": 5 }
+      }
+    },
+    {
+      "name": "footer",
+      "display_name": "Footer",
+      "is_root": false,
+      "is_nestable": true,
+      "schema": {
+        "logo": { "type": "asset", "filetypes": ["images"], "pos": 0 },
+        "ring_text": {
+          "type": "text",
+          "pos": 1,
+          "default_value": "Die beste Zeit ist BeautyTime."
+        },
+        "nav_title": { "type": "text", "pos": 2, "default_value": "Navigation" },
+        "nav_links": {
+          "type": "bloks",
+          "pos": 3,
+          "restrict_components": true,
+          "component_whitelist": ["nav_link"]
+        },
+        "contact_title": { "type": "text", "pos": 4, "default_value": "Kontakt" },
+        "phone_label": { "type": "text", "pos": 5 },
+        "phone_link": { "type": "multilink", "pos": 6 },
+        "email": { "type": "text", "pos": 7 },
+        "instagram_label": { "type": "text", "pos": 8 },
+        "instagram_link": { "type": "multilink", "pos": 9 },
+        "address": { "type": "textarea", "pos": 10 },
+        "hours_title": { "type": "text", "pos": 11, "default_value": "Öffnungszeiten" },
+        "hours": { "type": "textarea", "pos": 12 },
+        "copyright": { "type": "text", "pos": 13 },
+        "legal_links": {
+          "type": "bloks",
+          "pos": 14,
+          "restrict_components": true,
+          "component_whitelist": ["nav_link"]
+        }
+      }
+    }
+  ]
+}

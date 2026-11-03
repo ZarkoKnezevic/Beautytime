@@ -39,6 +39,29 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
 .btn:hover::before{transform:none}.btn:hover{color:#FFF9F0}.btn>*{position:relative}
 .btn svg{transition:transform .5s cubic-bezier(.22,1,.36,1)}.btn:hover svg{transform:translateX(6px)}
 .btn.solid{background:#B99552;color:#FFF9F0}.btn.solid::before{background:#8C6935}
+/* photo collage: pinned centre photo, parallax sides, instagram square at the end */
+.gal{position:relative;height:calc(100vh + 1100px);overflow:hidden}
+.gal-pin{position:relative;height:100vh;will-change:transform;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.gal-stage{position:relative;height:min(680px,72vh);width:100%;max-width:1200px;margin:0 auto}
+.gl{position:absolute;will-change:transform}
+.gl .imgw{height:100%}
+.gl-main{left:50%;top:0;width:440px;height:min(580px,62vh);margin-left:-220px;z-index:2;transform-origin:50% 40%}
+.gl-1{left:-20px;top:46%;width:320px;height:220px;z-index:1}
+.gl-2{left:170px;top:-6%;width:190px;height:250px;z-index:1}
+.gl-3{right:130px;top:36%;width:250px;height:330px;z-index:3}
+.gl-4{right:-30px;top:76%;width:170px;height:220px;z-index:1}
+.gal-ig{position:absolute;left:50%;top:50%;z-index:6;width:230px;height:230px;margin:-115px 0 0 -115px;background:rgba(73,56,46,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#FFF9F0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-decoration:none;opacity:0;transform:scale(.86);pointer-events:none;transition:opacity .5s ease,transform .7s cubic-bezier(.22,1,.36,1)}
+.gal-ig.on{opacity:1;transform:none;pointer-events:auto}
+/* no real scrolling (canvas / short viewport): flat layout, square shown after the reveal */
+.gal.flat{height:auto}
+.gal.flat .gal-pin{height:auto;padding:60px 0 80px;transform:none !important}
+.gal.flat.in .gal-ig{opacity:1;transform:none;pointer-events:auto;transition-delay:1.1s}
+.gal.flat .gl,.gal.flat .gl-main{transform:none !important}
+.gal-ig .it{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:30px;line-height:1;color:#DCC394}
+.gal-ig svg{width:72px;height:72px}
+.gal-ig:hover{background:rgba(73,56,46,.78)}
+@media (max-width:1100px){.gl-1{left:0;width:260px;height:180px}.gl-2{left:120px}.gl-3{right:60px}}
+@media (max-width:760px){.gal{height:calc(100vh + 700px)}.gal-stage{height:min(520px,64vh)}.gl-main{left:20px;margin-left:0;top:0;width:62%;height:min(420px,52vh)}.gl-3{right:20px;top:54%;width:40%;height:220px}.gl-1,.gl-2,.gl-4{display:none}.gal-ig{width:180px;height:180px;margin:-90px 0 0 -90px}.gal-ig svg{width:56px;height:56px}}
 .spark{position:absolute;width:6px;height:6px;background:#DCC394;border-radius:50%;animation:tw 3.2s ease-in-out infinite;box-shadow:0 0 12px 2px rgba(220,195,148,.9)}
 .spin{animation:spin 26s linear infinite;transform-origin:50% 50%}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -92,45 +115,135 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
   .m-h{height:auto !important;aspect-ratio:4/5}
   .m-sm{height:360px !important}
 }
-@media (prefers-reduced-motion:reduce){.ln>span,.rv,.clip,.clipl,.imgw img{transition:none !important;transform:none !important;opacity:1 !important;clip-path:none !important}.spark{animation:none}}
+@media (prefers-reduced-motion:reduce){.ch{opacity:1 !important;transform:none !important;letter-spacing:-.05em !important}.ln>span,.rv,.clip,.clipl,.imgw img{transition:none !important;transform:none !important;opacity:1 !important;clip-path:none !important}.spark{animation:none}}
+/* letter-by-letter headline */
+.lt{display:block}
+.wd{display:inline-block;white-space:nowrap}
+.ch{display:inline-block;opacity:.08;transform:scaleX(.28);transform-origin:left center;letter-spacing:.2em;transition:opacity .7s ease,transform .9s cubic-bezier(.22,1,.36,1),letter-spacing .9s cubic-bezier(.22,1,.36,1);transition-delay:calc(.35s + var(--l,0s) + var(--i,0) * 38ms)}
+.in .ch{opacity:1;transform:none;letter-spacing:-.05em}
+/* mobile menu */
+.site-nav{width:100%}
+.nav-right{display:flex;align-items:center;gap:40px}
+.nav-lang{font-size:14px;letter-spacing:.08em}
+@media (max-width:1000px){.nav-right{gap:24px}.nav-right a{font-size:13px !important}}
+@media (max-width:600px){.nav-right{display:none !important}}
+.nav-soc{display:none !important}
+@media (max-width:600px){.site-nav .nav-soc{display:inline-flex !important}}
+.burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;background:none;border:0;padding:0;cursor:pointer;color:#49382E}
+.burger span{display:block;width:26px;height:1px;background:currentColor;position:relative}
+.burger span::after{content:"";position:absolute;left:6px;right:0;top:8px;height:1px;background:currentColor;transition:left .45s cubic-bezier(.22,1,.36,1)}
+.burger span::before{content:"";position:absolute;left:0;right:0;top:-8px;height:1px;background:currentColor}
+.burger:hover span::after{left:0}
+.mm-ic{display:inline-flex;align-items:center;justify-content:center;width:38px;height:44px;color:#49382E;transition:color .3s}
+.mm-ic:hover{color:#8C6935}
+.mm{position:fixed;inset:0;z-index:300;background:#3B2C24;color:#FFF9F0;display:flex;flex-direction:column;overflow-y:auto;transform:translateX(100%);visibility:hidden;transition:transform .9s cubic-bezier(.77,0,.18,1),visibility 0s linear .9s}
+.mm.open{transform:none;visibility:visible;transition:transform .9s cubic-bezier(.77,0,.18,1)}
+.mm.static{position:relative;inset:auto;min-height:100%;transform:none;visibility:visible}
+.mm a{color:#FFF9F0}.mm a:hover{color:#DCC394}
+.mm .cap{color:#CDB99E}
+.mm .mm-ic{color:#FFF9F0}.mm .mm-ic:hover{color:#DCC394}
+.mm-top{display:flex;align-items:center;gap:0;padding:18px 20px;border-bottom:1px solid rgba(255,249,240,.2)}
+.mm-x{position:relative;width:44px;height:44px;background:none;border:0;padding:0;cursor:pointer;margin-left:4px}
+.mm-x::before,.mm-x::after{content:"";position:absolute;left:11px;right:11px;top:50%;height:1px;background:#FFF9F0;transform:rotate(45deg)}
+.mm-x::after{transform:rotate(-45deg)}
+.mm-nav{display:flex;flex-direction:column;align-items:center;gap:6px;padding:64px 20px 56px;text-align:center}
+.mm-nav a{font-family:'Inter',system-ui,sans-serif;font-weight:400;font-size:32px;line-height:1.3;letter-spacing:-.02em;position:relative;padding:4px 6px}
+.mm-nav a.cur{color:#DCC394}
+.mm-nav a.cur::after{content:"";position:absolute;left:10%;right:10%;bottom:4px;height:1px;background:#B99552}
+.mm-cta{display:flex;flex-direction:column;gap:12px;padding:0 20px 8px}
+.mm-cta .btn{width:100%;justify-content:center;box-sizing:border-box;padding:18px 12px;border-color:#DCC394;color:#FFF9F0}
+.mm-cta .btn::before{background:#B99552}
+.mm-cta .btn.solid{background:#B99552;color:#FFF9F0}.mm-cta .btn.solid::before{background:#8C6935}
+.mm-cta .half{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mm-cta .half .btn{padding:16px 8px;gap:10px;font-size:12px}
+.mm-cta .btn:hover svg{transform:none}
+.mm-info{padding:40px 20px 40px;display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.6;margin-top:auto}
+.mm .mi{opacity:0;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease,letter-spacing .45s ease}
+.mm .mw{letter-spacing:.3em;transform:translateX(16px)}
+.mm.open .mi,.mm.static .mi{opacity:1;transform:none;transition:opacity .9s ease,transform 1.3s cubic-bezier(.22,1,.36,1),letter-spacing 1.3s cubic-bezier(.22,1,.36,1);transition-delay:calc(.4s + var(--d,0s))}
+.mm.open .mw,.mm.static .mw{letter-spacing:-.02em}
+body.mm-lock{overflow:hidden}
+@media (max-width:600px){.burger{display:inline-flex}.nav-cta{display:none !important}}
+@media (max-width:600px){
+  .site-nav{width:100% !important;max-width:none !important;margin:0 !important;padding:18px 20px !important;border-bottom:1px solid #49382E;gap:6px !important}
+  .site-nav .nav-logo{width:56px !important;height:56px !important}
+  .site-nav .nav-home{display:none !important}
+  .site-nav{gap:0 !important}
+  .site-nav>a:first-child{margin-right:auto}
+  .site-nav .nav-soc{display:inline-flex}
+  .site-nav .burger{margin-left:4px}
+}
 </style>
 </helmet>
 <div style="width: 100%; min-width: 0; display: flex; flex-direction: column; overflow-x: hidden">
 
+<!-- MOBILE MENU -->
+<div class="mm" aria-hidden="true" data-menu role="dialog" aria-label="Menü">
+  <div class="mm-top">
+    <a href="Main.dc.html" style="margin-right: auto; display: flex"><img src="/_blob/bb5328707e89093fdace83666c8e4bda" alt="Beautytime Traun" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover"></a>
+    <a href="https://www.instagram.com/beautytime_traun/" class="mm-ic" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://wa.me/436603008300" class="mm-ic" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1L4 20z"/><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.5 1.8 2.6 2.4.2.1.3.1.4 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.5-.1.8-.7 1.5-1.5 1.6-1.3.2-2.9-.5-4.3-1.9-1.4-1.4-2.1-3-1.9-4.3z"/></svg></a>
+    <button class="mm-x" type="button" aria-label="Menü schließen" data-menu-close></button>
+  </div>
+  <nav class="mm-nav">
+    <a href="Main.dc.html" class="mi mw cur" style="--d: 0.00s">Startseite</a>
+    <a href="Leistungen.dc.html" class="mi mw" style="--d: 0.08s">Leistungen</a>
+    <a href="Team.dc.html" class="mi mw" style="--d: 0.16s">Unser Team</a>
+    <a href="#en" class="mi mw" hreflang="en" lang="en" style="--d: 0.24s">EN</a>
+  </nav>
+  <div class="mm-cta">
+    <a href="tel:+436603008300" class="btn solid mi" style="--d: .36s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M8 13h.01M12 13h.01M16 13h.01M8 16.5h.01M12 16.5h.01" stroke-width="2.2" stroke-linecap="round"/></svg><span>Termin vereinbaren</span></a>
+    <div class="half mi" style="--d: .44s">
+      <a href="https://www.instagram.com/beautytime_traun/" class="btn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
+      <a href="https://wa.me/436603008300" class="btn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1L4 20z"/><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.5 1.8 2.6 2.4.2.1.3.1.4 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.5-.1.8-.7 1.5-1.5 1.6-1.3.2-2.9-.5-4.3-1.9-1.4-1.4-2.1-3-1.9-4.3z"/></svg><span>WhatsApp</span></a>
+    </div>
+  </div>
+  <div class="mm-info mi" style="--d: .52s">
+    <div class="cap">Öffnungszeiten</div>
+    <div>Montag ab 8:30 Uhr<br>[Dienstag–Samstag ergänzen]<br>Sonntag geschlossen</div>
+    <div class="cap" style="margin-top: 16px">Adresse</div>
+    <div>Bahnhofstraße 21<br>4050 Traun, Österreich</div>
+  </div>
+</div>
+
 <!-- NAV -->
-<nav class="wrap" data-load style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 28px; padding-bottom: 28px">
-  <a href="Main.dc.html" class="rv" style="display: flex; align-items: center; gap: 12px; transition-delay: .1s">
-    <img src="/_blob/bb5328707e89093fdace83666c8e4bda" alt="Beautytime Traun" style="width: 88px; height: 88px; border-radius: 50%; object-fit: cover">
-    <span class="ul" style="font-size: 14px; color: #8C6935">Startseite</span>
+<nav class="wrap site-nav" data-load style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 28px; padding-bottom: 28px">
+  <a href="Main.dc.html" class="rv" style="display: flex; align-items: center; gap: 12px; transition-delay: .1s; --d: .1s">
+    <img src="/_blob/bb5328707e89093fdace83666c8e4bda" alt="Beautytime Traun" class="nav-logo" style="width: 88px; height: 88px; border-radius: 50%; object-fit: cover">
   </a>
-  <div class="nav-links rv" style="transition-delay: .2s">
+  <div class="nav-right nav-cta rv" style="transition-delay: .2s; --d: .2s">
+    <a href="Main.dc.html" class="ul" style="font-size: 14px; color: #8C6935">Startseite</a>
     <a href="Leistungen.dc.html" class="ul" style="font-size: 14px">Leistungen</a>
     <a href="Team.dc.html" class="ul" style="font-size: 14px">Unser Team</a>
-  </div>
-  <a href="tel:+436603008300" class="ul rv" style="font-size: 14px; display: inline-flex; align-items: center; gap: 10px; transition-delay: .3s">Termin vereinbaren
+    <a href="tel:+436603008300" class="ul" style="font-size: 14px; display: inline-flex; align-items: center; gap: 10px;">Termin vereinbaren
     <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
-  </a>
+    </a>
+    <a href="#en" class="ul nav-lang" hreflang="en" lang="en">EN</a>
+  </div>
+  <a href="https://www.instagram.com/beautytime_traun/" class="mm-ic nav-soc" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+  <a href="https://wa.me/436603008300" class="mm-ic nav-soc" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1L4 20z"/><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.5 1.8 2.6 2.4.2.1.3.1.4 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.5-.1.8-.7 1.5-1.5 1.6-1.3.2-2.9-.5-4.3-1.9-1.4-1.4-2.1-3-1.9-4.3z"/></svg></a>
+  <button class="burger rv" type="button" aria-label="Menü öffnen" data-menu-open style="transition-delay: .3s; --d: .3s"><span></span></button>
 </nav>
 
 <!-- HERO -->
 <header class="wrap" data-load style="padding-top: 56px; padding-bottom: 120px; position: relative">
   <div class="two" style="align-items: start">
     <div style="grid-column: 1 / span 8; position: relative; z-index: 2">
-      <div class="cap rv" style="margin-bottom: 32px; transition-delay: .4s">Beauty Studio · Traun, Oberösterreich</div>
+      <div class="cap rv" style="margin-bottom: 32px; transition-delay: .4s; --d: .4s">Beauty Studio · Traun, Oberösterreich</div>
       <h1 class="disp">
-        <span class="ln" style="transition-delay: .5s"><span>Schönheit,</span></span>
-        <span class="ln" style="transition-delay: .64s"><span>die <em class="it" style="color: #B99552; font-size: 1.12em">bleibt.</em></span></span>
+        <span class="lt" style="--l: 0s"><span class="wd"><span class="ch" style="--i: 0">S</span><span class="ch" style="--i: 1">c</span><span class="ch" style="--i: 2">h</span><span class="ch" style="--i: 3">ö</span><span class="ch" style="--i: 4">n</span><span class="ch" style="--i: 5">h</span><span class="ch" style="--i: 6">e</span><span class="ch" style="--i: 7">i</span><span class="ch" style="--i: 8">t</span><span class="ch" style="--i: 9">,</span></span></span>
+        <span class="lt" style="--l: .5s"><span class="wd"><span class="ch" style="--i: 10">d</span><span class="ch" style="--i: 11">i</span><span class="ch" style="--i: 12">e</span></span> <em class="it" style="color: #B99552; font-size: 1.12em"><span class="wd"><span class="ch" style="--i: 13">b</span><span class="ch" style="--i: 14">l</span><span class="ch" style="--i: 15">e</span><span class="ch" style="--i: 16">i</span><span class="ch" style="--i: 17">b</span><span class="ch" style="--i: 18">t</span><span class="ch" style="--i: 19">.</span></span></em></span>
       </h1>
       <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 32px; margin-top: 48px">
-        <p class="body rv" style="max-width: 440px; margin: 0; transition-delay: .95s">Dein Beauty Studio in Traun – Kosmetik, Nägel, Haare, Laser, Waxing, Fußpflege und Wimpern unter einem Dach.</p>
-        <a href="tel:+436603008300" class="btn rv" style="transition-delay: 1.15s"><span>Termin vereinbaren</span>
+        <p class="body rv" style="max-width: 440px; margin: 0; transition-delay: .95s; --d: .95s">Dein Beauty Studio in Traun – Kosmetik, Nägel, Haare, Laser, Waxing, Fußpflege und Wimpern unter einem Dach.</p>
+        <a href="tel:+436603008300" class="btn rv" style="transition-delay: 1.15s; --d: 1.15s"><span>Termin vereinbaren</span>
           <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
         </a>
       </div>
     </div>
     <div class="m-full" style="grid-column: 9 / span 4; position: relative">
-      <div class="imgw clip m-h" style="height: 660px; margin-left: -140px; transition-delay: .7s">
-        <img src="/_blob/3b3775fbf2f655b9dc66565a300cc4b2" alt="Bojana und Sara, Gründerinnen von Beautytime Traun" style="object-position: center top; transition-delay: .7s">
+      <div class="imgw clip m-h" style="height: 660px; margin-left: -140px; transition-delay: .7s; --d: .7s">
+        <img src="/_blob/3b3775fbf2f655b9dc66565a300cc4b2" alt="Bojana und Sara, Gründerinnen von Beautytime Traun" style="object-position: center top; transition-delay: .7s; --d: .7s">
       </div>
       <div class="spark" style="top: -12px; right: 24px"></div>
       <div class="spark" style="bottom: 72px; left: -156px; animation-delay: 1.2s"></div>
@@ -160,6 +273,33 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
       </a>
     </div>
   </div>
+</section>
+
+<!-- GALLERY COLLAGE -->
+<section class="gal after" data-io>
+ <div class="gal-pin">
+  <div class="gal-stage">
+    <div class="gl gl-2" data-gl="0.55">
+      <div class="imgw clip" style="transition-delay: .35s"><img src="/_blob/63ac313600810119ca07c6111bc585e0" alt="Cremige Textur – Kosmetik bei Beautytime" style="object-position: center"></div>
+    </div>
+    <div class="gl gl-main" data-gl="0.2">
+      <div class="imgw clip" style="transition-delay: .1s"><img src="/_blob/c7af21fc44d504e461cf7bccd6c31f23" alt="Rosenwand mit Neonschrift „Where the magic happens“" style="object-position: center"></div>
+    </div>
+    <div class="gl gl-1" data-gl="0.4">
+      <div class="imgw clip" style="transition-delay: .25s"><img src="/_blob/7743ac0f98e6db7ac158a91503d7fdc8" alt="Blick in das Beautytime Studio" style="object-position: center"></div>
+    </div>
+    <div class="gl gl-3" data-gl="0.7">
+      <div class="imgw clip" style="transition-delay: .45s"><img src="/_blob/07bd8cdaaef9abdcbc22cdf299c83656" alt="Nägel in Rosa und Gelb" style="object-position: center"></div>
+    </div>
+    <div class="gl gl-4" data-gl="0.3">
+      <div class="imgw clip" style="transition-delay: .55s"><img src="/_blob/9d6efaf319f44baa0178b20215c6542a" alt="Kosmetik-Werkzeuge" style="object-position: center"></div>
+    </div>
+    <a href="https://www.instagram.com/beautytime_traun/" class="gal-ig" target="_blank" rel="noopener">
+      <span class="it">Follow us</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+ </div>
 </section>
 
 <!-- SERVICES PREVIEW -->
@@ -410,25 +550,70 @@ class Component extends DCLogic {
   renderVals() {
     return {};
   }
+  _menu() {
+    if (this._menuBound) return;
+    this._menuBound = true;
+    this._menuOpen = false;
+    this._setMenu = (o) => {
+      this._menuOpen = o;
+      const mm = document.querySelector('[data-menu]');
+      if (!mm) return;
+      mm.classList.toggle('open', o);
+      mm.setAttribute('aria-hidden', o ? 'false' : 'true');
+      document.body.classList.toggle('mm-lock', o);
+    };
+    this._onDocClick = (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      if (t.closest('[data-menu-open]')) { e.preventDefault(); this._setMenu(true); }
+      else if (t.closest('[data-menu-close]')) { e.preventDefault(); this._setMenu(false); }
+      else if (t.closest('[data-menu] a')) this._setMenu(false);
+    };
+    document.addEventListener('click', this._onDocClick);
+  }
+  _arm() {
+    const q = (s) => Array.from(document.querySelectorAll(s));
+    const opts = { threshold: 0.12, rootMargin: '0px 0px -6% 0px' };
+    if (!this._io && 'IntersectionObserver' in window) {
+      this._io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); e.target.setAttribute('data-seen', '1'); this._io.unobserve(e.target); }
+        });
+      }, opts);
+    }
+    const apply = () => {
+      q('[data-load],[data-seen]').forEach((el) => el.classList.add('in'));
+      if (this._setMenu && this._menuOpen) this._setMenu(true);
+      const els = q('.rv,.ln,.clip,.clipl,.imgw,[data-io]').filter((el) => !el.classList.contains('in') && !el.closest('[data-load]'));
+      if (this._io) els.forEach((el) => this._io.observe(el));
+      else els.forEach((el) => { el.classList.add('in'); el.setAttribute('data-seen', '1'); });
+    };
+    apply();
+    if (!this._mo && 'MutationObserver' in window) {
+      this._mo = new MutationObserver(() => {
+        if (this._raf) return;
+        this._raf = setTimeout(() => { this._raf = 0; apply(); }, 16);
+      });
+      this._mo.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
+    }
+  }
+  componentDidUpdate() {
+    this._arm();
+  }
   componentDidMount() {
     const q = (s) => Array.from(document.querySelectorAll(s));
+    this._menu();
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this._timers = [];
     const later = (fn, ms) => this._timers.push(setTimeout(fn, ms));
-    this._t = setTimeout(() => q('[data-load]').forEach((el) => el.classList.add('in')), 120);
-    const els = q('.rv,.ln,.clip,.clipl,.imgw,[data-io]');
-    if ('IntersectionObserver' in window) {
-      this._io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) { e.target.classList.add('in'); this._io.unobserve(e.target); }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
-      els.forEach((el) => this._io.observe(el));
-    } else {
-      els.forEach((el) => el.classList.add('in'));
-    }
+    this._arm();
     const plx = q('.plx');
     const panels = q('.panel');
+    const gl = q('.gl');
+    const gal = document.querySelector('.gal');
+    const galPin = document.querySelector('.gal-pin');
+    const galMain = document.querySelector('.gl-main');
+    const galIg = document.querySelector('.gal-ig');
     this._onScroll = () => {
       const vh = window.innerHeight || 1;
       const canScroll = (document.documentElement.scrollHeight - vh) > 40;
@@ -449,6 +634,22 @@ class Component extends DCLogic {
         }
       });
       if (reduce) return;
+      if (gal && galPin) {
+        const flat = !canScroll || vh > 1400;
+        gal.classList.toggle('flat', flat);
+        const r = gal.getBoundingClientRect();
+        const range = Math.max(1, r.height - vh);
+        const off = Math.min(range, Math.max(0, -r.top));
+        galPin.style.transform = flat ? '' : 'translateY(' + off.toFixed(1) + 'px)';
+        const p = flat ? 0 : off / range;
+        gl.forEach((el) => {
+          if (el === galMain) return;
+          const k = (parseFloat(el.getAttribute('data-gl')) || 0.3) * (mobile ? 0.5 : 1);
+          el.style.transform = 'translateY(' + ((0.5 - p) * k * 420).toFixed(1) + 'px)';
+        });
+        if (galMain) galMain.style.transform = 'scale(' + (1 + p * 0.16).toFixed(4) + ')';
+        if (galIg) galIg.classList.toggle('on', !flat && p > 0.72);
+      }
       plx.forEach((img) => {
         const r = img.parentElement.getBoundingClientRect();
         const p = (r.top + r.height / 2 - vh / 2) / vh;
@@ -460,6 +661,9 @@ class Component extends DCLogic {
     this._onScroll();
   }
   componentWillUnmount() {
+    if (this._mo) this._mo.disconnect();
+    if (this._raf) clearTimeout(this._raf);
+    document.removeEventListener('click', this._onDocClick);
     clearTimeout(this._t);
     (this._timers || []).forEach((t) => clearTimeout(t));
     if (this._io) this._io.disconnect();

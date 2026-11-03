@@ -48,3 +48,10 @@ Thumbs.db
 
 # Storyblok generated files
 src/generated/
+
+# Storyblok CLI logs/reports (keep component schema files under .storyblok/components)
+.storyblok/logs/
+.storyblok/reports/
+
+# Local HTTPS dev certificates (next dev --experimental-https)
+/certificates

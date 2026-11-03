@@ -53,7 +53,11 @@ export default function Hero({ blok }: HeroProps) {
       {...storyblokEditable(blok)}
       className="wrap"
       data-load
-      style={{ paddingTop: 56, paddingBottom: 120, position: 'relative' }}
+      style={{
+        paddingTop: 'clamp(32px, 7vw, 56px)',
+        paddingBottom: 'clamp(64px, 14vw, 120px)',
+        position: 'relative',
+      }}
     >
       <div className="two" style={{ alignItems: 'start' }}>
         <div style={{ gridColumn: '1 / span 8', position: 'relative', zIndex: 2 }}>

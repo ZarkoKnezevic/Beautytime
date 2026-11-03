@@ -112,6 +112,9 @@
      section-headline accents (inline). Rides the line reveal + wipes. */
   .gw {
     display: inline-block;
+    /* Taller box so the italic descender (g, p, y) sits inside the clip-path,
+       not below it. */
+    line-height: 1.2;
     clip-path: inset(0 100% 0 0);
     transition: clip-path 1.5s ease-in-out;
     transition-delay: 0.5s;
@@ -198,12 +201,17 @@
     will-change: transform;
   }
 
-  /* Underline link */
+  /* Underline link — the bar lives on the inner `.ul-t` text span, so it spans
+     only the text width (never a trailing icon) and wipes in left→right. */
   .ul {
     position: relative;
     display: inline-block;
+    transition: color 0.3s;
   }
-  .ul::after {
+  .ul-t {
+    position: relative;
+  }
+  .ul-t::after {
     content: '';
     position: absolute;
     left: 0;
@@ -215,7 +223,7 @@
     transform-origin: right;
     transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .ul:hover::after {
+  .ul:hover .ul-t::after {
     transform: scaleX(1);
     transform-origin: left;
   }
@@ -598,8 +606,18 @@ body.mm-lock {
   }
 }
 
+/* Reviews grid */
+.revs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
 /* Responsive helpers (shared across pages) */
 @media (max-width: 760px) {
+  .revs {
+    grid-template-columns: 1fr !important;
+  }
   .two {
     display: flex !important;
     flex-direction: column;
@@ -1100,6 +1118,18 @@ body.mm-lock {
 }
 .gal-ig:hover {
   background: rgba(73, 56, 46, 0.78);
+}
+/* Bigger screens: gallery photos skip the clip/scale entrance reveal — the
+   scroll pin/parallax/scale is the only motion here. */
+@media (min-width: 1101px) {
+  .gal .clip {
+    clip-path: inset(0 0 0 0) !important;
+    transition: none !important;
+  }
+  .gal .imgw img {
+    transform: scale(1) !important;
+    transition: none !important;
+  }
 }
 @media (max-width: 1100px) {
   .gl-1 {

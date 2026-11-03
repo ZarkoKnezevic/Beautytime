@@ -52,7 +52,7 @@ export default function Footer({
       {...storyblokEditable(blok)}
       className="after"
       data-io
-      style={{ background: '#EDE1D2', paddingTop: 96, paddingBottom: 32 }}
+      style={{ background: '#EDE1D2', paddingTop: 'clamp(56px, 12vw, 96px)', paddingBottom: 32 }}
     >
       <div className="wrap">
         <div className="two" style={{ rowGap: 40 }}>
@@ -119,7 +119,7 @@ export default function Footer({
                 );
                 return (
                   <Link key={item._uid} href={loc(resolved.href || '#')} className="ul text-[15px]">
-                    {resolved.text}
+                    <span className="ul-t">{resolved.text}</span>
                   </Link>
                 );
               })}
@@ -134,12 +134,12 @@ export default function Footer({
             {contactTitle ? <div className="cap">{contactTitle}</div> : null}
             {phone.text ? (
               <a href={phone.href || '#'} className="ul text-[15px]">
-                {phone.text}
+                <span className="ul-t">{phone.text}</span>
               </a>
             ) : null}
             {email ? (
               <a href={`mailto:${email}`} className="ul text-[15px]">
-                {email}
+                <span className="ul-t">{email}</span>
               </a>
             ) : null}
             {instagram.text ? (
@@ -149,7 +149,7 @@ export default function Footer({
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {instagram.text}
+                <span className="ul-t">{instagram.text}</span>
               </a>
             ) : null}
             {address ? (

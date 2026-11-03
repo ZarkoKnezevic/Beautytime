@@ -12,6 +12,9 @@ import TextImage from '@/components/storyblok/TextImage';
 import Statement from '@/components/storyblok/Statement';
 import TeamPreview from '@/components/storyblok/TeamPreview';
 import Gallery from '@/components/storyblok/Gallery';
+import Reviews from '@/components/storyblok/Reviews';
+import AppointmentCta from '@/components/storyblok/AppointmentCta';
+import PageHero from '@/components/storyblok/PageHero';
 
 export const COMPONENTS = {
   page: Page,
@@ -32,4 +35,10 @@ export const COMPONENTS = {
   TeamPreview: TeamPreview,
   image_gallery: Gallery,
   Gallery: Gallery,
+  reviews: Reviews,
+  Reviews: Reviews,
+  appointment_cta: AppointmentCta,
+  AppointmentCta: AppointmentCta,
+  page_hero: PageHero,
+  PageHero: PageHero,
 } as const;

@@ -1448,5 +1448,313 @@
     "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
     "color": "var(--sb-color-accent-background-lumber)",
     "icon": null
+  },
+  {
+    "name": "review",
+    "display_name": "Review",
+    "description": null,
+    "created_at": "2026-11-03T20:27:42.904Z",
+    "updated_at": "2026-11-03T20:27:42.904Z",
+    "id": 237764865662698,
+    "schema": {
+      "quote": {
+        "type": "textarea",
+        "pos": 0,
+        "translatable": true,
+        "description": "Short excerpt from a real Google review (no quote marks).",
+        "id": "q1"
+      },
+      "name": {
+        "type": "text",
+        "pos": 1,
+        "id": "n1"
+      },
+      "source": {
+        "type": "text",
+        "pos": 2,
+        "default_value": "Google",
+        "id": "s1"
+      },
+      "rating": {
+        "type": "number",
+        "pos": 3,
+        "default_value": "5",
+        "description": "1-5 stars.",
+        "id": "r1"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Review",
+    "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "reviews",
+    "display_name": "Reviews",
+    "description": null,
+    "created_at": "2026-11-03T20:27:43.108Z",
+    "updated_at": "2026-11-03T20:27:43.108Z",
+    "id": 237764866498283,
+    "schema": {
+      "eyebrow": {
+        "type": "text",
+        "pos": 0,
+        "translatable": true,
+        "default_value": "Bewertungen",
+        "id": "e1"
+      },
+      "heading": {
+        "type": "textarea",
+        "pos": 1,
+        "translatable": true,
+        "description": "One line per row. **word** = gold accent.",
+        "id": "h1"
+      },
+      "subtitle": {
+        "type": "text",
+        "pos": 2,
+        "translatable": true,
+        "id": "su1"
+      },
+      "link_label": {
+        "type": "text",
+        "pos": 3,
+        "translatable": true,
+        "id": "ll1"
+      },
+      "link": {
+        "type": "multilink",
+        "pos": 4,
+        "id": "lk1"
+      },
+      "items": {
+        "type": "bloks",
+        "pos": 5,
+        "restrict_components": true,
+        "component_whitelist": [
+          "review"
+        ],
+        "id": "it1"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Reviews",
+    "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "cta_button",
+    "display_name": "CTA Button",
+    "description": null,
+    "created_at": "2026-11-03T20:40:29.597Z",
+    "updated_at": "2026-11-03T20:40:29.597Z",
+    "id": 237768006045459,
+    "schema": {
+      "label": {
+        "type": "text",
+        "pos": 0,
+        "translatable": true,
+        "id": "l1"
+      },
+      "link": {
+        "type": "multilink",
+        "pos": 1,
+        "id": "lk1"
+      },
+      "icon": {
+        "type": "option",
+        "pos": 2,
+        "use_uuid": false,
+        "default_value": "none",
+        "options": [
+          {
+            "name": "None",
+            "value": "none"
+          },
+          {
+            "name": "Instagram",
+            "value": "instagram"
+          },
+          {
+            "name": "WhatsApp",
+            "value": "whatsapp"
+          },
+          {
+            "name": "Arrow",
+            "value": "arrow"
+          }
+        ],
+        "id": "ic1"
+      },
+      "variant": {
+        "type": "option",
+        "pos": 3,
+        "default_value": "outline",
+        "options": [
+          {
+            "name": "Outline",
+            "value": "outline"
+          },
+          {
+            "name": "Solid",
+            "value": "solid"
+          }
+        ],
+        "id": "v1"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "CTA Button",
+    "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "appointment_cta",
+    "display_name": "Appointment CTA",
+    "description": null,
+    "created_at": "2026-11-03T20:40:29.770Z",
+    "updated_at": "2026-11-03T20:40:29.770Z",
+    "id": 237768006745876,
+    "schema": {
+      "heading": {
+        "type": "textarea",
+        "pos": 0,
+        "translatable": true,
+        "description": "One line per row. **word** = gold accent.",
+        "id": "h1"
+      },
+      "body": {
+        "type": "textarea",
+        "pos": 1,
+        "translatable": true,
+        "id": "b1"
+      },
+      "buttons": {
+        "type": "bloks",
+        "pos": 2,
+        "restrict_components": true,
+        "component_whitelist": [
+          "cta_button"
+        ],
+        "id": "bt1"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Appointment CTA",
+    "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "page_hero",
+    "display_name": "Page Hero",
+    "description": null,
+    "created_at": "2026-11-03T21:18:53.911Z",
+    "updated_at": "2026-11-03T21:18:53.911Z",
+    "id": 237777444507474,
+    "schema": {
+      "eyebrow": {
+        "type": "text",
+        "pos": 0,
+        "translatable": true,
+        "id": "e1"
+      },
+      "headline": {
+        "type": "text",
+        "pos": 1,
+        "translatable": true,
+        "description": "Large letter-by-letter headline. One line per row.",
+        "id": "h1"
+      },
+      "subheading": {
+        "type": "textarea",
+        "pos": 2,
+        "translatable": true,
+        "description": "Gold italic. One line per row.",
+        "id": "s1"
+      },
+      "body": {
+        "type": "textarea",
+        "pos": 3,
+        "translatable": true,
+        "id": "b1"
+      },
+      "image_1": {
+        "type": "asset",
+        "pos": 4,
+        "filetypes": [
+          "images"
+        ],
+        "description": "Larger (left) image.",
+        "id": "i1"
+      },
+      "image_2": {
+        "type": "asset",
+        "pos": 5,
+        "filetypes": [
+          "images"
+        ],
+        "description": "Smaller (right) image.",
+        "id": "i2"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Page Hero",
+    "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
   }
 ]

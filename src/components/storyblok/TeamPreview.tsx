@@ -94,14 +94,14 @@ export default function TeamPreview({ blok }: { blok: StoryblokBlok }) {
   const word = { fontSize: 'clamp(36px, 4.6vw, 64px)', lineHeight: 1, color: 'var(--gold-dark)' };
 
   return (
-    <section {...storyblokEditable(blok)} className="wrap after" data-io style={{ paddingTop: 120, paddingBottom: 150 }}>
+    <section {...storyblokEditable(blok)} className="wrap after" data-io style={{ paddingTop: 'clamp(72px, 14vw, 120px)', paddingBottom: 'clamp(80px, 16vw, 150px)' }}>
       <div
         style={{
           position: 'relative',
           background: 'var(--ivory)',
           border: '1px solid var(--surface)',
           borderRadius: 12,
-          padding: '88px clamp(20px, 4vw, 64px) 80px',
+          padding: 'clamp(52px, 10vw, 88px) clamp(20px, 4vw, 64px) clamp(48px, 9vw, 80px)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -170,7 +170,7 @@ export default function TeamPreview({ blok }: { blok: StoryblokBlok }) {
             className="ul rv"
             style={{ marginTop: 52, fontSize: 14, display: 'inline-flex', alignItems: 'center', gap: 10, transitionDelay: '.9s' }}
           >
-            {linkLabel}
+            <span className="ul-t">{linkLabel}</span>
             <Arrow />
           </Link>
         ) : null}

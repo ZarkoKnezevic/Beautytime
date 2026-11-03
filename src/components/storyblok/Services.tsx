@@ -119,7 +119,7 @@ export default function Services({ blok }: { blok: StoryblokBlok }) {
       {...storyblokEditable(blok)}
       className="wrap"
       data-io
-      style={{ paddingBottom: 150, position: 'relative' }}
+      style={{ paddingBottom: 'clamp(80px, 16vw, 150px)', position: 'relative' }}
     >
       <div className="star" style={{ top: 24, right: '9%' }} />
       <div className="star" style={{ top: 110, left: '44%', width: 11, height: 11, animationDelay: '1.4s' }} />
@@ -150,7 +150,7 @@ export default function Services({ blok }: { blok: StoryblokBlok }) {
         </h2>
         {linkHref && linkLabel ? (
           <Link href={linkHref} className="ul rv" style={{ fontSize: 15, transitionDelay: '.3s' }}>
-            {linkLabel}
+            <span className="ul-t">{linkLabel}</span>
           </Link>
         ) : null}
       </div>

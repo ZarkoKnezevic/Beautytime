@@ -4,10 +4,16 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 /**
- * Scroll/entrance animation driver, ported 1:1 from the prototype
+ * Scroll/entrance animation driver, ported from the prototype
  * (design/site/index.html). Toggles `.in` on reveal targets via an
  * IntersectionObserver, triggers `[data-load]` on mount, and drives `.plx`
- * parallax on scroll. Re-runs on client navigation. Honors reduced motion.
+ * parallax + the gallery collage on scroll. Honors reduced motion.
+ *
+ * Client-navigation safe: the page is an async server component whose content
+ * streams in AFTER this effect runs, so we can't rely on a one-shot query. A
+ * MutationObserver (plus a couple of delayed re-scans) registers reveal targets
+ * as they arrive, otherwise late-mounted content would stay hidden (opacity 0)
+ * until a hard refresh.
  */
 export default function Reveal() {
   const pathname = usePathname();
@@ -16,14 +22,10 @@ export default function Reveal() {
     const q = (s: string) => Array.from(document.querySelectorAll<HTMLElement>(s));
     const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
-    const loadTimer = window.setTimeout(
-      () => q('[data-load]').forEach((el) => el.classList.add('in')),
-      120
-    );
+    const REVEAL_SEL = '.rv,.ln,.clip,.clipl,.imgw,[data-io]';
+    const seen = new WeakSet<Element>();
 
-    const els = q('.rv,.ln,.clip,.clipl,.imgw,[data-io]');
     let io: IntersectionObserver | null = null;
-
     if ('IntersectionObserver' in window) {
       io = new IntersectionObserver(
         (entries) => {
@@ -36,17 +38,39 @@ export default function Reveal() {
         },
         { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
       );
-      els.forEach((el) => io?.observe(el));
-    } else {
-      els.forEach((el) => el.classList.add('in'));
     }
 
-    const plx = q('.plx');
+    // Register any not-yet-tracked reveal targets, and fire `[data-load]`.
+    const scan = () => {
+      q('[data-load]').forEach((el) => el.classList.add('in'));
+      const els = q(REVEAL_SEL);
+      if (io) {
+        els.forEach((el) => {
+          if (!seen.has(el)) {
+            seen.add(el);
+            io!.observe(el);
+          }
+        });
+      } else {
+        els.forEach((el) => el.classList.add('in'));
+      }
+    };
+
+    scan();
+    // Re-scan to catch content that streams in after this effect runs
+    // (client-side navigation into an async page).
+    const t1 = window.setTimeout(scan, 120);
+    const t2 = window.setTimeout(scan, 400);
+    const t3 = window.setTimeout(scan, 900);
+
+    // Observe DOM mutations so streamed-in reveal targets get registered.
+    const mo = new MutationObserver(() => scan());
+    mo.observe(document.body, { childList: true, subtree: true });
+
     const gal = document.querySelector<HTMLElement>('.gal');
     const galPin = document.querySelector<HTMLElement>('.gal-pin');
     const galMain = document.querySelector<HTMLElement>('.gl-main');
     const galIg = document.querySelector<HTMLElement>('.gal-ig');
-    const galGl = q('.gl');
 
     const onScroll = () => {
       const vh = window.innerHeight || 1;
@@ -54,7 +78,7 @@ export default function Reveal() {
 
       if (!reduce) {
         const scrolled = window.scrollY || window.pageYOffset || 0;
-        plx.forEach((el) => {
+        q('.plx').forEach((el) => {
           const sp = el.dataset.speed;
           if (sp !== undefined) {
             el.style.transform = `translate3d(0, ${(-scrolled * parseFloat(sp)).toFixed(1)}px, 0)`;
@@ -70,11 +94,12 @@ export default function Reveal() {
 
       // Gallery collage: pin the stage, parallax the side photos, scale the
       // centre, reveal the "Follow us" square near the end. Flat fallback on
-      // short viewports / reduced motion.
+      // short viewports / reduced motion / tablet + mobile.
       if (gal && galPin) {
         const canScroll = document.documentElement.scrollHeight - vh > 40;
-        const flat = reduce || !canScroll || vh > 1400;
+        const flat = reduce || !canScroll || vh > 1400 || (window.innerWidth || 1440) <= 1100;
         gal.classList.toggle('flat', flat);
+        const galGl = q('.gl');
         if (flat) {
           galPin.style.transform = '';
           galGl.forEach((el) => {
@@ -103,7 +128,10 @@ export default function Reveal() {
     onScroll();
 
     return () => {
-      window.clearTimeout(loadTimer);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      window.clearTimeout(t3);
+      mo.disconnect();
       io?.disconnect();
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);

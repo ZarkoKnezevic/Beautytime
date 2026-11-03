@@ -54,7 +54,11 @@ export default function TextImage({ blok }: { blok: StoryblokBlok }) {
       {...storyblokEditable(blok)}
       className="wrap"
       data-io
-      style={{ paddingTop: 140, paddingBottom: 140, borderTop: '1px solid var(--line)' }}
+      style={{
+        paddingTop: 'clamp(72px, 15vw, 140px)',
+        paddingBottom: 'clamp(72px, 15vw, 140px)',
+        borderTop: '1px solid var(--line)',
+      }}
     >
       <div className="two" style={{ alignItems: 'start' }}>
         <div className="m-full" style={{ gridColumn: imageCol }}>
@@ -106,7 +110,7 @@ export default function TextImage({ blok }: { blok: StoryblokBlok }) {
                 transitionDelay: '.62s',
               }}
             >
-              {linkLabel}
+              <span className="ul-t">{linkLabel}</span>
               <Arrow />
             </Link>
           ) : null}

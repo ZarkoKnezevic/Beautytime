@@ -265,7 +265,7 @@ export default function Header({
 
         <div className="nav-right nav-cta rv" style={{ transitionDelay: '.2s' }}>
           <Link href={home || '/'} className={cn('ul text-sm', isActive(home) && 'text-gold-dark')}>
-            {homeLabel}
+            <span className="ul-t">{homeLabel}</span>
           </Link>
           {items.map((it) => (
             <Link
@@ -273,18 +273,18 @@ export default function Header({
               href={it.href}
               className={cn('ul text-sm', isActive(it.href) && 'text-gold-dark')}
             >
-              {it.text}
+              <span className="ul-t">{it.text}</span>
             </Link>
           ))}
           {cta.text ? (
             <a href={cta.href || '#'} className="ul inline-flex items-center gap-2.5 text-sm">
-              {cta.text}
+              <span className="ul-t">{cta.text}</span>
               <Arrow />
             </a>
           ) : null}
           {/* Full navigation so the root layout re-renders in the new locale */}
           <a href={langHref} className="ul nav-lang" hrefLang={otherL} lang={otherL}>
-            {langLabel}
+            <span className="ul-t">{langLabel}</span>
           </a>
         </div>
 

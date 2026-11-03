@@ -11,7 +11,7 @@ type UnderlineLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 export default function UnderlineLink({ className, children, ...rest }: UnderlineLinkProps) {
   return (
     <a className={cn('ul', className)} {...rest}>
-      {children}
+      <span className="ul-t">{children}</span>
     </a>
   );
 }

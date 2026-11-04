@@ -47,3 +47,31 @@ export function switchLocaleHref(pathname: string, current: Locale): string {
   const stripped = pathname.replace(/^\/en(?=\/|$)/, '');
   return stripped === '' ? '/' : stripped;
 }
+
+/** The `hreflang` code used for each locale. */
+export const HREFLANG: Record<Locale, string> = { de: 'de-AT', en: 'en' };
+
+/**
+ * Site path (no locale prefix) for a Storyblok `full_slug`.
+ * `en/leistungen` → `/leistungen`, `home` → `/`.
+ */
+export function storyPath(fullSlug: string): string {
+  const slug = fullSlug.replace(/^en\//, '').replace(/^\/+|\/+$/g, '');
+  return slug === '' || slug === 'home' ? '/' : `/${slug}`;
+}
+
+/** Absolute URL of a site path in the given locale. */
+export function absoluteUrl(domain: string, path: string, locale: Locale): string {
+  const base = domain.replace(/\/$/, '');
+  return `${base}${localizeHref(path, locale)}`;
+}
+
+/** Canonical + bidirectional hreflang alternates for a site path. */
+export function localeAlternates(domain: string, path: string, locale: Locale) {
+  const de = absoluteUrl(domain, path, 'de');
+  const en = absoluteUrl(domain, path, 'en');
+  return {
+    canonical: locale === 'en' ? en : de,
+    languages: { [HREFLANG.de]: de, [HREFLANG.en]: en, 'x-default': de },
+  };
+}

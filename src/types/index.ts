@@ -1,5 +1,7 @@
 // Global Storyblok type definitions.
 
+export type { Locale } from '@/utils/i18n';
+
 export interface BaseComponent {
   _uid: string;
   component: string;
@@ -46,10 +48,4 @@ export interface StoryblokApiResponse {
 export interface StoryblokStoriesResponse {
   stories: StoryblokStory[];
   links?: StoryblokLink[];
-}
-
-export interface StoryblokApiInit {
-  accessToken: string;
-  use: unknown[];
-  components: Record<string, React.ComponentType<unknown>>;
 }

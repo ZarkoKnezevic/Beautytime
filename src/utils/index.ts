@@ -13,5 +13,9 @@ export {
   localizeHref,
   otherLocale,
   switchLocaleHref,
+  storyPath,
+  absoluteUrl,
+  localeAlternates,
+  HREFLANG,
   type Locale,
 } from './i18n';

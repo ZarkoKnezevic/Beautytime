@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/live-preview', '/live-preview/', '/api/'],
     },
     sitemap: `${APP_CONFIG.domain}/sitemap.xml`,
   };

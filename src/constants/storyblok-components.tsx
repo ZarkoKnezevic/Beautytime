@@ -15,6 +15,9 @@ import Gallery from '@/components/storyblok/Gallery';
 import Reviews from '@/components/storyblok/Reviews';
 import AppointmentCta from '@/components/storyblok/AppointmentCta';
 import PageHero from '@/components/storyblok/PageHero';
+import ServiceCategory from '@/components/storyblok/ServiceCategory';
+import TeamMember from '@/components/storyblok/TeamMember';
+import Philosophy from '@/components/storyblok/Philosophy';
 
 export const COMPONENTS = {
   page: Page,
@@ -41,4 +44,10 @@ export const COMPONENTS = {
   AppointmentCta: AppointmentCta,
   page_hero: PageHero,
   PageHero: PageHero,
+  service_category: ServiceCategory,
+  ServiceCategory: ServiceCategory,
+  team_person: TeamMember,
+  TeamMember: TeamMember,
+  philosophy: Philosophy,
+  Philosophy: Philosophy,
 } as const;

@@ -40,6 +40,9 @@ export const metadata: Metadata = {
     locale: 'de_AT',
     siteName: 'Beautytime Traun',
   },
+  twitter: {
+    card: 'summary_large_image',
+  },
 };
 
 export default async function RootLayout({

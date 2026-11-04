@@ -1396,58 +1396,79 @@
   {
     "name": "image_gallery",
     "display_name": "Image Gallery",
+    "description": null,
+    "created_at": "2026-11-03T20:16:31.321Z",
+    "updated_at": "2026-11-03T20:16:31.321Z",
+    "id": 237762114858701,
     "schema": {
       "image_main": {
         "type": "asset",
         "pos": 0,
         "filetypes": [
           "images"
-        ]
+        ],
+        "id": "9vLRlfbgTXOKdGgjKpZFUQ"
       },
       "image_1": {
         "type": "asset",
         "pos": 1,
         "filetypes": [
           "images"
-        ]
+        ],
+        "id": "hw-RrtwBSHyAMcbEyD4_lg"
       },
       "image_2": {
         "type": "asset",
         "pos": 2,
         "filetypes": [
           "images"
-        ]
+        ],
+        "id": "4RD7cyW3TBSohCmog5066Q"
       },
       "image_3": {
         "type": "asset",
         "pos": 3,
         "filetypes": [
           "images"
-        ]
+        ],
+        "id": "prn7O1vkThKGtZ9yCfp0YQ"
       },
       "image_4": {
         "type": "asset",
         "pos": 4,
         "filetypes": [
           "images"
-        ]
+        ],
+        "id": "wdIvtowDTXy_XZ9Bg7l9zQ"
       },
       "follow_label": {
         "type": "text",
         "pos": 5,
         "translatable": true,
-        "default_value": "Follow us"
+        "default_value": "Follow us",
+        "id": "HTznb0f0Tji8rwLDDIUwEg"
       },
       "instagram_link": {
         "type": "multilink",
-        "pos": 6
+        "pos": 6,
+        "id": "E1orKU7iSCaI-dzhMuYbxw"
       }
     },
+    "image": null,
+    "preview_field": null,
     "is_root": false,
+    "preview_tmpl": null,
     "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Image Gallery",
     "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
     "color": "var(--sb-color-accent-background-lumber)",
-    "icon": null
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
   },
   {
     "name": "review",
@@ -1646,7 +1667,7 @@
     "display_name": "Appointment CTA",
     "description": null,
     "created_at": "2026-11-03T20:40:29.770Z",
-    "updated_at": "2026-11-03T20:40:29.770Z",
+    "updated_at": "2026-11-03T21:50:45.676Z",
     "id": 237768006745876,
     "schema": {
       "heading": {
@@ -1670,6 +1691,12 @@
           "cta_button"
         ],
         "id": "bt1"
+      },
+      "anchor": {
+        "type": "text",
+        "pos": 3,
+        "description": "URL anchor (default: termin). The header Termin button scrolls here.",
+        "id": "anchor_appointment_cta"
       }
     },
     "image": null,
@@ -1693,7 +1720,7 @@
     "display_name": "Page Hero",
     "description": null,
     "created_at": "2026-11-03T21:18:53.911Z",
-    "updated_at": "2026-11-03T21:18:53.911Z",
+    "updated_at": "2026-11-04T10:24:35.439Z",
     "id": 237777444507474,
     "schema": {
       "eyebrow": {
@@ -1739,6 +1766,13 @@
         ],
         "description": "Smaller (right) image.",
         "id": "i2"
+      },
+      "caption": {
+        "type": "text",
+        "pos": 6,
+        "translatable": true,
+        "description": "Caption under the single image (Unser Team mode).",
+        "id": "cap_ph"
       }
     },
     "image": null,
@@ -1749,6 +1783,268 @@
     "all_presets": [],
     "preset_id": null,
     "real_name": "Page Hero",
+    "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "price_row",
+    "display_name": "Price Row",
+    "description": null,
+    "created_at": "2026-11-03T21:40:40.649Z",
+    "updated_at": "2026-11-03T21:40:40.649Z",
+    "id": 237782796906326,
+    "schema": {
+      "label": {
+        "type": "text",
+        "pos": 0,
+        "translatable": true,
+        "id": "l1"
+      },
+      "price": {
+        "type": "text",
+        "pos": 1,
+        "translatable": true,
+        "default_value": "[Preis]",
+        "id": "p1"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Price Row",
+    "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "service_category",
+    "display_name": "Service Category",
+    "description": null,
+    "created_at": "2026-11-03T21:40:40.825Z",
+    "updated_at": "2026-11-03T21:50:45.554Z",
+    "id": 237782797627223,
+    "schema": {
+      "number": {
+        "type": "text",
+        "pos": 0,
+        "default_value": "01",
+        "id": "n1"
+      },
+      "title": {
+        "type": "textarea",
+        "pos": 1,
+        "translatable": true,
+        "description": "One line per row.",
+        "id": "t1"
+      },
+      "description": {
+        "type": "textarea",
+        "pos": 2,
+        "translatable": true,
+        "id": "d1"
+      },
+      "image": {
+        "type": "asset",
+        "pos": 3,
+        "filetypes": [
+          "images"
+        ],
+        "id": "im1"
+      },
+      "image_side": {
+        "type": "option",
+        "pos": 4,
+        "default_value": "left",
+        "options": [
+          {
+            "name": "Left",
+            "value": "left"
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ],
+        "id": "is1"
+      },
+      "items": {
+        "type": "bloks",
+        "pos": 5,
+        "restrict_components": true,
+        "component_whitelist": [
+          "price_row"
+        ],
+        "id": "it1"
+      },
+      "cta_label": {
+        "type": "text",
+        "pos": 6,
+        "translatable": true,
+        "id": "cl1"
+      },
+      "cta_link": {
+        "type": "multilink",
+        "pos": 7,
+        "id": "ck1"
+      },
+      "anchor": {
+        "type": "text",
+        "pos": 8,
+        "description": "URL anchor (e.g. kosmetik). Linked from the home services cards.",
+        "id": "anchor_service_category"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Service Category",
+    "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "team_person",
+    "display_name": "Team Member",
+    "description": null,
+    "created_at": "2026-11-04T10:33:12.974Z",
+    "updated_at": "2026-11-04T10:33:12.974Z",
+    "id": 237972656032445,
+    "schema": {
+      "name": {
+        "type": "text",
+        "pos": 0,
+        "id": "nm1"
+      },
+      "role": {
+        "type": "text",
+        "pos": 1,
+        "translatable": true,
+        "id": "ro1"
+      },
+      "bio": {
+        "type": "textarea",
+        "pos": 2,
+        "translatable": true,
+        "id": "bi1"
+      },
+      "image": {
+        "type": "asset",
+        "pos": 3,
+        "filetypes": [
+          "images"
+        ],
+        "id": "im1"
+      },
+      "image_side": {
+        "type": "option",
+        "pos": 4,
+        "default_value": "left",
+        "options": [
+          {
+            "name": "Left",
+            "value": "left"
+          },
+          {
+            "name": "Right",
+            "value": "right"
+          }
+        ],
+        "id": "is1"
+      },
+      "instagram_label": {
+        "type": "text",
+        "pos": 5,
+        "translatable": true,
+        "default_value": "Instagram",
+        "id": "il1"
+      },
+      "instagram_link": {
+        "type": "multilink",
+        "pos": 6,
+        "id": "ik1"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Team Member",
+    "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
+  },
+  {
+    "name": "philosophy",
+    "display_name": "Philosophy",
+    "description": null,
+    "created_at": "2026-11-04T10:38:45.351Z",
+    "updated_at": "2026-11-04T10:38:45.351Z",
+    "id": 237974017444561,
+    "schema": {
+      "eyebrow": {
+        "type": "text",
+        "pos": 0,
+        "translatable": true,
+        "id": "e1"
+      },
+      "heading": {
+        "type": "textarea",
+        "pos": 1,
+        "translatable": true,
+        "description": "One line per row. **word** = gold accent.",
+        "id": "h1"
+      },
+      "body": {
+        "type": "textarea",
+        "pos": 2,
+        "translatable": true,
+        "id": "b1"
+      },
+      "image": {
+        "type": "asset",
+        "pos": 3,
+        "filetypes": [
+          "images"
+        ],
+        "id": "i1"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Philosophy",
     "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
     "color": null,
     "icon": null,

@@ -80,6 +80,7 @@ export default function AppointmentCta({ blok }: { blok: StoryblokBlok }) {
   return (
     <section
       {...storyblokEditable(blok)}
+      id={asText(blok.anchor) || 'termin'}
       className="wrap after"
       data-io
       style={{

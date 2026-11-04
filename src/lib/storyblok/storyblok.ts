@@ -152,9 +152,11 @@ export async function fetchStoryMetadata(
     const openGraph: Metadata['openGraph'] = {
       title: seoTitle,
       description: seoDescription,
+      // Story-specific OG image, else the founders photo as the site-wide
+      // default (a page's openGraph overrides the layout's, so set it here).
       images: ogImage?.filename
         ? [{ url: `${ogImage.filename}/m/1200x630/filters:quality(75)` }]
-        : [],
+        : [{ url: '/og-default.jpg', width: 1200, height: 630 }],
     };
 
     const correctSlug = story.full_slug === 'home' ? '' : story.full_slug;

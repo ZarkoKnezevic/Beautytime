@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
 import { cn } from '@/utils';
+import LocaleLink from '@/components/LocaleLink';
 import type { StoryblokBlok } from '@/types';
 
 const asText = (v: unknown): string => (typeof v === 'string' ? v : '');
@@ -48,7 +48,7 @@ function ServiceCard({
   const num = String(index + 1).padStart(2, '0');
 
   return (
-    <Link
+    <LocaleLink
       href={href || '#'}
       {...storyblokEditable(blok)}
       className={cn('card rv', featured && 'feat')}
@@ -86,7 +86,7 @@ function ServiceCard({
           {moreLabel} <Arrow />
         </span>
       </div>
-    </Link>
+    </LocaleLink>
   );
 }
 
@@ -149,9 +149,9 @@ export default function Services({ blok }: { blok: StoryblokBlok }) {
           ) : null}
         </h2>
         {linkHref && linkLabel ? (
-          <Link href={linkHref} className="ul rv" style={{ fontSize: 15, transitionDelay: '.3s' }}>
+          <LocaleLink href={linkHref} className="ul rv" style={{ fontSize: 15, transitionDelay: '.3s' }}>
             <span className="ul-t">{linkLabel}</span>
-          </Link>
+          </LocaleLink>
         ) : null}
       </div>
 

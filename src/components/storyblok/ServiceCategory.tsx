@@ -88,7 +88,7 @@ export default function ServiceCategory({ blok }: { blok: StoryblokBlok }) {
   const contentBlock = (
     <div style={{ gridColumn: contentCol }}>
       {number ? (
-        <div className="it rv" style={{ fontSize: 26, color: 'var(--gold-dark)' }}>
+        <div className="it rv" style={{ fontSize: 26, color: 'var(--gold)' }}>
           {number}
         </div>
       ) : null}

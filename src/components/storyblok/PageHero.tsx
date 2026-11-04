@@ -12,7 +12,7 @@ type Img = { filename?: string; alt?: string } | undefined;
 function renderLine(line: string) {
   return line.split('**').map((part, i) =>
     i % 2 === 1 ? (
-      <em key={i} className="it text-gold-dark gw">
+      <em key={i} className="it text-gold gw">
         {part}
       </em>
     ) : (
@@ -102,7 +102,7 @@ export default function PageHero({ blok }: { blok: StoryblokBlok }) {
       className="it gw"
       style={{
         fontSize: 'clamp(28px, 3.2vw, 46px)',
-        color: 'var(--gold-dark)',
+        color: 'var(--gold)',
         fontWeight: 600,
         lineHeight: 1.1,
         transitionDelay: '.7s',

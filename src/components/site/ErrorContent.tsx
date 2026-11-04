@@ -25,7 +25,7 @@ export default function ErrorContent({ reset }: { error: Error; reset: () => voi
     <div className="flex min-h-screen flex-col items-center justify-center bg-sand px-6 text-center">
       <p className="cap mb-6">{t.eyebrow}</p>
       <h1 className="h2 mb-8">
-        {t.title} <em className="it text-gold-dark">{t.accent}</em>
+        {t.title} <em className="it text-gold">{t.accent}</em>
       </h1>
       <button type="button" onClick={reset} className="btn">
         <span>{t.retry}</span>

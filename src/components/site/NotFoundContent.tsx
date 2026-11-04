@@ -15,7 +15,7 @@ export default function NotFoundContent({ locale }: { locale: Locale }) {
     <div className="flex min-h-screen flex-col items-center justify-center bg-sand px-6 text-center">
       <p className="cap mb-6">{t.eyebrow}</p>
       <h1 className="disp mb-8">
-        {t.title} <em className="it text-gold-dark">{t.accent}</em>
+        {t.title} <em className="it text-gold">{t.accent}</em>
       </h1>
       <Link href={localizeHref('/', locale)} className="ul text-sm">
         <span className="ul-t">{t.home}</span>

@@ -18,7 +18,7 @@ function Arrow() {
 function renderLine(line: string) {
   return line.split('**').map((part, i) =>
     i % 2 === 1 ? (
-      <em key={i} className="it text-gold-dark gw" style={{ fontSize: '1.08em' }}>
+      <em key={i} className="it text-gold gw" style={{ fontSize: '1.08em' }}>
         {part}
       </em>
     ) : (
@@ -90,7 +90,7 @@ export default function TeamPreview({ blok }: { blok: StoryblokBlok }) {
   const linkLabel = asText(blok.link_label);
   const { href } = prepareLinkProps({ link: blok.link });
 
-  const word = { fontSize: 'clamp(36px, 4.6vw, 64px)', lineHeight: 1, color: 'var(--gold-dark)' };
+  const word = { fontSize: 'clamp(36px, 4.6vw, 64px)', lineHeight: 1, color: 'var(--gold)' };
 
   return (
     <section {...storyblokEditable(blok)} className="wrap after" data-io style={{ paddingTop: 'clamp(72px, 14vw, 120px)', paddingBottom: 'clamp(80px, 16vw, 150px)' }}>
@@ -137,7 +137,7 @@ export default function TeamPreview({ blok }: { blok: StoryblokBlok }) {
         {subtitle ? (
           <div
             className="it rv"
-            style={{ fontSize: 'clamp(26px, 3.2vw, 44px)', color: 'var(--gold-dark)', lineHeight: 1.1, marginTop: 10, transitionDelay: '.2s' }}
+            style={{ fontSize: 'clamp(26px, 3.2vw, 44px)', color: 'var(--gold)', lineHeight: 1.1, marginTop: 10, transitionDelay: '.2s' }}
           >
             {subtitle}
           </div>

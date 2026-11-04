@@ -17,7 +17,7 @@ function Arrow() {
 function renderLine(line: string) {
   return line.split('**').map((part, i) =>
     i % 2 === 1 ? (
-      <em key={i} className="it text-gold-dark gw" style={{ fontSize: '1.02em' }}>
+      <em key={i} className="it text-gold gw" style={{ fontSize: '1.02em' }}>
         {part}
       </em>
     ) : (

@@ -15,8 +15,7 @@
   --muted: #716053; /* was #897465; ≥4.5:1 on sand, ivory, white and the footer */
   --gold: #b99552;
   --gold-light: #dcc394;
-  --gold-dark: #7f5f30; /* was #8C6935; gold used as text and as button background */
-  --gold-deep: #6b4f26; /* hover state for solid gold surfaces */
+  --gold-dark: #8c6935; /* original prototype gold */
   --ivory: #fff9f0;
   --line: #cdb99e;
   --menu-bg: #3b2c24;
@@ -280,7 +279,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--gold-dark);
+    background: var(--gold);
     transform: translateY(101%);
     transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -300,11 +299,11 @@
     transform: translateX(6px);
   }
   .btn.solid {
-    background: var(--gold-dark);
+    background: var(--gold);
     color: var(--ivory);
   }
   .btn.solid::before {
-    background: var(--gold-deep);
+    background: var(--gold-dark);
   }
 
   /* Decorative */
@@ -1255,7 +1254,7 @@ body.mm-lock {
   transform: none;
 }
 .row .pr {
-  color: var(--gold-dark);
+  color: var(--gold);
   white-space: nowrap;
   font-size: 20px;
 }
@@ -1322,7 +1321,7 @@ html {
 }
 .member .nm {
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  color: var(--gold-dark);
+  color: var(--gold);
   font-family: var(--font-serif), Georgia, serif;
   font-style: italic;
   font-weight: 400;

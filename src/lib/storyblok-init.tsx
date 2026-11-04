@@ -23,9 +23,7 @@ function FallbackComponent({ blok }: { blok?: { component?: string } }) {
 
 if (typeof window === 'undefined') {
   if (!env.storyblok.accessToken) {
-    logger.warn(
-      '⚠️ Storyblok access token is missing. Set NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN in .env.local.'
-    );
+    logger.warn('⚠️ Storyblok access token is missing. Set STORYBLOK_ACCESS_TOKEN in .env.local.');
   } else {
     try {
       storyblokInit({

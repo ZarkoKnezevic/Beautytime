@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { loadStoryblokBridge } from '@storyblok/react';
+import { loadStoryblokBridge } from '@storyblok/js';
 
 /**
  * Live visual-editor preview. Only active inside the Storyblok editor

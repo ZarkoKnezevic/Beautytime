@@ -1,3 +1,4 @@
+import { unstable_rethrow } from 'next/navigation';
 import { fetchStory } from './storyblok';
 import { env, logger } from '@/utils';
 import type { StoryblokBlok, StoryblokLink } from '@/types';
@@ -54,7 +55,8 @@ export async function getGlobalSettings(language?: string): Promise<GlobalSettin
 
     return { header: null, footer: null, links: [] };
   } catch (error) {
-    logger.debug(`Error fetching global settings: ${error}`);
+    unstable_rethrow(error);
+    logger.error(`Error fetching global settings: ${error}`);
     return { header: null, footer: null, links: [] };
   }
 }

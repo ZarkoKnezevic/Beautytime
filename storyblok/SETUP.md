@@ -18,7 +18,8 @@ Space → **Settings → Access Tokens** → copy the **Preview** token
 Create `.env.local` in the project root (it is gitignored):
 
 ```bash
-NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN=<your-preview-token>
+STORYBLOK_ACCESS_TOKEN=<your-preview-token>   # production: use the Public token
+STORYBLOK_PREVIEW_TOKEN=<your-preview-token>  # draft content for the visual editor only
 STORYBLOK_VERSION=draft
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_DOMAIN=http://localhost:3000
@@ -78,10 +79,15 @@ This creates: `page`, `settings`, `nav_link`, `header`, `footer`.
 Space → **Settings → Visual Editor** → set **Location (default environment)** to:
 
 ```
-http://localhost:3000/
+http://localhost:3000/api/preview/
 ```
 
-The live-preview route is available at `/live-preview/<slug>`.
+Storyblok appends the story slug and a signature to that URL. `/api/preview`
+verifies the signature with the Preview token, starts a Next.js draft-mode
+session and redirects to `/live-preview/<slug>`, which always renders draft
+content. Unsigned requests to `/live-preview` get a 404, so drafts never leak
+in production. For production add a second environment with
+`https://<your-domain>/api/preview/`.
 
 ## 7. Run
 
@@ -92,8 +98,32 @@ npm run dev
 Open <http://localhost:3000> — the header and footer render from the `settings` story
 around the (currently empty) home page.
 
-## 8. Production revalidation (later)
+## 8. Production revalidation
 
-Add a Storyblok webhook (Settings → Webhooks) pointing to
-`https://<your-domain>/api/revalidate?secret=<SB_WEBHOOK_REVALIDATE_SECRET>` for story
-publish events.
+Published content is cached by Next.js (Data Cache + static pages) and refreshed
+by a Storyblok webhook. Add one under **Settings → Webhooks** for the
+*Story published* and *Story unpublished* events:
+
+```
+https://<your-domain>/api/revalidate?secret=<SB_WEBHOOK_REVALIDATE_SECRET>
+```
+
+Alternatively enter `SB_WEBHOOK_REVALIDATE_SECRET` as the webhook's *Secret*
+in Storyblok; the endpoint then verifies the `webhook-signature` header instead
+of the query string. Either way, a publish refreshes the story's URL in both
+locales, and publishing the `settings` story refreshes every page. Pages also
+expire after 24 hours as a safety net.
+
+## 9. Production environment
+
+```bash
+STORYBLOK_ACCESS_TOKEN=<public token>     # published content only
+STORYBLOK_PREVIEW_TOKEN=<preview token>   # draft content for /api/preview + /live-preview
+STORYBLOK_VERSION=published
+NEXT_PUBLIC_APP_URL=https://<your-domain>
+NEXT_PUBLIC_DOMAIN=https://<your-domain>
+SB_WEBHOOK_REVALIDATE_SECRET=<random string>
+```
+
+With `STORYBLOK_VERSION=published` every page is prerendered at build time and
+served statically; `draft` (development) renders on every request.

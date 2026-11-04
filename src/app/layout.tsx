@@ -5,6 +5,7 @@ import './globals.css';
 import StoryblokProvider from '@/components/StoryblokProvider';
 import StoryblokBridgeListener from '@/components/StoryblokBridgeListener';
 import Reveal from '@/components/Reveal';
+import CookieBanner from '@/components/CookieBanner';
 import Header from '@/components/storyblok/Header';
 import Footer from '@/components/storyblok/Footer';
 import { getGlobalSettings } from '@/lib/storyblok';
@@ -67,6 +68,7 @@ export default async function RootLayout({
             {footer ? <Footer blok={footer} allResolvedLinks={links} locale={locale} /> : null}
           </div>
           <Reveal />
+          <CookieBanner />
           <StoryblokBridgeListener />
         </StoryblokProvider>
       </body>

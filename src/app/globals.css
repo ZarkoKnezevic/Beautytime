@@ -1311,3 +1311,122 @@ html {
     transform: none !important;
   }
 }
+
+/* ===== Cookie consent banner ===== */
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  padding: 16px clamp(16px, 4vw, 40px) calc(16px + env(safe-area-inset-bottom));
+  background: var(--menu-bg);
+  color: var(--ivory);
+  box-shadow: 0 -18px 50px rgba(73, 56, 46, 0.28);
+  animation: cookieUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes cookieUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+.cookie-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cookie-text {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+.cookie-title {
+  font-size: 22px;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+.cookie-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #e7ddd0;
+  max-width: 760px;
+}
+.cookie-text .ul {
+  color: var(--gold-light);
+}
+.cookie-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+.cookie-actions .btn {
+  color: var(--ivory);
+  border-color: rgba(220, 195, 148, 0.6);
+  padding: 14px 22px;
+}
+.cookie-actions .btn:hover {
+  color: var(--menu-bg);
+}
+@media (max-width: 760px) {
+  .cookie-inner {
+    gap: 16px;
+  }
+  .cookie-actions {
+    width: 100%;
+  }
+  .cookie-actions .btn {
+    flex: 1 1 0;
+    justify-content: center;
+  }
+}
+
+/* ===== Legal pages (Impressum / Datenschutz) prose ===== */
+.legal {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+}
+.legal h2 {
+  font-size: clamp(22px, 2.6vw, 30px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin: 48px 0 16px;
+  line-height: 1.2;
+}
+.legal h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 32px 0 10px;
+}
+.legal p {
+  margin: 0 0 16px;
+  max-width: 68ch;
+}
+.legal a {
+  color: var(--gold-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.legal ul {
+  margin: 0 0 16px;
+  padding-left: 22px;
+  max-width: 68ch;
+}
+.legal li {
+  margin: 0 0 8px;
+}
+.legal strong {
+  font-weight: 500;
+}
+.legal h2:first-child,
+.legal h3:first-child {
+  margin-top: 0;
+}

@@ -2052,5 +2052,48 @@
     "internal_tag_ids": [],
     "content_type_asset_preview": null,
     "metadata": {}
+  },
+  {
+    "name": "legal_page",
+    "display_name": "Legal Page",
+    "description": null,
+    "created_at": "2026-11-04T17:48:43.121Z",
+    "updated_at": "2026-11-04T17:48:43.121Z",
+    "id": 238079685109465,
+    "schema": {
+      "eyebrow": {
+        "type": "text",
+        "pos": 0,
+        "translatable": true,
+        "id": "e1"
+      },
+      "title": {
+        "type": "text",
+        "pos": 1,
+        "translatable": true,
+        "id": "t1"
+      },
+      "body": {
+        "type": "richtext",
+        "pos": 2,
+        "translatable": true,
+        "id": "b1"
+      }
+    },
+    "image": null,
+    "preview_field": null,
+    "is_root": false,
+    "preview_tmpl": null,
+    "is_nestable": true,
+    "all_presets": [],
+    "preset_id": null,
+    "real_name": "Legal Page",
+    "component_group_uuid": "cdb28611-4d1b-434c-9379-ab057fc22765",
+    "color": null,
+    "icon": null,
+    "internal_tags_list": [],
+    "internal_tag_ids": [],
+    "content_type_asset_preview": null,
+    "metadata": {}
   }
 ]

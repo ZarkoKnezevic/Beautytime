@@ -18,6 +18,7 @@ import PageHero from '@/components/storyblok/PageHero';
 import ServiceCategory from '@/components/storyblok/ServiceCategory';
 import TeamMember from '@/components/storyblok/TeamMember';
 import Philosophy from '@/components/storyblok/Philosophy';
+import LegalPage from '@/components/storyblok/LegalPage';
 
 export const COMPONENTS = {
   page: Page,
@@ -50,4 +51,6 @@ export const COMPONENTS = {
   TeamMember: TeamMember,
   philosophy: Philosophy,
   Philosophy: Philosophy,
+  legal_page: LegalPage,
+  LegalPage: LegalPage,
 } as const;

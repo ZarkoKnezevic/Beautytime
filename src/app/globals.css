@@ -12,10 +12,11 @@
   --bg: #f7f0e6;
   --surface: #e7d7c5;
   --text: #49382e;
-  --muted: #897465;
+  --muted: #716053; /* was #897465; ≥4.5:1 on sand, ivory, white and the footer */
   --gold: #b99552;
   --gold-light: #dcc394;
-  --gold-dark: #8c6935;
+  --gold-dark: #7f5f30; /* was #8C6935; gold used as text and as button background */
+  --gold-deep: #6b4f26; /* hover state for solid gold surfaces */
   --ivory: #fff9f0;
   --line: #cdb99e;
   --menu-bg: #3b2c24;
@@ -35,6 +36,37 @@
   }
   a:hover {
     color: var(--gold-dark);
+  }
+  /* Keyboard focus indicator (mouse clicks don't trigger :focus-visible). */
+  :focus-visible {
+    outline: 2px solid var(--gold-dark);
+    outline-offset: 3px;
+  }
+  .mm :focus-visible,
+  .cookie-banner :focus-visible {
+    outline-color: var(--gold-light);
+  }
+  /* Skip link: visually hidden until focused via keyboard. */
+  .skip-link {
+    position: absolute;
+    left: 16px;
+    top: -100px;
+    z-index: 400;
+    padding: 12px 18px;
+    border-radius: 2px;
+    background: var(--menu-bg);
+    color: var(--ivory);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .skip-link:focus-visible {
+    top: 16px;
+    outline-color: var(--gold-light);
+  }
+  /* Keep a keyboard-focused element clear of the fixed cookie banner (WCAG 2.4.11). */
+  html:has(.cookie-banner) {
+    scroll-padding-bottom: 220px;
   }
 }
 
@@ -191,13 +223,12 @@
     position: relative;
     overflow: hidden;
   }
-  .plxw img {
+  .plxw .plx {
     position: absolute;
     left: 0;
     top: -15%;
     width: 100%;
     height: 130%;
-    object-fit: cover;
     will-change: transform;
   }
 
@@ -249,7 +280,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--gold);
+    background: var(--gold-dark);
     transform: translateY(101%);
     transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
   }
@@ -269,11 +300,11 @@
     transform: translateX(6px);
   }
   .btn.solid {
-    background: var(--gold);
+    background: var(--gold-dark);
     color: var(--ivory);
   }
   .btn.solid::before {
-    background: var(--gold-dark);
+    background: var(--gold-deep);
   }
 
   /* Decorative */
@@ -1224,7 +1255,7 @@ body.mm-lock {
   transform: none;
 }
 .row .pr {
-  color: var(--gold);
+  color: var(--gold-dark);
   white-space: nowrap;
   font-size: 20px;
 }
@@ -1241,6 +1272,19 @@ body.mm-lock {
 /* Anchored sections sit below the sticky header when scrolled to */
 html {
   scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .spin,
+  .cookie-banner {
+    animation: none;
+  }
+  .mm,
+  .mm.open .mi {
+    transition: none;
+  }
 }
 .cat,
 #termin {
@@ -1278,7 +1322,7 @@ html {
 }
 .member .nm {
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  color: var(--gold);
+  color: var(--gold-dark);
   font-family: var(--font-serif), Georgia, serif;
   font-style: italic;
   font-weight: 400;

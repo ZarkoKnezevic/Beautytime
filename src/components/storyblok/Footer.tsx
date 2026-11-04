@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
 import { localizeHref, DEFAULT_LOCALE, type Locale } from '@/utils';
+import { SITE_META } from '@/constants';
 import type { StoryblokBlok, StoryblokLink } from '@/types';
 
 interface FooterProps {
@@ -26,7 +27,7 @@ export default function Footer({
 }: FooterProps) {
   const loc = (href: string) => localizeHref(href, locale);
   const logoSrc = asText(blok.logo?.filename);
-  const logoAlt = asText(blok.logo?.alt) || 'Beautytime Traun';
+  const logoAlt = SITE_META[locale].siteName;
   const ringText = asText(blok.ring_text) || 'Die beste Zeit ist BeautyTime.';
   const navLinks = (Array.isArray(blok.nav_links) ? blok.nav_links : []) as StoryblokBlok[];
   const legalLinks = (Array.isArray(blok.legal_links) ? blok.legal_links : []) as StoryblokBlok[];
@@ -79,7 +80,7 @@ export default function Footer({
                 </defs>
                 <text
                   fontSize={26}
-                  fill="#8C6935"
+                  fill="var(--gold-dark)"
                   style={{ fontFamily: 'var(--font-serif), Georgia, serif', fontStyle: 'italic' }}
                 >
                   <textPath href="#ringpath" startOffset="0" textLength={480} lengthAdjust="spacing">
@@ -111,7 +112,7 @@ export default function Footer({
               className="rv flex flex-col gap-3"
               style={{ gridColumn: '5 / span 2', transitionDelay: '.1s' }}
             >
-              {navTitle ? <div className="cap">{navTitle}</div> : null}
+              {navTitle ? <h2 className="cap">{navTitle}</h2> : null}
               {navLinks.map((item) => {
                 const resolved = prepareLinkProps(
                   { link: item.link, text: item.label },
@@ -131,7 +132,7 @@ export default function Footer({
             className="rv flex flex-col gap-3"
             style={{ gridColumn: '7 / span 3', transitionDelay: '.2s' }}
           >
-            {contactTitle ? <div className="cap">{contactTitle}</div> : null}
+            {contactTitle ? <h2 className="cap">{contactTitle}</h2> : null}
             {phone.text ? (
               <a href={phone.href || '#'} className="ul text-[15px]">
                 <span className="ul-t">{phone.text}</span>
@@ -162,7 +163,7 @@ export default function Footer({
             className="rv flex flex-col gap-3"
             style={{ gridColumn: '10 / span 3', transitionDelay: '.3s' }}
           >
-            {hoursTitle ? <div className="cap">{hoursTitle}</div> : null}
+            {hoursTitle ? <h2 className="cap">{hoursTitle}</h2> : null}
             {hours ? (
               <div className="whitespace-pre-line text-[15px] leading-relaxed">{hours}</div>
             ) : null}

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
+import LocaleLink from '@/components/LocaleLink';
 import type { StoryblokBlok } from '@/types';
 
 const asText = (v: unknown): string => (typeof v === 'string' ? v : '');
@@ -34,7 +35,6 @@ function CategoryImage({ img, clip }: { img?: { filename?: string; alt?: string 
             src={src}
             alt={alt}
             fill
-            quality={90}
             sizes="(max-width: 760px) 100vw, (max-width: 1440px) 40vw, 560px"
             className="object-cover"
           />
@@ -63,10 +63,19 @@ export default function ServiceCategory({ blok }: { blok: StoryblokBlok }) {
   const ctaLabel = asText(blok.cta_label);
   const { href: ctaHref } = prepareLinkProps({ link: blok.cta_link });
   const ctaExternal = /^https?:\/\//.test(ctaHref);
+  const ctaInternal = ctaHref.startsWith('/');
 
   const imageCol = imageLeft ? '1 / span 5' : '8 / span 5';
   const contentCol = imageLeft ? '7 / span 6' : '1 / span 6';
   const clip = imageLeft ? 'clip' : 'clipl';
+  const ctaStyle = {
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: 10,
+    marginTop: 36,
+    fontSize: 15,
+    transitionDelay: '.5s',
+  } as const;
   // Stable, locale-independent anchor (falls back to a slug of the title).
   const id = asText(blok.anchor) || slugify(titleLines.join(' '));
 
@@ -79,7 +88,7 @@ export default function ServiceCategory({ blok }: { blok: StoryblokBlok }) {
   const contentBlock = (
     <div style={{ gridColumn: contentCol }}>
       {number ? (
-        <div className="it rv" style={{ fontSize: 26, color: 'var(--gold)' }}>
+        <div className="it rv" style={{ fontSize: 26, color: 'var(--gold-dark)' }}>
           {number}
         </div>
       ) : null}
@@ -110,15 +119,22 @@ export default function ServiceCategory({ blok }: { blok: StoryblokBlok }) {
       ) : null}
 
       {ctaHref && ctaLabel ? (
-        <a
-          href={ctaHref}
-          className="ul rv"
-          style={{ display: 'inline-flex', alignItems: 'center', gap: 10, marginTop: 36, fontSize: 15, transitionDelay: '.5s' }}
-          {...(ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-        >
-          <span className="ul-t">{ctaLabel}</span>
-          <Arrow />
-        </a>
+        ctaInternal ? (
+          <LocaleLink href={ctaHref} className="ul rv" style={ctaStyle}>
+            <span className="ul-t">{ctaLabel}</span>
+            <Arrow />
+          </LocaleLink>
+        ) : (
+          <a
+            href={ctaHref}
+            className="ul rv"
+            style={ctaStyle}
+            {...(ctaExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >
+            <span className="ul-t">{ctaLabel}</span>
+            <Arrow />
+          </a>
+        )
       ) : null}
     </div>
   );

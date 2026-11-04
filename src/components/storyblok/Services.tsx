@@ -60,7 +60,6 @@ function ServiceCard({
             src={imgSrc}
             alt={imgAlt}
             fill
-            quality={90}
             sizes={
               featured
                 ? '(max-width: 1000px) 100vw, 66vw'
@@ -141,7 +140,7 @@ export default function Services({ blok }: { blok: StoryblokBlok }) {
           {titleAccent ? (
             <span className="ln">
               <span style={{ transitionDelay: '.25s' }}>
-                <em className="it text-gold gw" style={{ fontSize: '.78em' }}>
+                <em className="it text-gold-dark gw" style={{ fontSize: '.78em' }}>
                   {titleAccent}
                 </em>
               </span>

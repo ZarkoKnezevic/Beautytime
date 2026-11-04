@@ -10,10 +10,12 @@ import { usePathname } from 'next/navigation';
  * parallax + the gallery collage on scroll. Honors reduced motion.
  *
  * Client-navigation safe: the page is an async server component whose content
- * streams in AFTER this effect runs, so we can't rely on a one-shot query. A
- * MutationObserver (plus a couple of delayed re-scans) registers reveal targets
- * as they arrive, otherwise late-mounted content would stay hidden (opacity 0)
- * until a hard refresh.
+ * streams in AFTER this effect runs, so a MutationObserver registers reveal
+ * targets (and re-resolves the gallery/parallax nodes) as they arrive.
+ *
+ * Scroll work is coalesced into one animation frame per scroll/resize event
+ * and split into a read phase (layout queries) and a write phase (style
+ * updates) so it never forces synchronous layout mid-frame.
  */
 export default function Reveal() {
   const pathname = usePathname();
@@ -40,7 +42,16 @@ export default function Reveal() {
       );
     }
 
-    // Register any not-yet-tracked reveal targets, and fire `[data-load]`.
+    // Nodes driven on scroll; re-resolved whenever the DOM changes.
+    let plx: HTMLElement[] = [];
+    let gal: HTMLElement | null = null;
+    let galPin: HTMLElement | null = null;
+    let galMain: HTMLElement | null = null;
+    let galIg: HTMLElement | null = null;
+    let galSides: HTMLElement[] = [];
+
+    // Register any not-yet-tracked reveal targets, fire `[data-load]`, and
+    // refresh the scroll-driven node cache.
     const scan = () => {
       q('[data-load]').forEach((el) => el.classList.add('in'));
       const els = q(REVEAL_SEL);
@@ -54,66 +65,68 @@ export default function Reveal() {
       } else {
         els.forEach((el) => el.classList.add('in'));
       }
+
+      plx = q('.plx');
+      gal = document.querySelector<HTMLElement>('.gal');
+      galPin = document.querySelector<HTMLElement>('.gal-pin');
+      galMain = document.querySelector<HTMLElement>('.gl-main');
+      galIg = document.querySelector<HTMLElement>('.gal-ig');
+      galSides = q('.gl').filter((el) => el !== galMain);
     };
 
-    scan();
-    // Re-scan to catch content that streams in after this effect runs
-    // (client-side navigation into an async page).
-    const t1 = window.setTimeout(scan, 120);
-    const t2 = window.setTimeout(scan, 400);
-    const t3 = window.setTimeout(scan, 900);
-
-    // Observe DOM mutations so streamed-in reveal targets get registered.
-    const mo = new MutationObserver(() => scan());
-    mo.observe(document.body, { childList: true, subtree: true });
-
-    const gal = document.querySelector<HTMLElement>('.gal');
-    const galPin = document.querySelector<HTMLElement>('.gal-pin');
-    const galMain = document.querySelector<HTMLElement>('.gl-main');
-    const galIg = document.querySelector<HTMLElement>('.gal-ig');
-
-    const onScroll = () => {
+    const update = () => {
+      // ---- read phase ----
       const vh = window.innerHeight || 1;
-      const mobile = (window.innerWidth || 1440) <= 760;
+      const vw = window.innerWidth || 1440;
+      const mobile = vw <= 760;
+      const scrolled = window.scrollY || 0;
 
+      const plxWrites: Array<[HTMLElement, string]> = [];
       if (!reduce) {
-        const scrolled = window.scrollY || window.pageYOffset || 0;
-        q('.plx').forEach((el) => {
+        for (const el of plx) {
           const sp = el.dataset.speed;
           if (sp !== undefined) {
-            el.style.transform = `translate3d(0, ${(-scrolled * parseFloat(sp)).toFixed(1)}px, 0)`;
-            return;
+            plxWrites.push([el, `translate3d(0, ${(-scrolled * parseFloat(sp)).toFixed(1)}px, 0)`]);
+            continue;
           }
           const parent = el.parentElement;
-          if (!parent) return;
+          if (!parent) continue;
           const r = parent.getBoundingClientRect();
           const p = (r.top + r.height / 2 - vh / 2) / vh;
-          el.style.transform = `translate3d(0, ${(p * -9).toFixed(2)}%, 0)`;
-        });
+          plxWrites.push([el, `translate3d(0, ${(p * -9).toFixed(2)}%, 0)`]);
+        }
       }
 
       // Gallery collage: pin the stage, parallax the side photos, scale the
       // centre, reveal the "Follow us" square near the end. Flat fallback on
       // short viewports / reduced motion / tablet + mobile.
+      let galState: { flat: boolean; off: number; prog: number } | null = null;
       if (gal && galPin) {
         const canScroll = document.documentElement.scrollHeight - vh > 40;
-        const flat = reduce || !canScroll || vh > 1400 || (window.innerWidth || 1440) <= 1100;
-        gal.classList.toggle('flat', flat);
-        const galGl = q('.gl');
+        const flat = reduce || !canScroll || vh > 1400 || vw <= 1100;
         if (flat) {
-          galPin.style.transform = '';
-          galGl.forEach((el) => {
-            if (el !== galMain) el.style.transform = '';
-          });
-          if (galMain) galMain.style.transform = '';
+          galState = { flat, off: 0, prog: 0 };
         } else {
           const r = gal.getBoundingClientRect();
           const range = Math.max(1, r.height - vh);
           const off = Math.min(range, Math.max(0, -r.top));
+          galState = { flat, off, prog: off / range };
+        }
+      }
+
+      // ---- write phase ----
+      for (const [el, transform] of plxWrites) el.style.transform = transform;
+
+      if (gal && galPin && galState) {
+        gal.classList.toggle('flat', galState.flat);
+        if (galState.flat) {
+          galPin.style.transform = '';
+          galSides.forEach((el) => (el.style.transform = ''));
+          if (galMain) galMain.style.transform = '';
+        } else {
+          const { off, prog } = galState;
           galPin.style.transform = `translateY(${off.toFixed(1)}px)`;
-          const prog = off / range;
-          galGl.forEach((el) => {
-            if (el === galMain) return;
+          galSides.forEach((el) => {
             const k = (parseFloat(el.getAttribute('data-gl') || '0.3') || 0.3) * (mobile ? 0.5 : 1);
             el.style.transform = `translateY(${((0.5 - prog) * k * 420).toFixed(1)}px)`;
           });
@@ -123,14 +136,35 @@ export default function Reveal() {
       }
     };
 
+    // One frame per burst of scroll/resize/mutation events.
+    let frame = 0;
+    const schedule = (fn: () => void) => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(() => {
+        frame = 0;
+        fn();
+      });
+    };
+    const onScroll = () => schedule(update);
+    const rescan = () => {
+      scan();
+      update();
+    };
+    const onMutation = () => schedule(rescan);
+
+    rescan();
+    // Fallback for content that streams in after this effect runs.
+    const t1 = window.setTimeout(rescan, 400);
+
+    const mo = new MutationObserver(onMutation);
+    mo.observe(document.body, { childList: true, subtree: true });
+
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-    onScroll();
 
     return () => {
       window.clearTimeout(t1);
-      window.clearTimeout(t2);
-      window.clearTimeout(t3);
+      if (frame) window.cancelAnimationFrame(frame);
       mo.disconnect();
       io?.disconnect();
       window.removeEventListener('scroll', onScroll);

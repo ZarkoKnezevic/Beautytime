@@ -1,6 +1,7 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
-import type { StoryblokBlok } from '@/types';
+import { getRequestLocale } from '@/lib/locale';
+import type { StoryblokBlok, Locale } from '@/types';
 
 const asText = (v: unknown): string => (typeof v === 'string' ? v : '');
 
@@ -16,7 +17,7 @@ function Arrow() {
 function renderLine(line: string) {
   return line.split('**').map((part, i) =>
     i % 2 === 1 ? (
-      <em key={i} className="it text-gold gw" style={{ fontSize: '1.02em' }}>
+      <em key={i} className="it text-gold-dark gw" style={{ fontSize: '1.02em' }}>
         {part}
       </em>
     ) : (
@@ -25,16 +26,25 @@ function renderLine(line: string) {
   );
 }
 
-function Stars({ rating }: { rating: number }) {
+const RATING_LABEL: Record<Locale, (n: number) => string> = {
+  de: (n) => `Bewertung: ${n} von 5 Sternen`,
+  en: (n) => `Rating: ${n} out of 5 stars`,
+};
+
+function Stars({ rating, locale }: { rating: number; locale: Locale }) {
   const n = Math.max(1, Math.min(5, Math.round(rating) || 5));
   return (
-    <div style={{ color: 'var(--gold)', fontSize: 16, letterSpacing: 2 }} aria-label={`${n} / 5`}>
-      {'★'.repeat(n)}
+    <div
+      role="img"
+      aria-label={RATING_LABEL[locale](n)}
+      style={{ color: 'var(--gold)', fontSize: 16, letterSpacing: 2 }}
+    >
+      <span aria-hidden="true">{'★'.repeat(n)}</span>
     </div>
   );
 }
 
-function ReviewCard({ item, delay }: { item: StoryblokBlok; delay: string }) {
+function ReviewCard({ item, delay, locale }: { item: StoryblokBlok; delay: string; locale: Locale }) {
   const quote = asText(item.quote);
   const name = asText(item.name);
   const source = asText(item.source) || 'Google';
@@ -55,7 +65,7 @@ function ReviewCard({ item, delay }: { item: StoryblokBlok; delay: string }) {
         transitionDelay: delay,
       }}
     >
-      <Stars rating={rating} />
+      <Stars rating={rating} locale={locale} />
       <blockquote
         className="it"
         style={{ margin: 0, fontSize: 24, lineHeight: 1.25, color: 'var(--text)' }}
@@ -75,6 +85,7 @@ function ReviewCard({ item, delay }: { item: StoryblokBlok; delay: string }) {
  * Google link on the left, and a grid of five-star review cards on the right.
  */
 export default function Reviews({ blok }: { blok: StoryblokBlok }) {
+  const locale = getRequestLocale();
   const eyebrow = asText(blok.eyebrow) || 'Bewertungen';
   const lines = asText(blok.heading)
     .split('\n')
@@ -145,7 +156,12 @@ export default function Reviews({ blok }: { blok: StoryblokBlok }) {
 
         <div className="revs" style={{ gridColumn: '5 / span 8' }}>
           {items.map((item, i) => (
-            <ReviewCard key={item._uid ?? i} item={item} delay={`${(0.2 + i * 0.15).toFixed(2)}s`} />
+            <ReviewCard
+              key={item._uid ?? i}
+              item={item}
+              locale={locale}
+              delay={`${(0.2 + i * 0.15).toFixed(2)}s`}
+            />
           ))}
         </div>
       </div>

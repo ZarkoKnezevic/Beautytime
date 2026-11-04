@@ -12,7 +12,7 @@ type Img = { filename?: string; alt?: string } | undefined;
 function renderLine(line: string) {
   return line.split('**').map((part, i) =>
     i % 2 === 1 ? (
-      <em key={i} className="it text-gold gw">
+      <em key={i} className="it text-gold-dark gw">
         {part}
       </em>
     ) : (
@@ -21,7 +21,17 @@ function renderLine(line: string) {
   );
 }
 
-function HeroImg({ img, height, delay, pos, sizes }: { img: Img; height: number; delay: string; pos: string; sizes: string }) {
+type HeroImgProps = {
+  img: Img;
+  height: number;
+  delay: string;
+  pos: string;
+  sizes: string;
+  /** Above-the-fold hero images: `priority` preloads (LCP), `eager` just skips lazy loading. */
+  loading?: 'priority' | 'eager';
+};
+
+function HeroImg({ img, height, delay, pos, sizes, loading }: HeroImgProps) {
   const src = asText(img?.filename);
   const alt = asText(img?.alt);
   return (
@@ -31,7 +41,9 @@ function HeroImg({ img, height, delay, pos, sizes }: { img: Img; height: number;
           src={src}
           alt={alt}
           fill
-          quality={90}
+          priority={loading === 'priority'}
+          fetchPriority={loading === 'priority' ? 'high' : undefined}
+          loading={loading === 'eager' ? 'eager' : undefined}
           sizes={sizes}
           className="object-cover"
           style={{ objectPosition: pos, transitionDelay: delay }}
@@ -75,7 +87,7 @@ export default function PageHero({ blok }: { blok: StoryblokBlok }) {
           {eyebrow}
         </div>
       ) : null}
-      <h1 className="disp" aria-label={lines.join(' ')}>
+      <h1 className="disp" aria-label={lines.join(' ').replace(/\*\*/g, '')}>
         {lines.map((line, li) => (
           <span key={li} className="ln" aria-hidden="true">
             <span style={lineRise(li)}>{renderLine(line)}</span>
@@ -90,7 +102,7 @@ export default function PageHero({ blok }: { blok: StoryblokBlok }) {
       className="it gw"
       style={{
         fontSize: 'clamp(28px, 3.2vw, 46px)',
-        color: 'var(--gold)',
+        color: 'var(--gold-dark)',
         fontWeight: 600,
         lineHeight: 1.1,
         transitionDelay: '.7s',
@@ -132,8 +144,8 @@ export default function PageHero({ blok }: { blok: StoryblokBlok }) {
             className="m-full"
             style={{ gridColumn: '8 / span 5', display: 'grid', gridTemplateColumns: '3fr 2fr', gap: 24, alignItems: 'end' }}
           >
-            <HeroImg img={img1} height={440} delay=".6s" pos="center 50%" sizes="(max-width: 760px) 55vw, 300px" />
-            <HeroImg img={img2} height={320} delay=".8s" pos="center 30%" sizes="(max-width: 760px) 38vw, 200px" />
+            <HeroImg img={img1} height={440} delay=".6s" pos="center 50%" sizes="(max-width: 760px) 55vw, 300px" loading="priority" />
+            <HeroImg img={img2} height={320} delay=".8s" pos="center 30%" sizes="(max-width: 760px) 38vw, 200px" loading="eager" />
           </div>
         </div>
         <div className="spark" style={{ top: 120, right: '22%' }} />
@@ -152,7 +164,7 @@ export default function PageHero({ blok }: { blok: StoryblokBlok }) {
           {bodyEl(48)}
         </div>
         <div className="m-full" style={{ gridColumn: '8 / span 5', position: 'relative' }}>
-          <HeroImg img={img1} height={620} delay=".7s" pos="center 40%" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 42vw, 520px" />
+          <HeroImg img={img1} height={620} delay=".7s" pos="center 40%" sizes="(max-width: 760px) 100vw, (max-width: 1440px) 42vw, 520px" loading="priority" />
           {caption ? (
             <div className="cap rv" style={{ marginTop: 14, transitionDelay: '1.1s' }}>
               {caption}

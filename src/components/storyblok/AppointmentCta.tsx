@@ -1,5 +1,6 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
+import LocaleLink from '@/components/LocaleLink';
 import type { StoryblokBlok } from '@/types';
 
 const asText = (v: unknown): string => (typeof v === 'string' ? v : '');
@@ -8,7 +9,7 @@ const asText = (v: unknown): string => (typeof v === 'string' ? v : '');
 function renderLine(line: string) {
   return line.split('**').map((part, i) =>
     i % 2 === 1 ? (
-      <em key={i} className="it text-gold gw">
+      <em key={i} className="it text-gold-dark gw">
         {part}
       </em>
     ) : (
@@ -51,15 +52,28 @@ function CtaButton({ blok }: { blok: StoryblokBlok }) {
   const variant = asText(blok.variant);
   const { href } = prepareLinkProps({ link: blok.link });
   const external = /^https?:\/\//.test(href);
+  const className = `btn${variant === 'solid' ? ' solid' : ''}`;
+  const inner = (
+    <>
+      <Icon name={icon} />
+      <span>{label}</span>
+    </>
+  );
+  if (href.startsWith('/')) {
+    return (
+      <LocaleLink {...storyblokEditable(blok)} href={href} className={className}>
+        {inner}
+      </LocaleLink>
+    );
+  }
   return (
     <a
       {...storyblokEditable(blok)}
       href={href || '#'}
-      className={`btn${variant === 'solid' ? ' solid' : ''}`}
+      className={className}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
-      <Icon name={icon} />
-      <span>{label}</span>
+      {inner}
     </a>
   );
 }

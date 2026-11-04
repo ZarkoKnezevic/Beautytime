@@ -23,13 +23,13 @@ export default {
         sand: 'var(--bg)', // page background  #F7F0E6
         surface: 'var(--surface)', // #E7D7C5
         ink: 'var(--text)', // body text        #49382E
-        muted: 'var(--muted)', // #897465
+        muted: 'var(--muted)', // #716053
         ivory: 'var(--ivory)', // #FFF9F0
         line: 'var(--line)', // hairlines        #CDB99E
         gold: {
           DEFAULT: 'var(--gold)', // #B99552
           light: 'var(--gold-light)', // #DCC394
-          dark: 'var(--gold-dark)', // #8C6935
+          dark: 'var(--gold-dark)', // #7F5F30
         },
       },
       fontFamily: {

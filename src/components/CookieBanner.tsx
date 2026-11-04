@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useId, useSyncExternalStore } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { getConsent, setConsent, type Consent } from '@/utils/consent';
+import { getConsent, setConsent, subscribeConsent, type Consent } from '@/utils/consent';
 
 const COPY = {
   de: {
@@ -33,28 +33,25 @@ export default function CookieBanner() {
   const isEn = pathname === '/en' || pathname.startsWith('/en/');
   const t = isEn ? COPY.en : COPY.de;
 
-  // Start hidden to avoid a flash before we can read localStorage.
-  const [visible, setVisible] = useState(false);
+  // Server snapshot = "decided" so the banner never flashes before hydration;
+  // the client snapshot reads the stored choice.
+  const consent = useSyncExternalStore(subscribeConsent, getConsent, () => 'necessary' as Consent);
+  const titleId = useId();
 
-  useEffect(() => {
-    if (!getConsent()) setVisible(true);
-  }, []);
+  const choose = (c: Consent) => setConsent(c);
 
-  const choose = (c: Consent) => {
-    setConsent(c);
-    setVisible(false);
-  };
-
-  if (!visible) return null;
+  if (consent) return null;
 
   return (
-    <div className="cookie-banner" role="dialog" aria-label={t.title} aria-live="polite">
+    <div className="cookie-banner" role="dialog" aria-labelledby={titleId}>
       <div className="cookie-inner">
         <div className="cookie-text">
-          <div className="cookie-title it">{t.title}</div>
+          <h2 id={titleId} className="cookie-title it">
+            {t.title}
+          </h2>
           <p>
             {t.body}{' '}
-            <Link href={t.href} className="ul" onClick={() => setVisible(false)}>
+            <Link href={t.href} className="ul">
               <span className="ul-t">{t.link}</span>
             </Link>
           </p>

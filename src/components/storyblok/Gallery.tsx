@@ -13,7 +13,7 @@ function GalImg({ img, delay, sizes }: { img: Img; delay: string; sizes: string 
   return (
     <div className="imgw clip" style={{ transitionDelay: delay }}>
       {src ? (
-        <Image src={src} alt={alt} fill quality={90} sizes={sizes} className="object-cover" />
+        <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
       ) : null}
     </div>
   );

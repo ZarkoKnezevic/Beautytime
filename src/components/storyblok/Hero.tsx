@@ -117,7 +117,8 @@ export default function Hero({ blok }: HeroProps) {
                 alt={imgAlt}
                 fill
                 priority
-                quality={90}
+                fetchPriority="high"
+                quality={80}
                 sizes="(max-width: 760px) 100vw, (max-width: 1440px) 42vw, 600px"
                 className="object-cover"
                 style={{ objectPosition: 'center top', transitionDelay: '.7s' }}

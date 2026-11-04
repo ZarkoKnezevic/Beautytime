@@ -42,7 +42,6 @@ export default function TeamMember({ blok }: { blok: StoryblokBlok }) {
             src={src}
             alt={alt}
             fill
-            quality={90}
             sizes="(max-width: 760px) 100vw, (max-width: 1440px) 48vw, 640px"
             className="object-cover"
             style={{ objectPosition: 'center top' }}

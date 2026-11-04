@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import type { StoryblokBlok } from '@/types';
 
@@ -24,11 +25,7 @@ function renderLine(line: string) {
  */
 export default function Statement({ blok }: { blok: StoryblokBlok }) {
   const img = blok.image as { filename?: string } | undefined;
-  const rawSrc = asText(img?.filename);
-  // Full-bleed background: resize via Storyblok's image service for sharpness.
-  const imgSrc = rawSrc.includes('storyblok.com')
-    ? `${rawSrc.replace(/\/m\/.*$/, '')}/m/1800x0/filters:quality(85)`
-    : rawSrc;
+  const imgSrc = asText(img?.filename);
   const lines = asText(blok.heading)
     .split('\n')
     .map((l) => l.trim())
@@ -36,12 +33,25 @@ export default function Statement({ blok }: { blok: StoryblokBlok }) {
   const caption = asText(blok.caption);
 
   return (
-    <section {...storyblokEditable(blok)} className="plxw m-h after" data-io style={{ height: 760 }}>
+    <section
+      {...storyblokEditable(blok)}
+      className="plxw m-h after"
+      data-io
+      style={{ height: 760 }}
+    >
       {imgSrc ? (
-        // Parallax background needs 130%-tall positioning (.plxw img); plain img
-        // keeps that intact and is driven by the scroll handler via `.plx`.
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={imgSrc} alt="" aria-hidden="true" className="plx" style={{ objectPosition: 'center 50%' }} />
+        // `.plx` is the 130%-tall parallax layer moved by the Reveal scroll
+        // handler; the image fills it, lazy-loads and gets responsive sizes.
+        <div className="plx" aria-hidden="true">
+          <Image
+            src={imgSrc}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: 'center 50%' }}
+          />
+        </div>
       ) : null}
 
       <div
@@ -67,12 +77,17 @@ export default function Statement({ blok }: { blok: StoryblokBlok }) {
         <h2 className="disp" style={{ color: 'var(--ivory)' }}>
           {lines.map((line, i) => (
             <span key={i} className="ln">
-              <span style={{ transitionDelay: `${(i * 0.15).toFixed(2)}s` }}>{renderLine(line)}</span>
+              <span style={{ transitionDelay: `${(i * 0.15).toFixed(2)}s` }}>
+                {renderLine(line)}
+              </span>
             </span>
           ))}
         </h2>
         {caption ? (
-          <div className="cap rv" style={{ color: 'var(--gold-light)', marginTop: 28, transitionDelay: '.4s' }}>
+          <div
+            className="cap rv"
+            style={{ color: 'var(--gold-light)', marginTop: 28, transitionDelay: '.4s' }}
+          >
             {caption}
           </div>
         ) : null}
@@ -80,7 +95,10 @@ export default function Statement({ blok }: { blok: StoryblokBlok }) {
 
       <div className="spark" style={{ top: '18%', left: '12%' }} />
       <div className="spark" style={{ top: '32%', right: '18%', animationDelay: '1.4s' }} />
-      <div className="spark" style={{ bottom: '30%', right: '8%', animationDelay: '.7s', width: 4, height: 4 }} />
+      <div
+        className="spark"
+        style={{ bottom: '30%', right: '8%', animationDelay: '.7s', width: 4, height: 4 }}
+      />
     </section>
   );
 }

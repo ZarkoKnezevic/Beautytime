@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import type { StoryblokBlok } from '@/types';
 
@@ -24,10 +25,7 @@ function renderLine(line: string) {
  */
 export default function Philosophy({ blok }: { blok: StoryblokBlok }) {
   const img = blok.image as { filename?: string } | undefined;
-  const rawSrc = asText(img?.filename);
-  const imgSrc = rawSrc.includes('storyblok.com')
-    ? `${rawSrc.replace(/\/m\/.*$/, '')}/m/1800x0/filters:quality(85)`
-    : rawSrc;
+  const imgSrc = asText(img?.filename);
   const eyebrow = asText(blok.eyebrow);
   const lines = asText(blok.heading)
     .split('\n')
@@ -38,8 +36,18 @@ export default function Philosophy({ blok }: { blok: StoryblokBlok }) {
   return (
     <section {...storyblokEditable(blok)} className="plxw m-h" data-io style={{ height: 680 }}>
       {imgSrc ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img src={imgSrc} alt="" aria-hidden="true" className="plx" style={{ objectPosition: 'center 50%' }} />
+        // `.plx` is the 130%-tall parallax layer moved by the Reveal scroll
+        // handler; the image fills it, lazy-loads and gets responsive sizes.
+        <div className="plx" aria-hidden="true">
+          <Image
+            src={imgSrc}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: 'center 50%' }}
+          />
+        </div>
       ) : null}
 
       <div
@@ -49,7 +57,14 @@ export default function Philosophy({ blok }: { blok: StoryblokBlok }) {
           background: 'linear-gradient(180deg, rgba(73,56,46,0.2) 0%, rgba(73,56,46,0.6) 100%)',
         }}
       />
-      <div style={{ position: 'absolute', inset: 0, background: 'rgba(185,149,82,0.18)', mixBlendMode: 'multiply' }} />
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'rgba(185,149,82,0.18)',
+          mixBlendMode: 'multiply',
+        }}
+      />
 
       <div
         className="wrap"
@@ -72,12 +87,17 @@ export default function Philosophy({ blok }: { blok: StoryblokBlok }) {
         <h2 className="h2" style={{ color: 'var(--ivory)', maxWidth: 900 }}>
           {lines.map((line, i) => (
             <span key={i} className="ln">
-              <span style={{ transitionDelay: `${(i * 0.14).toFixed(2)}s` }}>{renderLine(line)}</span>
+              <span style={{ transitionDelay: `${(i * 0.14).toFixed(2)}s` }}>
+                {renderLine(line)}
+              </span>
             </span>
           ))}
         </h2>
         {body ? (
-          <p className="body rv" style={{ maxWidth: 520, margin: '32px 0 0', color: '#EDE1D2', transitionDelay: '.4s' }}>
+          <p
+            className="body rv"
+            style={{ maxWidth: 520, margin: '32px 0 0', color: '#EDE1D2', transitionDelay: '.4s' }}
+          >
             {body}
           </p>
         ) : null}

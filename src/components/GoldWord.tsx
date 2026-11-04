@@ -21,7 +21,7 @@ export default function GoldWord({ word }: { word: string }) {
           fontSize: 94,
           fontStyle: 'italic',
           fontFamily: 'var(--font-serif), Georgia, serif',
-          fill: 'var(--gold)',
+          fill: 'var(--gold-dark)',
         }}
       >
         {word}

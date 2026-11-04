@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import LocaleLink from '@/components/LocaleLink';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
 import type { StoryblokBlok } from '@/types';
@@ -18,7 +18,7 @@ function Arrow() {
 function renderLine(line: string) {
   return line.split('**').map((part, i) =>
     i % 2 === 1 ? (
-      <em key={i} className="it text-gold gw">
+      <em key={i} className="it text-gold-dark gw">
         {part}
       </em>
     ) : (
@@ -68,7 +68,6 @@ export default function TextImage({ blok }: { blok: StoryblokBlok }) {
                 src={imgSrc}
                 alt={imgAlt}
                 fill
-                quality={90}
                 sizes="(max-width: 760px) 100vw, 380px"
                 className="object-cover"
                 style={{ objectPosition: 'center 45%' }}
@@ -98,7 +97,7 @@ export default function TextImage({ blok }: { blok: StoryblokBlok }) {
             </p>
           ) : null}
           {href && linkLabel ? (
-            <Link
+            <LocaleLink
               href={href}
               className="ul rv"
               style={{
@@ -112,7 +111,7 @@ export default function TextImage({ blok }: { blok: StoryblokBlok }) {
             >
               <span className="ul-t">{linkLabel}</span>
               <Arrow />
-            </Link>
+            </LocaleLink>
           ) : null}
         </div>
       </div>

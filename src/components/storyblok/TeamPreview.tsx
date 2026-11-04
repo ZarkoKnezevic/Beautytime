@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import LocaleLink from '@/components/LocaleLink';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
 import type { StoryblokBlok } from '@/types';
@@ -18,7 +18,7 @@ function Arrow() {
 function renderLine(line: string) {
   return line.split('**').map((part, i) =>
     i % 2 === 1 ? (
-      <em key={i} className="it text-gold gw" style={{ fontSize: '1.08em' }}>
+      <em key={i} className="it text-gold-dark gw" style={{ fontSize: '1.08em' }}>
         {part}
       </em>
     ) : (
@@ -41,7 +41,7 @@ function Member({
   const src = asText(img?.filename);
   const alt = asText(img?.alt);
   return (
-    <Link
+    <LocaleLink
       href={href || '#'}
       className="hz"
       style={{ flex: '1 1 0', minWidth: 0, display: 'block', paddingTop: padTop ? 28 : 0 }}
@@ -61,14 +61,13 @@ function Member({
             src={src}
             alt={alt}
             fill
-            quality={90}
             sizes="(max-width: 760px) 48vw, 340px"
             className="object-cover"
             style={{ objectPosition: 'center top', transitionDelay: delay }}
           />
         ) : null}
       </div>
-    </Link>
+    </LocaleLink>
   );
 }
 
@@ -165,14 +164,14 @@ export default function TeamPreview({ blok }: { blok: StoryblokBlok }) {
         </div>
 
         {href && linkLabel ? (
-          <Link
+          <LocaleLink
             href={href}
             className="ul rv"
             style={{ marginTop: 52, fontSize: 14, display: 'inline-flex', alignItems: 'center', gap: 10, transitionDelay: '.9s' }}
           >
             <span className="ul-t">{linkLabel}</span>
             <Arrow />
-          </Link>
+          </LocaleLink>
         ) : null}
       </div>
     </section>

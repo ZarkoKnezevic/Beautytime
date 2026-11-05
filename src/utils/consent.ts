@@ -31,6 +31,21 @@ export function setConsent(c: Consent): void {
   window.dispatchEvent(new CustomEvent<Consent>(CONSENT_EVENT, { detail: c }));
 }
 
+/**
+ * Withdraw a stored choice so the consent banner reappears (GDPR Art. 7(3):
+ * withdrawing consent must be as easy as giving it). Reuses the same event so
+ * the banner and any gated embeds re-render immediately.
+ */
+export function clearConsent(): void {
+  if (typeof window === 'undefined') return;
+  try {
+    window.localStorage.removeItem(KEY);
+  } catch {
+    // Storage unavailable: nothing persisted to clear.
+  }
+  window.dispatchEvent(new CustomEvent<Consent | null>(CONSENT_EVENT, { detail: null }));
+}
+
 /** Subscribe to consent changes (for useSyncExternalStore). */
 export function subscribeConsent(callback: () => void): () => void {
   window.addEventListener(CONSENT_EVENT, callback);

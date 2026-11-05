@@ -4,6 +4,7 @@ import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
 import { localizeHref, DEFAULT_LOCALE, type Locale } from '@/utils';
 import { SITE_META } from '@/constants';
+import CookieSettingsLink from '@/components/CookieSettingsLink';
 import type { StoryblokBlok, StoryblokLink } from '@/types';
 
 interface FooterProps {
@@ -176,21 +177,20 @@ export default function Footer({
           style={{ marginTop: 72, transitionDelay: '.4s' }}
         >
           {copyright ? <div className="cap">{copyright}</div> : null}
-          {legalLinks.length > 0 ? (
-            <div className="flex gap-6">
-              {legalLinks.map((item) => {
-                const resolved = prepareLinkProps(
-                  { link: item.link, text: item.label },
-                  allResolvedLinks
-                );
-                return (
-                  <Link key={item._uid} href={loc(resolved.href || '#')} className="cap ul">
-                    {resolved.text}
-                  </Link>
-                );
-              })}
-            </div>
-          ) : null}
+          <div className="flex gap-6">
+            {legalLinks.map((item) => {
+              const resolved = prepareLinkProps(
+                { link: item.link, text: item.label },
+                allResolvedLinks
+              );
+              return (
+                <Link key={item._uid} href={loc(resolved.href || '#')} className="cap ul">
+                  {resolved.text}
+                </Link>
+              );
+            })}
+            <CookieSettingsLink locale={locale} />
+          </div>
         </div>
       </div>
     </footer>

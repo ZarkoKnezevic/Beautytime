@@ -1448,9 +1448,15 @@ body.mm-lock {
     margin-left: auto;
     margin-right: auto;
   }
-  /* Footer: push the cookie-settings link onto its own line (below Impressum). */
+  /* Footer: left-align the legal links and put the cookie-settings link on its
+     own line (below Impressum), aligned left. */
+  .legal-links {
+    width: 100%;
+    justify-content: flex-start;
+  }
   .cookie-settings {
     flex-basis: 100%;
+    text-align: left;
   }
 }
 

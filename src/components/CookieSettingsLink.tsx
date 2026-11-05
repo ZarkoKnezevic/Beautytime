@@ -24,8 +24,7 @@ export default function CookieSettingsLink({ locale }: { locale: Locale }) {
         border: 'none',
         padding: 0,
         margin: 0,
-        font: 'inherit',
-        color: 'inherit',
+        fontFamily: 'inherit',
         cursor: 'pointer',
       }}
     >

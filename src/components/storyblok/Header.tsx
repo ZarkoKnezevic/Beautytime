@@ -158,6 +158,8 @@ export default function Header({
     blok.cta_link ? { link: blok.cta_link, text: ctaLabel } : { text: ctaLabel },
     allResolvedLinks
   );
+  // Locale-prefix internal CTA targets (e.g. /leistungen#termin -> /en/leistungen#termin).
+  const ctaHref = loc(cta.href || '#');
 
   const items = (Array.isArray(blok.nav_links) ? (blok.nav_links as StoryblokBlok[]) : []).map(
     (item) => {
@@ -314,7 +316,7 @@ export default function Header({
         <div className="mm-cta">
           {cta.text ? (
             <a
-              href={cta.href || '#'}
+              href={ctaHref}
               onClick={close}
               className="btn solid mi"
               style={dStyle(n * 0.08 + 0.04)}
@@ -402,7 +404,7 @@ export default function Header({
             </Link>
           ))}
           {cta.text ? (
-            <a href={cta.href || '#'} className="ul inline-flex items-center gap-2.5 text-sm">
+            <a href={ctaHref} className="ul inline-flex items-center gap-2.5 text-sm">
               <span className="ul-t">{cta.text}</span>
               <Arrow />
             </a>

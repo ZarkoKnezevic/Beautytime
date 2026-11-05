@@ -174,9 +174,15 @@ export default function Services({ blok }: { blok: StoryblokBlok }) {
             ) : null}
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 10 }}>
               {ctaPrimary.text ? (
-                <a href={ctaPrimary.href || '#'} className="btn solid">
-                  <span>{ctaPrimary.text}</span>
-                </a>
+                ctaPrimary.href.startsWith('/') ? (
+                  <LocaleLink href={ctaPrimary.href} className="btn solid">
+                    <span>{ctaPrimary.text}</span>
+                  </LocaleLink>
+                ) : (
+                  <a href={ctaPrimary.href || '#'} className="btn solid">
+                    <span>{ctaPrimary.text}</span>
+                  </a>
+                )
               ) : null}
               {ctaWa.text ? (
                 <a href={ctaWa.href || '#'} className="btn" target="_blank" rel="noopener noreferrer">

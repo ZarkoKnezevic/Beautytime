@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
 import GoldWord from '@/components/GoldWord';
+import LocaleLink from '@/components/LocaleLink';
 import type { StoryblokBlok } from '@/types';
 
 interface HeroProps {
@@ -101,10 +102,17 @@ export default function Hero({ blok }: HeroProps) {
               </p>
             ) : null}
             {cta.text ? (
-              <a href={cta.href || '#'} className="btn rv" style={{ transitionDelay: '1.15s' }}>
-                <span>{cta.text}</span>
-                <Arrow />
-              </a>
+              cta.href.startsWith('/') ? (
+                <LocaleLink href={cta.href} className="btn rv" style={{ transitionDelay: '1.15s' }}>
+                  <span>{cta.text}</span>
+                  <Arrow />
+                </LocaleLink>
+              ) : (
+                <a href={cta.href || '#'} className="btn rv" style={{ transitionDelay: '1.15s' }}>
+                  <span>{cta.text}</span>
+                  <Arrow />
+                </a>
+              )
             ) : null}
           </div>
         </div>

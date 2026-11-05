@@ -91,7 +91,7 @@ export default function TextImage({ blok }: { blok: StoryblokBlok }) {
           ) : null}
         </div>
 
-        <div style={{ gridColumn: textCol }}>
+        <div className="ti-text" style={{ gridColumn: textCol }}>
           <h2 className="h2">
             {lines.map((line, i) => (
               <span key={i} className="ln">

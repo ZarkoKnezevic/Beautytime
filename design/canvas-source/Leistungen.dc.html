@@ -9,7 +9,7 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500;1,700&amp;display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#F7F0E6;color:#49382E;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
@@ -48,6 +48,19 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
 .row:hover{padding-left:20px;color:#8C6935}.row:hover::before{transform:none}
 .row .pr{color:#B99552;white-space:nowrap;font-size:20px}
 .stick{position:sticky;top:96px}
+/* all gold text bold */
+.row .pr,.gb,[style*="color: #B99552"],[style*="color:#B99552"]{font-weight:700 !important}
+.sub{font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8C6935;padding:44px 0 12px;border-bottom:1px solid #CDB99E}
+.sub:first-child{padding-top:0}
+.lnote{font-size:14px;line-height:1.5;color:#897465;font-style:italic;margin:12px 0 0}
+.row .rn{display:block;font-size:14px;color:#897465;margin-top:4px}
+.row>span:first-child{min-width:0}
+.row.st-head{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#897465;padding:0 0 14px}
+.row.st-head:hover{padding-left:0;color:#897465}.row.st-head::before{display:none}
+.row.st .pr{white-space:normal;text-align:right;max-width:46%}
+.st-notes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:48px}
+.st-notes p{font-size:15px;line-height:1.55;color:#49382E;margin:10px 0 0}
+@media (max-width:760px){.row{flex-wrap:wrap;row-gap:4px;font-size:16px}.row .pr{margin-left:auto;font-size:18px}.st-notes{grid-template-columns:1fr;gap:22px}.row.st .pr{max-width:none}}
 .cat{padding-top:120px;padding-bottom:120px;border-top:1px solid #CDB99E}
 @media (max-width:760px){
   .nav-links{display:none !important}
@@ -170,8 +183,8 @@ body.mm-lock{overflow:hidden}
   <h1 class="disp" style="font-size: clamp(56px, 10.4vw, 150px)"><span class="lt" style="--l: 0s"><span class="wd"><span class="ch" style="--i: 0">L</span><span class="ch" style="--i: 1">e</span><span class="ch" style="--i: 2">i</span><span class="ch" style="--i: 3">s</span><span class="ch" style="--i: 4">t</span><span class="ch" style="--i: 5">u</span><span class="ch" style="--i: 6">n</span><span class="ch" style="--i: 7">g</span><span class="ch" style="--i: 8">e</span><span class="ch" style="--i: 9">n</span></span></span></h1>
   <div class="two" style="margin-top: 40px; align-items: start">
     <div style="grid-column: 1 / span 6">
-      <div class="it rv" style="font-size: clamp(28px, 3.2vw, 46px); color: #B99552; line-height: 1.1; transition-delay: .7s; --d: .7s">für Haut, Haar, Hände und Füße –<br>sieben Bereiche, ein Studio.</div>
-      <p class="body rv" style="max-width: 460px; margin: 32px 0 0; transition-delay: .85s; --d: .85s">Jede Behandlung mit Zeit, Ruhe und Blick fürs Detail. Dauer und Preise erfahren Sie direkt im Studio oder telefonisch – [Preise ergänzen].</p>
+      <div class="gb it rv" style="font-size: clamp(28px, 3.2vw, 46px); color: #B99552; line-height: 1.1; transition-delay: .7s; --d: .7s">für Haut, Haar, Hände und Füße –<br>acht Bereiche, ein Studio.</div>
+      <p class="body rv" style="max-width: 460px; margin: 32px 0 0; transition-delay: .85s; --d: .85s">Jede Behandlung mit Zeit, Ruhe und Blick fürs Detail. Alle Preise in Euro, Stand 06/2026.</p>
     </div>
     <div style="grid-column: 8 / span 5; display: grid; grid-template-columns: 3fr 2fr; gap: 24px; align-items: end">
       <div class="imgw clip m-sm" style="height: 440px; transition-delay: .6s; --d: .6s"><img src="/_blob/c7af21fc44d504e461cf7bccd6c31f23" alt="Rosenwand mit Neonschriftzug Where the magic happens" style="object-position: center 50%; transition-delay: .6s; --d: .6s"></div>
@@ -191,21 +204,24 @@ body.mm-lock{overflow:hidden}
     <div class="stick hz"><div class="imgw clip" style="height: 600px"><img src="/_blob/9d6efaf319f44baa0178b20215c6542a" alt="Kosmetik-Werkzeuge und Pinsel auf weißem Tuch" style="object-position: center 50%"></div></div>
   </div>
   <div style="grid-column: 7 / span 6">
-    <div class="it rv" style="font-size: 26px; color: #B99552">01</div>
+    <div class="gb it rv" style="font-size: 26px; color: #B99552">01</div>
     <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>Kosmetik</span></span></h2>
     <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Gesichtsbehandlungen, Microneedling und Peelings für eine Haut, die von innen strahlt.</p>
     <div class="rv" style="transition-delay: .35s">
-      <div class="row"><span>Microneedling + Gesichtsbehandlung</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Microneedling einzeln</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Fruchtsäurepeeling + Gesichtsbehandlung</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Fruchtsäurepeeling einzeln</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Kleine Gesichtsbehandlung</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Große Gesichtsbehandlung</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Teenager-Gesichtsbehandlung</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Rückenbehandlung bei Unreinheiten</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Aqua Facial</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Biolifting mit Kollagen</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Ultraschall mit Vitamin C / Hyaluron / Kollagen</span><span class="it pr">[Preis]</span></div>
+      <div class="row"><span>Gesichtsbehandlung klassisch · 50 min</span><span class="it pr">€ 85,–</span></div>
+      <div class="row"><span>Gesichtsbehandlung klassisch · 80 min</span><span class="it pr">€ 109,–</span></div>
+      <div class="row"><span>Teenager-Gesichtsbehandlung</span><span class="it pr">€ 69,–</span></div>
+      <div class="row"><span>Rückenbehandlung</span><span class="it pr">€ 59,–</span></div>
+      <div class="row"><span>Aqua Facial</span><span class="it pr">€ 139,–</span></div>
+      <div class="row"><span>Glas Facial</span><span class="it pr">€ 145,–</span></div>
+      <div class="row"><span>Microneedling mit Gesichtsbehandlung</span><span class="it pr">€ 149,–</span></div>
+      <div class="row"><span>Microneedling Einzelbehandlung</span><span class="it pr">€ 109,–</span></div>
+      <div class="row"><span>Fruchtsäure mit Gesichtsbehandlung</span><span class="it pr">€ 129,–</span></div>
+      <div class="row"><span>Fruchtsäure Einzelbehandlung</span><span class="it pr">€ 59,–</span></div>
+      <div class="row"><span>Microdermabrasion</span><span class="it pr">€ 119,–</span></div>
+      <div class="sub">Ergänzende Zusatzbehandlungen</div>
+      <div class="row"><span>Biolifting mit Kollagen</span><span class="it pr">€ 15,–</span></div>
+      <div class="row"><span>Ultraschall mit Vitamin C / Hyaluron</span><span class="it pr">€ 15,–</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Termin für Kosmetik vereinbaren
       <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
@@ -213,19 +229,23 @@ body.mm-lock{overflow:hidden}
   </div>
 </section><section class="wrap cat two" data-io="" id="naegel">
   <div style="grid-column: 1 / span 6">
-    <div class="it rv" style="font-size: 26px; color: #B99552">02</div>
+    <div class="gb it rv" style="font-size: 26px; color: #B99552">02</div>
     <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>Nagelstudio</span></span></h2>
-    <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Maniküre, Gel und Shellac – von der reinen Pflege bis zu French, Ombre, Cat Eye und Chrome.</p>
+    <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Maniküre, Shellac und Gel – von Slim Nails und Russian Almond bis French, Ombre, Cat Eye und Chrome.</p>
     <div class="rv" style="transition-delay: .35s">
-      <div class="row"><span>Maniküre mit Lack</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Maniküre mit Shellac</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Nageldesign Neuset (Gel)</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Nageldesign Nachfüllen (Gel)</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Handnagelpflege – reine Nagelbehandlung</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Nail Repair</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Kunstnägel / Shellac entfernen</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Nailart &amp; French (French, Ombre, Cat Eye, Chrome, Metallic)</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Verlängerung / extra Nagellänge</span><span class="it pr">[Preis]</span></div>
+      <div class="row"><span>Maniküre</span><span class="it pr">€ 35,–</span></div>
+      <div class="row"><span>+ Nägel lackieren</span><span class="it pr">€ 15,–</span></div>
+      <div class="row"><span>Naturnagelverstärkung / Shellac</span><span class="it pr">€ 46,–</span></div>
+      <div class="row"><span>Neumodellage Gelnägel</span><span class="it pr">€ 64,–</span></div>
+      <div class="row"><span>Auffüllen Gelnägel</span><span class="it pr">€ 54,–</span></div>
+      <div class="row"><span>Slim Nails</span><span class="it pr">€ 74,–</span></div>
+      <div class="row"><span>Dual Tips / Russian Almond</span><span class="it pr">€ 84,–</span></div>
+      <div class="sub">Zusätze</div>
+      <div class="row"><span>Peeling + Handmassage</span><span class="it pr">€ 15,–</span></div>
+      <div class="row"><span>French / Ombre / Cat Eye / Chrome</span><span class="it pr">€ 9,–</span></div>
+      <div class="row"><span>Nailart (Zeichnen)</span><span class="it pr">ab € 5,–</span></div>
+      <div class="row"><span>Länge M / L / XL</span><span class="it pr">€ 7,– / 14,– / 21,–</span></div>
+      <div class="row"><span>Kunstnägel / Shellac entfernen</span><span class="it pr">€ 19,–</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Termin im Nagelstudio vereinbaren
       <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
@@ -242,20 +262,51 @@ body.mm-lock{overflow:hidden}
     <div class="stick hz"><div class="imgw clip" style="height: 600px"><img src="/_blob/0e37c8fa9cbd2975920a01eb6b680c9e" alt="Glänzende blonde Wellen mit Balayage" style="object-position: center 50%"></div></div>
   </div>
   <div style="grid-column: 7 / span 6">
-    <div class="it rv" style="font-size: 26px; color: #B99552">03</div>
+    <div class="gb it rv" style="font-size: 26px; color: #B99552">03</div>
     <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>Haare &amp; Styling</span></span></h2>
-    <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Schnitt, Farbe und Pflege für Damen, Herren und Kinder – inklusive Balayage, Keratin und Olaplex.</p>
+    <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Schnitt, Farbe und Pflege für Damen, Herren und Kinder – inklusive Balayage, Airtouch, Keratin und Haarverlängerung.</p>
     <div class="rv" style="transition-delay: .35s">
-      <div class="row"><span>Damen Haarschnitt (Waschen, Schneiden, Föhnen)</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Herren Haarschnitt</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Kinderhaarschnitt</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Balayage &amp; Strähnen</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Haare färben – ganzer Kopf</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Haare färben – Ansatz</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Blondierung</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Keratinbehandlung &amp; Haarbotox</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Olaplex Haarkur / Intensivpflege</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Bartpflege &amp; Bart trimmen</span><span class="it pr">[Preis]</span></div>
+      <div class="sub">Damen</div>
+      <p class="lnote">Preise gestaffelt nach Haarlänge.</p>
+      <div class="row"><span>Waschen</span><span class="it pr">€ 17,–</span></div>
+      <div class="row"><span>Waschen &amp; Föhnen</span><span class="it pr">€ 27,– / 37,– / 47,– / 57,–</span></div>
+      <div class="row"><span>Waschen &amp; Schneiden</span><span class="it pr">€ 37,– / 47,– / 57,– / 67,–</span></div>
+      <div class="row"><span>Waschen, Schneiden &amp; Föhnen glatt</span><span class="it pr">€ 47,– / 57,– / 67,– / 77,–</span></div>
+      <div class="row"><span>Waschen, Schneiden &amp; Föhnen Volumen</span><span class="it pr">€ 57,– / 67,– / 77,– / 87,–</span></div>
+      <div class="row"><span>Locken / Glätten (ohne Waschen)</span><span class="it pr">€ 23,– / 33,– / 43,– / 53,–</span></div>
+      <div class="row"><span>Steckfrisur</span><span class="it pr">€ 47,– / 59,– / 72,– / 87,–</span></div>
+      <div class="row"><span>Flechten (pro Stück)</span><span class="it pr">€ 5,–</span></div>
+      <div class="sub">Herren · Kurzhaarschnitte</div>
+      <div class="row"><span>Maschinenschnitt</span><span class="it pr">€ 25,–</span></div>
+      <div class="row"><span>Waschen</span><span class="it pr">€ 8,–</span></div>
+      <div class="row"><span>Styling</span><span class="it pr">€ 5,–</span></div>
+      <div class="row"><span>Bart</span><span class="it pr">€ 5,–</span></div>
+      <div class="row"><span>Kopfmassage 5 min / 10 min</span><span class="it pr">€ 9,– / 15,–</span></div>
+      <div class="sub">Kinder</div>
+      <div class="row"><span>Buben bis 6 Jahre</span><span class="it pr">€ 16,–</span></div>
+      <div class="row"><span>Buben bis 12 Jahre</span><span class="it pr">€ 19,–</span></div>
+      <div class="row"><span>Mädchen bis 6 Jahre</span><span class="it pr">€ 22,–</span></div>
+      <div class="row"><span>Mädchen bis 12 Jahre</span><span class="it pr">€ 27,–</span></div>
+      <div class="sub">Farbe, Strähnen &amp; Blondierung</div>
+      <p class="lnote">Strähnen, Airtouch und Balayage jeweils ohne Tönung.</p>
+      <div class="row"><span>Ansatzfarbe 1 cm / 3 cm / 5 cm</span><span class="it pr">€ 36,– / 41,– / 46,–</span></div>
+      <div class="row"><span>Farbe (ganzer Kopf)</span><span class="it pr">€ 49,– / 59,– / 69,– / 79,–</span></div>
+      <div class="row"><span>Tönung (ganzer Kopf)</span><span class="it pr">€ 37,– / 47,– / 57,– / 67,–</span></div>
+      <div class="row"><span>Strähnen Oberkopf</span><span class="it pr">€ 53,– / 68,– / 83,– / 98,–</span></div>
+      <div class="row"><span>Strähnen Oberkopf &amp; Konturen</span><span class="it pr">€ 68,– / 83,– / 98,– / 113,–</span></div>
+      <div class="row"><span>Strähnen ganzer Kopf</span><span class="it pr">€ 87,– / 106,– / 129,– / 153,–</span></div>
+      <div class="row"><span>Airtouch Oberkopf &amp; Konturen</span><span class="it pr">€ 82,– / 106,– / 129,– / 153,–</span></div>
+      <div class="row"><span>Airtouch ganzer Kopf</span><span class="it pr">€ 102,– / 126,– / 149,– / 173,–</span></div>
+      <div class="row"><span>Balayage Oberkopf &amp; Konturen</span><span class="it pr">€ 58,– / 68,– / 78,– / 98,–</span></div>
+      <div class="row"><span>Balayage Ganzkopf</span><span class="it pr">€ 72,– / 89,– / 112,– / 127,–</span></div>
+      <div class="row"><span>Blondierung Ganzkopf</span><span class="it pr">€ 58,– / 73,– / 88,– / 113,–</span></div>
+      <div class="row"><span>Blondierung Ansatz 1 cm / 3 cm / 5 cm</span><span class="it pr">€ 28,– / 38,– / 53,–</span></div>
+      <div class="sub">Pflege &amp; Extras</div>
+      <div class="row"><span>Keratinbehandlung</span><span class="it pr">€ 179,– / 219,– / 259,– / 299,–</span></div>
+      <div class="row"><span>Intensiver Haaraufbau</span><span class="it pr">€ 159,– / 199,– / 239,– / 279,–</span></div>
+      <div class="row"><span>Haarverlängerung</span><span class="it pr">ab € 699,–</span></div>
+      <div class="row"><span>Haarschutz-Produkte / Dose</span><span class="it pr">€ 15,–</span></div>
+      <div class="row"><span>Extrapflege</span><span class="it pr">€ 21,–</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Friseurtermin vereinbaren
       <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
@@ -266,20 +317,26 @@ body.mm-lock{overflow:hidden}
 <!-- 04 LASER -->
 <section class="wrap cat two" data-io="" id="laser">
   <div style="grid-column: 1 / span 6">
-    <div class="it rv" style="font-size: 26px; color: #B99552">04</div>
+    <div class="gb it rv" style="font-size: 26px; color: #B99552">04</div>
     <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>Dauerhafte</span></span><span class="ln" style="transition-delay: .2s"><span>Haarentfernung</span></span></h2>
-    <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Laserbehandlung für glatte Haut – einzeln oder als Paket.</p>
+    <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Dauerhafte Haarentfernung für glatte Haut – vom Gesicht bis zu den Beinen, einzeln oder als Paket.</p>
     <div class="rv" style="transition-delay: .35s">
-      <div class="row"><span>Gesicht – Oberlippe</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Gesicht – Kinn</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Gesicht komplett</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Achseln</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Arme</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Beine</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Bikinizone / Intim</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Rücken &amp; Brust</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Paket Intim &amp; Achseln</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Paket Unterschenkel &amp; Intim</span><span class="it pr">[Preis]</span></div>
+      <div class="row"><span>Oberlippe</span><span class="it pr">€ 35,–</span></div>
+      <div class="row"><span>Kinn</span><span class="it pr">€ 35,–</span></div>
+      <div class="row"><span>Gesicht komplett</span><span class="it pr">€ 75,–</span></div>
+      <div class="row"><span>Achseln</span><span class="it pr">€ 45,–</span></div>
+      <div class="row"><span>Oberarme</span><span class="it pr">€ 69,–</span></div>
+      <div class="row"><span>Unterarme</span><span class="it pr">€ 69,–</span></div>
+      <div class="row"><span>Arme komplett</span><span class="it pr">€ 129,–</span></div>
+      <div class="row"><span>Brust</span><span class="it pr">€ 69,–</span></div>
+      <div class="row"><span>Bauch</span><span class="it pr">€ 69,–</span></div>
+      <div class="row"><span>Paket Bauch &amp; Brust</span><span class="it pr">€ 129,–</span></div>
+      <div class="row"><span>Rücken</span><span class="it pr">€ 99,–</span></div>
+      <div class="row"><span>Bikinizone</span><span class="it pr">€ 59,–</span></div>
+      <div class="row"><span>Intim inkl. Bikini</span><span class="it pr">€ 95,–</span></div>
+      <div class="row"><span>Oberschenkel</span><span class="it pr">€ 95,–</span></div>
+      <div class="row"><span>Unterschenkel</span><span class="it pr">€ 95,–</span></div>
+      <div class="row"><span>Beine komplett inkl. Zehen</span><span class="it pr">€ 180,–</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Beratung vereinbaren
       <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
@@ -296,21 +353,25 @@ body.mm-lock{overflow:hidden}
     <div class="stick hz"><div class="imgw clip" style="height: 600px"><img src="/_blob/63ac313600810119ca07c6111bc585e0" alt="Cremige Wachs-Textur in Elfenbein" style="object-position: center 50%"></div></div>
   </div>
   <div style="grid-column: 7 / span 6">
-    <div class="it rv" style="font-size: 26px; color: #B99552">05</div>
+    <div class="gb it rv" style="font-size: 26px; color: #B99552">05</div>
     <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>Waxing</span></span></h2>
     <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Haarentfernung mit Wachs – sanft, gründlich und auch als Paket.</p>
     <div class="rv" style="transition-delay: .35s">
-      <div class="row"><span>Oberlippe</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Kinn</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Gesicht (Oberlippe + Kinn)</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Achseln</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Arme</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Beine</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Bikinizone</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Intim</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Rücken / Brust / Bauch</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Paket Bauch &amp; Brust</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Paket Beine komplett inkl. Zehen</span><span class="it pr">[Preis]</span></div>
+      <div class="row"><span>Oberlippe</span><span class="it pr">€ 14,–</span></div>
+      <div class="row"><span>Kinn</span><span class="it pr">€ 14,–</span></div>
+      <div class="row"><span>Achseln</span><span class="it pr">€ 19,–</span></div>
+      <div class="row"><span>Oberarme</span><span class="it pr">€ 26,–</span></div>
+      <div class="row"><span>Unterarme</span><span class="it pr">€ 26,–</span></div>
+      <div class="row"><span>Arme komplett</span><span class="it pr">€ 39,–</span></div>
+      <div class="row"><span>Brust</span><span class="it pr">€ 35,–</span></div>
+      <div class="row"><span>Bauch</span><span class="it pr">€ 35,–</span></div>
+      <div class="row"><span>Paket Bauch &amp; Brust</span><span class="it pr">€ 59,–</span></div>
+      <div class="row"><span>Rücken</span><span class="it pr">€ 47,–</span></div>
+      <div class="row"><span>Bikinizone</span><span class="it pr">€ 24,–</span></div>
+      <div class="row"><span>Intim inkl. Bikini</span><span class="it pr">€ 39,–</span></div>
+      <div class="row"><span>Oberschenkel</span><span class="it pr">€ 35,–</span></div>
+      <div class="row"><span>Unterschenkel</span><span class="it pr">€ 35,–</span></div>
+      <div class="row"><span>Beine komplett inkl. Zehen</span><span class="it pr">€ 59,–</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Waxing-Termin vereinbaren
       <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
@@ -321,20 +382,26 @@ body.mm-lock{overflow:hidden}
 <!-- 06 FUSSPFLEGE -->
 <section class="wrap cat two" data-io="" id="fusspflege">
   <div style="grid-column: 1 / span 6">
-    <div class="it rv" style="font-size: 26px; color: #B99552">06</div>
+    <div class="gb it rv" style="font-size: 26px; color: #B99552">06</div>
     <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>Fußpflege</span></span></h2>
-    <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Pediküre und podologische Fußpflege – von der reinen Nagelbehandlung bis zur Nagelspange.</p>
+    <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Nagelpflege, Fußpflege und Wellness-Pakete – mit Lack, Shellac oder French, bis zur Lift-up-Technik.</p>
     <div class="rv" style="transition-delay: .35s">
-      <div class="row"><span>Fußnagelpflege – reine Nagelbehandlung</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Fußnagelpflege mit Lack</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Fußnagelpflege mit Shellac</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Podologische Fußpflege</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Nagelprothetik (pro Nagel)</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Nagelspange (Podofix inkl. Setzen)</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Kleines Service (Hühnerauge, eingewachsener Nagel, Shellac entfernen)</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Peeling – sanfte Hauterneuerung</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Fußmaske – intensive Pflege</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Fußmassage extra</span><span class="it pr">[Preis]</span></div>
+      <div class="sub">Nagelpflege</div>
+      <div class="row"><span>Nagelpflege mit Lack</span><span class="it pr">€ 39,–</span></div>
+      <div class="row"><span>Nagelpflege mit Shellac / French</span><span class="it pr">€ 46,– / 55,–</span></div>
+      <div class="sub">Fußpflege</div>
+      <div class="row"><span>Fußpflege</span><span class="it pr">€ 54,–</span></div>
+      <div class="row"><span>Fußpflege mit Lack</span><span class="it pr">€ 59,–</span></div>
+      <div class="row"><span>Fußpflege mit Shellac / French</span><span class="it pr">€ 69,– / 74,–</span></div>
+      <div class="sub">Wellness</div>
+      <div class="row"><span>Wellnesspaket<small class="rn">inkl. Fußpflege, Peeling und Fußmassage</small></span><span class="it pr">€ 69,–</span></div>
+      <div class="row"><span>Wellness Deluxe<small class="rn">inkl. Fußpflege, Shellac, Peeling, Fußmaske und Fußmassage</small></span><span class="it pr">€ 99,–</span></div>
+      <div class="sub">Spezial &amp; Extras</div>
+      <div class="row"><span>Spezielle Fußpflege</span><span class="it pr">€ 64,–</span></div>
+      <div class="row"><span>Spezialbehandlung: Lift-up-Technik</span><span class="it pr">€ 49,–</span></div>
+      <div class="row"><span>Kleines Service / Nagelprothetik</span><span class="it pr">€ 25,–</span></div>
+      <div class="row"><span>Peeling / Fußmaske</span><span class="it pr">€ 15,–</span></div>
+      <div class="row"><span>Fußmassage 10 min</span><span class="it pr">€ 15,–</span></div>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Fußpflege-Termin vereinbaren
       <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
@@ -351,18 +418,24 @@ body.mm-lock{overflow:hidden}
     <div class="stick hz"><div class="imgw clip" style="height: 600px"><img src="/_blob/39d7c64b1b6071b14dbe6ea0e6ecc792" alt="Nahaufnahme Auge mit Wimpernverlängerung" style="object-position: center 45%"></div></div>
   </div>
   <div style="grid-column: 7 / span 6">
-    <div class="it rv" style="font-size: 26px; color: #B99552">07</div>
+    <div class="gb it rv" style="font-size: 26px; color: #B99552">07</div>
     <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>Wimpern &amp; Brauen</span></span></h2>
     <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Wimpernverlängerung, Lifting und Färben für einen Blick, der bleibt.</p>
     <div class="rv" style="transition-delay: .35s">
-      <div class="row"><span>Wimpernverlängerung Neuset (klassisch)</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Wimpernverlängerung Neuset (Volume / Megavolumen)</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Wimpernverlängerung Auffüllen</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Lashlifting inkl. Färben</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Browlifting inkl. Färben</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Augenbrauen zupfen &amp; formen</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Augenbrauen / Wimpern färben</span><span class="it pr">[Preis]</span></div>
-      <div class="row"><span>Kombi Augenbrauen &amp; Wimpern (färben &amp; formen)</span><span class="it pr">[Preis]</span></div>
+      <div class="row"><span>Augenbrauen zupfen &amp; formen</span><span class="it pr">€ 15,–</span></div>
+      <div class="row"><span>Augenbrauen oder Wimpern färben</span><span class="it pr">€ 15,–</span></div>
+      <div class="row"><span>Augenbrauen + Wimpern färben</span><span class="it pr">€ 25,–</span></div>
+      <div class="row"><span>Kombi-Paket Augenbrauen &amp; Wimpern<small class="rn">Alles in einem: Färben und Formen</small></span><span class="it pr">€ 35,–</span></div>
+      <div class="row"><span>Lashlift oder Browlift inkl. Färben</span><span class="it pr">€ 64,–</span></div>
+      <div class="row"><span>Kombiangebot Lash- &amp; Browlift</span><span class="it pr">€ 109,–</span></div>
+      <div class="sub">Wimpernverlängerung · Neuset</div>
+      <div class="row"><span>Klassische Wimpern (1 zu 1)</span><span class="it pr">€ 79,–</span></div>
+      <div class="row"><span>Light / Volumen / Mega</span><span class="it pr">€ 89,– / 99,– / 109,–</span></div>
+      <div class="sub">Wimpernverlängerung · Auffüllen</div>
+      <div class="row"><span>Klassische Wimpern (1 zu 1)</span><span class="it pr">€ 49,–</span></div>
+      <div class="row"><span>Light / Volumen / Mega</span><span class="it pr">€ 54,– / 59,– / 64,–</span></div>
+      <div class="row"><span>Wimpern entfernen</span><span class="it pr">€ 25,–</span></div>
+      <p class="lnote">Ab der 5. Woche wird ein Neuset verrechnet.</p>
     </div>
     <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">Wimpern-Termin vereinbaren
       <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
@@ -370,12 +443,65 @@ body.mm-lock{overflow:hidden}
   </div>
 </section>
 
+<!-- 08 SPA -->
+<section class="wrap cat two" data-io="" id="spa">
+  <div style="grid-column: 1 / span 6">
+    <div class="gb it rv" style="font-size: 26px; color: #B99552">08</div>
+    <h2 class="h2" style="margin-top: 12px"><span class="ln" style="transition-delay: .1s"><span>SPA-Behandlungen</span></span></h2>
+    <p class="body muted rv" style="max-width: 460px; margin: 28px 0 40px; transition-delay: .25s">Verwöhnmomente für Körper und Kopf – Peelings, Anti-Cellulite, Kraulzeit und Headspa.</p>
+    <div class="rv" style="transition-delay: .35s">
+      <div class="row"><span>Wellness Gesichtsverwöhnung</span><span class="it pr">€ 59,–</span></div>
+      <div class="row"><span>Verwöhnendes Körperpeeling</span><span class="it pr">€ 64,–</span></div>
+      <div class="row"><span>Anti-Cellulite-Behandlung</span><span class="it pr">€ 69,–</span></div>
+      <div class="row"><span>Paketangebot Anti-Cellulite</span><span class="it pr">5 + 1 gratis</span></div>
+      <div class="row"><span>Soft Skin Ritual: Peeling &amp; Bodybutter</span><span class="it pr">€ 89,–</span></div>
+      <div class="sub">Wohlfühlbehandlung</div>
+      <div class="row"><span>30 min</span><span class="it pr">€ 44,–</span></div>
+      <div class="row"><span>60 min</span><span class="it pr">€ 64,–</span></div>
+      <div class="sub">Kraulzeit</div>
+      <div class="row"><span>20 min</span><span class="it pr">€ 29,–</span></div>
+      <div class="row"><span>30 min</span><span class="it pr">€ 39,–</span></div>
+      <div class="sub">Headspa</div>
+      <div class="row"><span>90 min</span><span class="it pr">€ 149,–</span></div>
+      <div class="row"><span>120 min</span><span class="it pr">€ 169,–</span></div>
+    </div>
+    <a href="tel:+436603008300" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; font-size: 15px; transition-delay: .5s">SPA-Termin vereinbaren
+      <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"></path></svg>
+    </a>
+  </div>
+  <div style="grid-column: 8 / span 5">
+    <div class="stick hz"><div class="imgw clip" style="height: 600px"><img src="/_blob/930ae0839f347c08fcc297f24734127a" alt="Gerollte Handtücher für die SPA-Behandlung" style="object-position: center 50%"></div></div>
+  </div>
+</section>
+<!-- STORNO -->
+<section class="wrap cat two" data-io="" id="storno">
+  <div style="grid-column: 1 / span 5">
+    <div class="cap rv">Gut zu wissen</div>
+    <h2 class="h2" style="margin-top: 20px"><span class="ln" style="transition-delay: .1s"><span>Storno&shy;bedingungen</span></span></h2>
+    <p class="body muted rv" style="max-width: 420px; margin: 28px 0 0; transition-delay: .25s">Unsere Termine werden individuell für dich reserviert und sind daher verbindlich. Damit wir frei werdende Termine noch an andere Kundinnen und Kunden vergeben können, gelten folgende Bedingungen.</p>
+  </div>
+  <div style="grid-column: 7 / span 6">
+    <div class="rv" style="transition-delay: .35s">
+      <div class="row st-head"><span>Absage / Nichterscheinen</span><span>Stornogebühr</span></div>
+      <div class="row st"><span>Mehr als 48 Stunden vor dem Termin</span><span class="it pr">kostenfrei</span></div>
+      <div class="row st"><span>24 bis 48 Stunden vor dem Termin</span><span class="it pr">50 % des Behandlungspreises</span></div>
+      <div class="row st"><span>Weniger als 24 Stunden vor dem Termin</span><span class="it pr">100 % des Behandlungspreises</span></div>
+      <div class="row st"><span>Nichterscheinen ohne vorherige Absage</span><span class="it pr">100 % des Behandlungspreises</span></div>
+    </div>
+    <div class="st-notes rv" style="transition-delay: .5s">
+      <div><div class="cap">Terminverschiebung</div><p>Eine Verschiebung gilt ebenfalls als Absage des ursprünglichen Termins und unterliegt den oben genannten Fristen.</p></div>
+      <div><div class="cap">Anderweitige Vergabe</div><p>Die Stornogebühr entfällt, wenn wir den frei gewordenen Termin noch anderweitig vergeben können.</p></div>
+      <div><div class="cap">Verspätung</div><p>Bei einer Verspätung kann sich die Behandlungszeit verkürzen. Der vereinbarte Preis bleibt davon grundsätzlich unberührt.</p></div>
+    </div>
+    <p class="gb it rv" style="font-size: 26px; line-height: 1.25; color: #B99552; margin: 48px 0 0; transition-delay: .6s">Vielen Dank für dein Verständnis – und dafür, dass du uns rechtzeitig Bescheid gibst.</p>
+  </div>
+</section>
 <!-- CTA -->
 <section class="wrap" data-io="" style="padding-top: 120px; padding-bottom: 160px; border-top: 1px solid #CDB99E; text-align: center; display: flex; flex-direction: column; align-items: center">
   <div class="orn rv" style="margin-bottom: 40px"></div>
   <h2 class="disp">
     <span class="ln"><span>Dein Termin</span></span>
-    <span class="ln" style="transition-delay: .14s"><span>in <em class="it" style="color: #B99552">Traun.</em></span></span>
+    <span class="ln" style="transition-delay: .14s"><span>in <em class="gb it" style="color: #B99552">Traun.</em></span></span>
   </h2>
   <p class="body muted rv" style="max-width: 460px; margin: 36px 0 0; transition-delay: .35s">Telefonisch, per WhatsApp oder online. [Buchungslink ergänzen, falls vorhanden.]</p>
   <div class="rv" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; transition-delay: .5s">
@@ -406,7 +532,6 @@ body.mm-lock{overflow:hidden}
       <div class="rv" style="grid-column: 7 / span 3; display: flex; flex-direction: column; gap: 12px; transition-delay: .2s">
         <div class="cap">Kontakt</div>
         <a href="tel:+436603008300" class="ul" style="font-size: 15px">0660 300 83 00</a>
-        <a href="mailto:info@example.at" class="ul" style="font-size: 15px">[E-Mail-Adresse]</a>
         <a href="https://www.instagram.com/beautytime_traun/" class="ul" style="font-size: 15px">Instagram @beautytime_traun</a>
         <div style="font-size: 15px; line-height: 1.5; margin-top: 8px">Bahnhofstraße 21<br>4050 Traun, Österreich</div>
       </div>

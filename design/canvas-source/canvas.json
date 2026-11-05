@@ -4,7 +4,7 @@
   "boards": {
     "Leistungen.dc.html": {
       "expand": "fill",
-      "h": 8000,
+      "h": 16600,
       "is_interactive": true,
       "title": "Leistungen",
       "w": 1440,
@@ -13,7 +13,7 @@
     },
     "Main.dc.html": {
       "expand": "fill",
-      "h": 7700,
+      "h": 10000,
       "is_interactive": true,
       "title": "Startseite",
       "w": 1440,
@@ -31,7 +31,7 @@
     },
     "Mobile.dc.html": {
       "expand": "fill",
-      "h": 6200,
+      "h": 13100,
       "is_interactive": true,
       "title": "Startseite – Mobil",
       "w": 390,

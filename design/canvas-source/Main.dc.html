@@ -102,6 +102,8 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
 .card.cta .btn.solid{background:#FFF9F0;color:#8C6935}.card.cta .btn.solid::before{background:#F7F0E6}
 .star{position:absolute;width:16px;height:16px;background:#DCC394;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:tw 3.4s ease-in-out infinite;pointer-events:none}
 .after{position:relative;z-index:10;background:#F7F0E6}
+.card.cta .cta-tx{display:flex;flex-direction:column;gap:14px}
+@media (min-width:1001px){.card.cta{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;gap:40px;padding:48px 56px}.card.cta .cta-tx{max-width:620px}.card.cta .cta-bt{margin-top:0 !important;flex-shrink:0}}
 @media (max-width:1000px){.sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:760px){
   .sgrid{grid-template-columns:1fr !important}
@@ -309,7 +311,7 @@ body.mm-lock{overflow:hidden}
   <div style="display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; padding-bottom: 40px">
     <h2 class="h2">
       <span class="ln"><span>Leistungen</span></span>
-      <span class="ln" style="transition-delay: .12s"><span class="it" style="color: #B99552; font-size: .78em">sieben Bereiche, ein Studio</span></span>
+      <span class="ln" style="transition-delay: .12s"><span class="it" style="color: #B99552; font-size: .78em">acht Bereiche, ein Studio</span></span>
     </h2>
     <a href="Leistungen.dc.html" class="ul rv" style="font-size: 15px; transition-delay: .3s">Alle Leistungen ansehen</a>
   </div>
@@ -322,7 +324,7 @@ body.mm-lock{overflow:hidden}
         <h3>Haare &amp; Styling</h3>
         <div class="tg">Glanz, der bleibt.</div>
         <p>Schnitt, Farbe und Pflege, die dein Haar zum Strahlen bringen – für Damen, Herren und Kinder.</p>
-        <div class="chips"><span>Schnitt</span><span>Balayage</span><span>Blondierung</span><span>Keratin</span><span>Olaplex</span><span>Bart</span></div>
+        <div class="chips"><span>Schnitt</span><span>Balayage</span><span>Blondierung</span><span>Airtouch</span><span>Keratin</span><span>Bart</span></div>
         <span class="more">Mehr erfahren <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></span>
       </div>
     </a>
@@ -372,7 +374,7 @@ body.mm-lock{overflow:hidden}
     </a>
 
     <a href="Leistungen.dc.html" class="card rv" style="transition-delay: .6s">
-      <div class="pic"><img src="/_blob/930ae0839f347c08fcc297f24734127a" alt="Gerollte weiße Handtücher im Korb" style="object-position: center 55%"><span class="n">06</span></div>
+      <div class="pic"><img src="/_blob/63ac313600810119ca07c6111bc585e0" alt="Cremige Wachs-Textur in Elfenbein" style="object-position: center 50%"><span class="n">06</span></div>
       <div class="bd">
         <h3>Waxing</h3>
         <div class="tg">Seidig weich.</div>
@@ -387,17 +389,30 @@ body.mm-lock{overflow:hidden}
       <div class="bd">
         <h3>Fußpflege</h3>
         <div class="tg">Von Kopf bis Fuß gepflegt.</div>
-        <p>Pediküre und podologische Pflege für Füße, die man gern zeigt.</p>
-        <div class="chips"><span>Pediküre</span><span>Podologie</span><span>Nagelprothetik</span><span>Nagelspange</span></div>
+        <p>Nagelpflege, Fußpflege und Wellness-Pakete für Füße, die man gern zeigt.</p>
+        <div class="chips"><span>Fußpflege</span><span>Shellac</span><span>Wellness</span><span>Lift-up</span></div>
         <span class="more">Mehr erfahren <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></span>
       </div>
     </a>
 
-    <div class="card cta rv" style="transition-delay: .8s">
+    <a href="Leistungen.dc.html" class="card rv" style="transition-delay: .8s">
+      <div class="pic"><img src="/_blob/930ae0839f347c08fcc297f24734127a" alt="Gerollte weiße Handtücher im Korb" style="object-position: center 55%"><span class="n">08</span></div>
+      <div class="bd">
+        <h3>SPA</h3>
+        <div class="tg">Zeit nur für dich.</div>
+        <p>Verwöhnmomente für Körper und Kopf – vom Peeling bis zum Headspa.</p>
+        <div class="chips"><span>Körperpeeling</span><span>Anti-Cellulite</span><span>Kraulzeit</span><span>Headspa</span></div>
+        <span class="more">Mehr erfahren <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg></span>
+      </div>
+    </a>
+
+    <div class="card cta rv" style="transition-delay: .9s">
       <div class="star" style="top: 22px; right: 22px; background: #FFF9F0"></div>
+      <div class="cta-tx">
       <div class="it" style="font-size: 36px; line-height: 1.05">Noch unsicher, was zu dir passt?</div>
       <p style="margin: 0; color: #FFF9F0; font-size: 15px; line-height: 1.5; opacity: .9">Wir beraten dich gern – ruf an oder schreib uns, und wir finden die passende Behandlung.</p>
-      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px">
+      </div>
+      <div class="cta-bt" style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px">
         <a href="tel:+436603008300" class="btn solid"><span>Termin vereinbaren</span></a>
         <a href="https://wa.me/436603008300" class="btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19.1L4 20z"/><path d="M9.2 8.6c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.5.6c-.1.1-.1.3 0 .4.6 1 1.5 1.8 2.6 2.4.2.1.3.1.4 0l.6-.7c.2-.2.4-.2.6-.1l1.6.8c.2.1.4.3.3.5-.1.8-.7 1.5-1.5 1.6-1.3.2-2.9-.5-4.3-1.9-1.4-1.4-2.1-3-1.9-4.3z"/></svg><span>WhatsApp</span></a>
       </div>
@@ -524,7 +539,6 @@ body.mm-lock{overflow:hidden}
       <div class="rv" style="grid-column: 7 / span 3; display: flex; flex-direction: column; gap: 12px; transition-delay: .2s">
         <div class="cap">Kontakt</div>
         <a href="tel:+436603008300" class="ul" style="font-size: 15px">0660 300 83 00</a>
-        <a href="mailto:info@example.at" class="ul" style="font-size: 15px">[E-Mail-Adresse]</a>
         <a href="https://www.instagram.com/beautytime_traun/" class="ul" style="font-size: 15px">Instagram @beautytime_traun</a>
         <div style="font-size: 15px; line-height: 1.5; margin-top: 8px">Bahnhofstraße 21<br>4050 Traun, Österreich</div>
       </div>

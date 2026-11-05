@@ -177,7 +177,7 @@ export default function Footer({
           style={{ marginTop: 72, transitionDelay: '.4s' }}
         >
           {copyright ? <div className="cap">{copyright}</div> : null}
-          <div className="flex gap-6">
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
             {legalLinks.map((item) => {
               const resolved = prepareLinkProps(
                 { link: item.link, text: item.label },

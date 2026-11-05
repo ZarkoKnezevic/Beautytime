@@ -18,7 +18,7 @@ export default function CookieSettingsLink({ locale }: { locale: Locale }) {
     <button
       type="button"
       onClick={clearConsent}
-      className="cap ul"
+      className="cap ul cookie-settings"
       style={{
         background: 'none',
         border: 'none',

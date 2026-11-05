@@ -1448,6 +1448,10 @@ body.mm-lock {
     margin-left: auto;
     margin-right: auto;
   }
+  /* Footer: push the cookie-settings link onto its own line (below Impressum). */
+  .cookie-settings {
+    flex-basis: 100%;
+  }
 }
 
 /* Anchored sections sit below the sticky header when scrolled to */

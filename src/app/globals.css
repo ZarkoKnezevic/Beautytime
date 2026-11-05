@@ -1257,6 +1257,73 @@ body.mm-lock {
   color: var(--gold);
   white-space: nowrap;
   font-size: 20px;
+  font-weight: 700;
+}
+/* Sub-group heading inside a category price list (e.g. "Damen", "Herren"). */
+.sub {
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  padding: 44px 0 12px;
+  border-bottom: 1px solid var(--line);
+}
+.sub:first-child {
+  padding-top: 0;
+}
+/* Italic note under a category list (e.g. "Preise gestaffelt nach Haarlänge."). */
+.lnote {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--muted);
+  font-style: italic;
+  margin: 12px 0 0;
+}
+/* Cancellation terms (Stornobedingungen) — header row + fee rows + notes. */
+.st-head {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 0 14px;
+}
+.st-head:hover {
+  padding-left: 0;
+  color: var(--muted);
+}
+.st-head::before {
+  display: none;
+}
+.st .pr {
+  white-space: normal;
+  text-align: right;
+  max-width: 46%;
+}
+.st-notes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 48px;
+}
+.st-notes p {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 10px 0 0;
+}
+/* Smaller type for the cancellation section so long German labels fit on every screen. */
+#storno .h2 {
+  font-size: clamp(28px, 4.2vw, 48px);
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+#storno .row {
+  font-size: 15px;
+  padding: 14px 0;
+}
+#storno .st .pr {
+  font-size: 15px;
 }
 @media (max-width: 760px) {
   .stick {
@@ -1265,6 +1332,13 @@ body.mm-lock {
   .cat {
     padding-top: 72px !important;
     padding-bottom: 72px !important;
+  }
+  .st-notes {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .st .pr {
+    max-width: none;
   }
 }
 

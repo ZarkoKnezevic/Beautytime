@@ -88,7 +88,7 @@ export default function ServiceCategory({ blok }: { blok: StoryblokBlok }) {
   const contentBlock = (
     <div style={{ gridColumn: contentCol }}>
       {number ? (
-        <div className="it rv" style={{ fontSize: 26, color: 'var(--gold)' }}>
+        <div className="it rv" style={{ fontSize: 26, color: 'var(--gold)', fontWeight: 700 }}>
           {number}
         </div>
       ) : null}
@@ -109,12 +109,29 @@ export default function ServiceCategory({ blok }: { blok: StoryblokBlok }) {
 
       {items.length ? (
         <div className="rv" style={{ transitionDelay: '.35s' }}>
-          {items.map((row, i) => (
-            <div className="row" key={row._uid ?? i} {...storyblokEditable(row)}>
-              <span>{asText(row.label)}</span>
-              <span className="it pr">{asText(row.price) || '[Preis]'}</span>
-            </div>
-          ))}
+          {items.map((row, i) => {
+            const key = row._uid ?? i;
+            if (row.component === 'price_group') {
+              return (
+                <div className="sub" key={key} {...storyblokEditable(row)}>
+                  {asText(row.label)}
+                </div>
+              );
+            }
+            if (row.component === 'price_note') {
+              return (
+                <p className="lnote" key={key} {...storyblokEditable(row)}>
+                  {asText(row.text)}
+                </p>
+              );
+            }
+            return (
+              <div className="row" key={key} {...storyblokEditable(row)}>
+                <span>{asText(row.label)}</span>
+                <span className="it pr">{asText(row.price) || '[Preis]'}</span>
+              </div>
+            );
+          })}
         </div>
       ) : null}
 

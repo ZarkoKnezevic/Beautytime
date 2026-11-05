@@ -54,6 +54,7 @@ export default function Hero({ blok }: HeroProps) {
       {...storyblokEditable(blok)}
       className="wrap"
       data-load
+      suppressHydrationWarning
       style={{
         paddingTop: 'clamp(32px, 7vw, 56px)',
         paddingBottom: 'clamp(64px, 14vw, 120px)',

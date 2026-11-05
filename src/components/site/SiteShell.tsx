@@ -41,20 +41,19 @@ const NO_JS_CSS =
   '.gold-word,.gw{clip-path:none!important}';
 
 /**
- * Starts the on-load reveals as soon as the HTML is parsed instead of waiting
- * for hydration, which on a throttled phone can be a second or more. Same
- * classes and timings as Reveal.tsx (which takes over afterwards); the hero
- * waits for its priority image so the clip/scale reveal never plays on an
- * empty box. Content inside the first viewport is treated like Reveal's
- * IntersectionObserver would treat it.
+ * Reveals the on-load hero/nav (`[data-load]`) as soon as the HTML is parsed,
+ * instead of waiting for hydration (a second or more on a throttled phone); the
+ * hero waits for its priority image so the clip/scale reveal never plays on an
+ * empty box. Everything else is left to Reveal.tsx's IntersectionObserver after
+ * hydration — mutating those nodes here would diverge from the server HTML and
+ * trip React's hydration check. The `[data-load]` nodes carry
+ * `suppressHydrationWarning` because this sets `data-in` before hydration.
  */
 const EARLY_REVEAL_JS =
-  '(function(){var d=document,vh=innerHeight;' +
-  'function on(e){e.classList.add("in")}' +
+  '(function(){var d=document;' +
+  'function on(e){e.setAttribute("data-in","")}' +
   'd.querySelectorAll("[data-load]").forEach(function(e){var i=e.querySelector("img[fetchpriority=high]");' +
-  'if(i&&!i.complete){var t=setTimeout(function(){on(e)},1500);i.addEventListener("load",function(){clearTimeout(t);on(e)},{once:true})}else on(e)});' +
-  'd.querySelectorAll(".rv,.ln,.clip,.clipl,.imgw,[data-io]").forEach(function(e){if(e.closest("[data-load]"))return;' +
-  'var r=e.getBoundingClientRect();if(r.top<vh*.94&&r.bottom>0)on(e)})})();';
+  'if(i&&!i.complete){var t=setTimeout(function(){on(e)},1500);i.addEventListener("load",function(){clearTimeout(t);on(e)},{once:true})}else on(e)});})();';
 
 /** Site-wide metadata defaults; pages override title/description/canonical per story. */
 export function siteMetadata(locale: Locale): Metadata {

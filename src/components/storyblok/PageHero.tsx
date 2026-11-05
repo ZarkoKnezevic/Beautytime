@@ -133,7 +133,7 @@ export default function PageHero({ blok }: { blok: StoryblokBlok }) {
   // Two-image grid (Leistungen): headline spans full width, images below.
   if (twoImages) {
     return (
-      <header {...storyblokEditable(blok)} className="wrap" data-load style={headerStyle}>
+      <header {...storyblokEditable(blok)} className="wrap" data-load suppressHydrationWarning style={headerStyle}>
         {headline}
         <div className="two" style={{ marginTop: 40, alignItems: 'start' }}>
           <div style={{ gridColumn: '1 / span 6' }}>
@@ -156,7 +156,7 @@ export default function PageHero({ blok }: { blok: StoryblokBlok }) {
 
   // Single image (Unser Team): headline in the left column, image beside it.
   return (
-    <header {...storyblokEditable(blok)} className="wrap" data-load style={headerStyle}>
+    <header {...storyblokEditable(blok)} className="wrap" data-load suppressHydrationWarning style={headerStyle}>
       <div className="two" style={{ alignItems: 'start' }}>
         <div style={{ gridColumn: '1 / span 7', position: 'relative', zIndex: 2 }}>
           {headline}

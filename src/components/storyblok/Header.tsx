@@ -362,6 +362,7 @@ export default function Header({
         {...storyblokEditable(blok)}
         className="wrap site-nav"
         data-load
+        suppressHydrationWarning
         aria-label={t.nav}
         style={{
           display: 'flex',

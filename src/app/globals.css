@@ -122,7 +122,7 @@
     gap: 40px;
   }
 
-  /* Reveal / motion primitives (toggled by the `.in` class) */
+  /* Reveal / motion primitives (toggled by the `[data-in]` attribute) */
   .ln {
     display: block;
     overflow: hidden;
@@ -134,8 +134,8 @@
     transform: translateY(112%);
     transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .in .ln > span,
-  .ln.in > span {
+  [data-in] .ln > span,
+  .ln[data-in] > span {
     transform: none;
   }
 
@@ -150,7 +150,7 @@
     transition: clip-path 1.5s ease-in-out;
     transition-delay: 0.5s;
   }
-  .in .gw {
+  [data-in] .gw {
     clip-path: inset(0 0 0 0);
   }
   .rv {
@@ -160,8 +160,8 @@
       opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
       transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .in .rv,
-  .rv.in {
+  [data-in] .rv,
+  .rv[data-in] {
     opacity: 1;
     transform: none;
   }
@@ -173,10 +173,10 @@
     clip-path: inset(0 100% 0 0);
     transition: clip-path 1.4s cubic-bezier(0.77, 0, 0.18, 1);
   }
-  .in .clip,
-  .clip.in,
-  .in .clipl,
-  .clipl.in {
+  [data-in] .clip,
+  .clip[data-in],
+  [data-in] .clipl,
+  .clipl[data-in] {
     clip-path: inset(0 0 0 0);
   }
   .imgw {
@@ -192,8 +192,8 @@
     transform: scale(1.14);
     transition: transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  .in .imgw img,
-  .imgw.in img {
+  [data-in] .imgw img,
+  .imgw[data-in] img {
     transform: scale(1);
   }
   .hz .imgw img {
@@ -215,7 +215,7 @@
     transition: clip-path 1.5s ease-in-out;
     transition-delay: 0.5s;
   }
-  .in .gold-word {
+  [data-in] .gold-word {
     clip-path: inset(0 0 0 0);
   }
   .plxw {
@@ -915,7 +915,7 @@ body.mm-lock {
 }
 /* Self-triggered (own `data-io`) so they animate when the wordmark row itself
    scrolls into view, not when the tall team card's top does. */
-.rule.in {
+.rule[data-in] {
   transform: none;
 }
 .wl,
@@ -931,8 +931,8 @@ body.mm-lock {
 .wr {
   transform: translateX(28px);
 }
-.wl.in,
-.wr.in {
+.wl[data-in],
+.wr[data-in] {
   opacity: 1;
   transform: none;
 }
@@ -1125,7 +1125,7 @@ body.mm-lock {
   padding: 60px 0 80px;
   transform: none !important;
 }
-.gal.flat.in .gal-ig {
+.gal.flat[data-in] .gal-ig {
   opacity: 1;
   transform: none;
   pointer-events: auto;

@@ -33,7 +33,7 @@ export default function Reveal() {
         (entries) => {
           entries.forEach((e) => {
             if (e.isIntersecting) {
-              e.target.classList.add('in');
+              e.target.setAttribute('data-in', '');
               io?.unobserve(e.target);
             }
           });
@@ -53,7 +53,7 @@ export default function Reveal() {
     // Register any not-yet-tracked reveal targets, fire `[data-load]`, and
     // refresh the scroll-driven node cache.
     const scan = () => {
-      q('[data-load]').forEach((el) => el.classList.add('in'));
+      q('[data-load]').forEach((el) => el.setAttribute('data-in', ''));
       const els = q(REVEAL_SEL);
       if (io) {
         els.forEach((el) => {
@@ -63,7 +63,7 @@ export default function Reveal() {
           }
         });
       } else {
-        els.forEach((el) => el.classList.add('in'));
+        els.forEach((el) => el.setAttribute('data-in', ''));
       }
 
       plx = q('.plx');

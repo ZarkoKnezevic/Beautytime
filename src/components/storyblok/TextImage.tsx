@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import LocaleLink from '@/components/LocaleLink';
+import PhoneVideo from '@/components/PhoneVideo';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
 import type { StoryblokBlok } from '@/types';
@@ -36,6 +37,11 @@ export default function TextImage({ blok }: { blok: StoryblokBlok }) {
   const img = blok.image as { filename?: string; alt?: string } | undefined;
   const imgSrc = asText(img?.filename);
   const imgAlt = asText(img?.alt);
+  const video = blok.video as { filename?: string; alt?: string } | undefined;
+  const videoSrc = asText(video?.filename);
+  const videoAlt = asText(video?.alt);
+  const poster = blok.video_poster as { filename?: string } | undefined;
+  const posterSrc = asText(poster?.filename);
   const caption = asText(blok.image_caption);
   const lines = asText(blok.heading)
     .split('\n')
@@ -61,19 +67,23 @@ export default function TextImage({ blok }: { blok: StoryblokBlok }) {
       }}
     >
       <div className="two" style={{ alignItems: 'start' }}>
-        <div className="m-full" style={{ gridColumn: imageCol }}>
-          <div className="imgw clipl m-h" style={{ height: 460, maxWidth: 380 }}>
-            {imgSrc ? (
-              <Image
-                src={imgSrc}
-                alt={imgAlt}
-                fill
-                sizes="(max-width: 760px) 100vw, 380px"
-                className="object-cover"
-                style={{ objectPosition: 'center 45%' }}
-              />
-            ) : null}
-          </div>
+        <div className="ti-media m-full" style={{ gridColumn: imageCol }}>
+          {videoSrc ? (
+            <PhoneVideo src={videoSrc} poster={posterSrc} label={videoAlt} />
+          ) : (
+            <div className="imgw clipl m-h" style={{ height: 460, maxWidth: 380 }}>
+              {imgSrc ? (
+                <Image
+                  src={imgSrc}
+                  alt={imgAlt}
+                  fill
+                  sizes="(max-width: 760px) 100vw, 380px"
+                  className="object-cover"
+                  style={{ objectPosition: 'center 45%' }}
+                />
+              ) : null}
+            </div>
+          )}
           {caption ? (
             <div className="cap rv" style={{ marginTop: 14, transitionDelay: '.4s' }}>
               {caption}

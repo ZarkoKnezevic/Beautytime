@@ -1348,6 +1348,7 @@ body.mm-lock {
   width: 300px;
   aspect-ratio: 300 / 620;
   max-width: 100%;
+  margin: 0 auto;
   padding: 11px;
   border-radius: 52px;
   background: linear-gradient(145deg, #3a332e, #14110f 45%, #2a2420);
@@ -1431,19 +1432,21 @@ body.mm-lock {
 .phone-sound:hover {
   transform: scale(1.06);
 }
+/* Phone-video block: centre the phone and its caption on all screen sizes.
+   Image blocks are unaffected. */
+.ti-video .ti-media {
+  text-align: center;
+}
 @media (max-width: 760px) {
   .phone {
     width: 260px;
-    margin: 0 auto;
   }
-  /* Phone-video block only, on mobile: text first (left-aligned), then the
-     phone and its caption, centred. Image blocks keep their default layout. */
+  /* On mobile the phone-video block also stacks text first, then the phone. */
   .ti-video .ti-text {
     order: 1;
   }
   .ti-video .ti-media {
     order: 2;
-    text-align: center;
   }
   /* Footer: left-align the legal links and put the cookie-settings link on its
      own line (below Impressum), aligned left. */

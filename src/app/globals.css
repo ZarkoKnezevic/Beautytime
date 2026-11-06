@@ -1436,10 +1436,10 @@ body.mm-lock {
     width: 260px;
     margin: 0 auto;
   }
-  /* On mobile: text first, then the media (phone/image), everything centred. */
+  /* On mobile: text first (left-aligned), then the media (phone/image) and
+     caption, which are centred. */
   .ti-text {
     order: 1;
-    text-align: center;
   }
   .ti-media {
     order: 2;

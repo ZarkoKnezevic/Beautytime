@@ -162,17 +162,19 @@ export default function Services({ blok }: { blok: StoryblokBlok }) {
         {ctaHeading || ctaText ? (
           <div className="card cta rv" style={{ transitionDelay: `${(0.1 + items.length * 0.1).toFixed(2)}s` }}>
             <div className="star" style={{ top: 22, right: 22, background: 'var(--ivory)' }} />
-            {ctaHeading ? (
-              <div className="it" style={{ fontSize: 36, lineHeight: 1.05 }}>
-                {ctaHeading}
-              </div>
-            ) : null}
-            {ctaText ? (
-              <p style={{ margin: 0, color: 'var(--ivory)', fontSize: 15, lineHeight: 1.5, opacity: 0.9 }}>
-                {ctaText}
-              </p>
-            ) : null}
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 10 }}>
+            <div className="cta-tx">
+              {ctaHeading ? (
+                <div className="it" style={{ fontSize: 36, lineHeight: 1.05 }}>
+                  {ctaHeading}
+                </div>
+              ) : null}
+              {ctaText ? (
+                <p style={{ margin: 0, color: 'var(--ivory)', fontSize: 15, lineHeight: 1.5, opacity: 0.9 }}>
+                  {ctaText}
+                </p>
+              ) : null}
+            </div>
+            <div className="cta-bt" style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 10 }}>
               {ctaPrimary.text ? (
                 ctaPrimary.href.startsWith('/') ? (
                   <LocaleLink href={ctaPrimary.href} className="btn solid">

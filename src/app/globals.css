@@ -872,6 +872,30 @@ body.mm-lock {
 .card.cta .btn.solid::before {
   background: var(--bg);
 }
+.card.cta .cta-tx {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+/* Desktop (prototype): the CTA card spans the full grid row, text left and
+   buttons right. */
+@media (min-width: 1001px) {
+  .card.cta {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 48px 56px;
+  }
+  .card.cta .cta-tx {
+    max-width: 620px;
+  }
+  .card.cta .cta-bt {
+    margin-top: 0 !important;
+    flex-shrink: 0;
+  }
+}
 .star {
   position: absolute;
   width: 16px;

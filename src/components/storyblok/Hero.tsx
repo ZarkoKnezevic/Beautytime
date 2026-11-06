@@ -89,13 +89,8 @@ export default function Hero({ blok }: HeroProps) {
           </h1>
 
           <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'flex-start',
-              gap: 32,
-              marginTop: 48,
-            }}
+            className="hero-copy"
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 32 }}
           >
             {body ? (
               <p className="body rv" style={{ maxWidth: 440, margin: 0, transitionDelay: '.95s' }}>
@@ -118,7 +113,7 @@ export default function Hero({ blok }: HeroProps) {
           </div>
         </div>
 
-        <div className="m-full" style={{ gridColumn: '9 / span 4', position: 'relative' }}>
+        <div className="m-full hero-media" style={{ gridColumn: '9 / span 4', position: 'relative' }}>
           <div className="imgw clip m-h" style={{ height: 660, marginLeft: -140, transitionDelay: '.7s' }}>
             {imgSrc ? (
               <Image

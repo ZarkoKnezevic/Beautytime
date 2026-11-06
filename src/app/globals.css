@@ -1702,6 +1702,20 @@ html {
   }
 }
 
+/* ===== Home hero (Hero.tsx) ===== */
+.hero-copy {
+  margin-top: 48px;
+}
+@media (max-width: 760px) {
+  .hero-copy {
+    margin-top: 24px;
+  }
+  /* Founders image first on phones, then the headline and copy. */
+  .hero-media {
+    order: -1;
+  }
+}
+
 /* ===== Page hero body copy (PageHero.tsx) ===== */
 .page-hero-body {
   margin: var(--hero-body-mt, 48px) 0 0;
@@ -1750,10 +1764,14 @@ html {
     align-self: start;
   }
 }
-/* Phones: plain flow, same spacing the `.two` column stack had. */
+/* Phones: plain flow, same spacing the `.two` column stack had, but the
+   gold subheading sits closer to the (much smaller) headline. */
 @media (max-width: 760px) {
   .page-hero-two {
     display: block;
+  }
+  .page-hero-two .page-hero-text {
+    margin-top: 20px;
   }
   .page-hero-two .page-hero-images {
     margin-top: 32px;

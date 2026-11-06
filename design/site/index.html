@@ -58,6 +58,17 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
 .gal-ig:hover{background:rgba(73,56,46,.78)}
 @media (max-width:1100px){.gl-1{left:0;width:260px;height:180px}.gl-2{left:120px}.gl-3{right:60px}}
 @media (max-width:760px){.gal{height:calc(100vh + 700px)}.gal-stage{height:min(520px,64vh)}.gl-main{left:20px;margin-left:0;top:0;width:62%;height:min(420px,52vh)}.gl-3{right:20px;top:54%;width:40%;height:220px}.gl-1,.gl-2,.gl-4{display:none}.gal-ig{width:180px;height:180px;margin:-90px 0 0 -90px}.gal-ig svg{width:56px;height:56px}}
+/* iPhone frame with salon video */
+.phone{position:relative;width:300px;aspect-ratio:300/620;max-width:100%;padding:11px;border-radius:52px;background:linear-gradient(145deg,#3a332e,#14110f 45%,#2a2420);box-shadow:0 0 0 1.5px #5a4f47 inset,0 0 0 1px #0d0b0a,0 40px 80px -30px rgba(73,56,46,.55),0 18px 36px -18px rgba(73,56,46,.35)}
+.phone-screen{position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:#0d0b0a;isolation:isolate}
+.phone-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.phone-island{position:absolute;top:11px;left:50%;width:94px;height:27px;margin-left:-47px;border-radius:20px;background:#000;z-index:2}
+.phone-btn{position:absolute;width:3px;border-radius:2px;background:#2a2420}
+.phone-btn-a{left:-3px;top:118px;height:30px}.phone-btn-b{left:-3px;top:166px;height:56px}.phone-btn-c{right:-3px;top:178px;height:84px}
+.phone-sound{position:absolute;right:14px;bottom:16px;z-index:3;width:40px;height:40px;border-radius:50%;border:0;padding:0;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,249,240,.86);color:#49382E;cursor:pointer;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:background .3s,transform .3s}
+.phone-sound:hover{background:#FFF9F0;transform:scale(1.06)}
+.phone-sound .ic-on{display:none}.phone-sound[aria-pressed="true"] .ic-on{display:block}.phone-sound[aria-pressed="true"] .ic-off{display:none}
+@media (max-width:760px){.phone{width:260px;margin:0 auto}.phone-cap{text-align:center}}
 .spark{position:absolute;width:6px;height:6px;background:#DCC394;border-radius:50%;animation:tw 3.2s ease-in-out infinite;box-shadow:0 0 12px 2px rgba(220,195,148,.9)}
 .spin{animation:spin 26s linear infinite;transform-origin:50% 50%}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -256,10 +267,18 @@ body.mm-lock{overflow:hidden}
 <section class="wrap" data-io style="padding-top: 140px; padding-bottom: 140px; border-top: 1px solid #CDB99E">
   <div class="two" style="align-items: start">
     <div style="grid-column: 1 / span 4">
-      <div class="imgw clipl" style="height: 460px; max-width: 380px">
-        <img src="assets/salon-lounge.webp" alt="Lounge im Beautytime Studio mit Marmortisch" style="object-position: center 45%">
+      <div class="phone rv" style="transition-delay: .15s">
+        <span class="phone-btn phone-btn-a" aria-hidden="true"></span><span class="phone-btn phone-btn-b" aria-hidden="true"></span><span class="phone-btn phone-btn-c" aria-hidden="true"></span>
+        <div class="phone-screen">
+          <video class="phone-video" src="assets/salon-tour.mp4" poster="assets/salon-tour-poster.jpg" muted loop playsinline preload="metadata" aria-label="Rundgang durch das Beautytime Studio in Traun"></video>
+          <span class="phone-island" aria-hidden="true"></span>
+          <button class="phone-sound" type="button" data-vsound aria-label="Ton einschalten" aria-pressed="false">
+            <svg class="ic-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg>
+            <svg class="ic-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+          </button>
+        </div>
       </div>
-      <div class="cap rv" style="margin-top: 14px; transition-delay: .4s">Unsere Lounge · Bahnhofstraße 21</div>
+      <div class="cap rv phone-cap" style="margin-top: 22px; transition-delay: .4s">Rundgang · Bahnhofstraße 21</div>
     </div>
     <div style="grid-column: 6 / span 7">
       <h2 class="h2">
@@ -609,12 +628,38 @@ class Component extends DCLogic {
       this._mo.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'] });
     }
   }
+  _video() {
+    const v = document.querySelector('.phone-video');
+    if (!v || v === this._vEl) return;
+    this._vEl = v;
+    if (this._vio) this._vio.disconnect();
+    const play = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+    if ('IntersectionObserver' in window) {
+      this._vio = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) play(); else v.pause(); }), { threshold: 0.35 });
+      this._vio.observe(v);
+    } else play();
+    if (!this._vSoundBound) {
+      this._vSoundBound = true;
+      this._onSound = (e) => {
+        const b = e.target instanceof Element && e.target.closest('[data-vsound]');
+        if (!b) return;
+        const vid = document.querySelector('.phone-video'); if (!vid) return;
+        vid.muted = !vid.muted;
+        if (!vid.muted) { const p = vid.play(); if (p && p.catch) p.catch(() => {}); }
+        b.setAttribute('aria-pressed', vid.muted ? 'false' : 'true');
+        b.setAttribute('aria-label', vid.muted ? 'Ton einschalten' : 'Ton ausschalten');
+      };
+      document.addEventListener('click', this._onSound);
+    }
+  }
   componentDidUpdate() {
     this._arm();
+    this._video();
   }
   componentDidMount() {
     const q = (s) => Array.from(document.querySelectorAll(s));
     this._menu();
+    this._video();
     const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     this._timers = [];
     const later = (fn, ms) => this._timers.push(setTimeout(fn, ms));
@@ -673,6 +718,8 @@ class Component extends DCLogic {
     this._onScroll();
   }
   componentWillUnmount() {
+    if (this._vio) this._vio.disconnect();
+    if (this._onSound) document.removeEventListener('click', this._onSound);
     if (this._mo) this._mo.disconnect();
     if (this._raf) clearTimeout(this._raf);
     document.removeEventListener('click', this._onDocClick);

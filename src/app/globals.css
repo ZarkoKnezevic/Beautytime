@@ -1693,3 +1693,50 @@ html {
     animation: none;
   }
 }
+
+/* ===== Page hero with two images (Leistungen, PageHero.tsx) ===== */
+.page-hero-two {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 24px;
+  align-items: start;
+}
+.page-hero-two .page-hero-eyebrow,
+.page-hero-two .page-hero-title {
+  grid-column: 1 / -1;
+}
+.page-hero-two .page-hero-text {
+  grid-column: 1 / span 6;
+  margin-top: 40px;
+}
+.page-hero-two .page-hero-images {
+  grid-column: 8 / span 5;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 24px;
+  align-items: end;
+}
+/* Wide screens: the headline keeps to the left 7 columns and the image pair
+   sits at the top of the hero beside it, instead of below the headline. */
+@media (min-width: 1101px) {
+  .page-hero-two .page-hero-eyebrow,
+  .page-hero-two .page-hero-title,
+  .page-hero-two .page-hero-text {
+    grid-column: 1 / span 7;
+  }
+  .page-hero-two .page-hero-images {
+    grid-row: 1 / span 3;
+    margin-top: 0;
+    align-self: start;
+  }
+}
+/* Phones: plain flow, same spacing the `.two` column stack had. */
+@media (max-width: 760px) {
+  .page-hero-two {
+    display: block;
+  }
+  .page-hero-two .page-hero-images {
+    margin-top: 32px;
+  }
+}

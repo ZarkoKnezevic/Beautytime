@@ -83,11 +83,11 @@ export default function PageHero({ blok }: { blok: StoryblokBlok }) {
   const headline = (
     <>
       {eyebrow ? (
-        <div className="cap rv" style={{ marginBottom: 32, transitionDelay: '.4s' }}>
+        <div className="cap rv page-hero-eyebrow" style={{ marginBottom: 32, transitionDelay: '.4s' }}>
           {eyebrow}
         </div>
       ) : null}
-      <h1 className="disp" aria-label={lines.join(' ').replace(/\*\*/g, '')}>
+      <h1 className="disp page-hero-title" aria-label={lines.join(' ').replace(/\*\*/g, '')}>
         {lines.map((line, li) => (
           <span key={li} className="ln" aria-hidden="true">
             <span style={lineRise(li)}>{renderLine(line)}</span>
@@ -130,23 +130,27 @@ export default function PageHero({ blok }: { blok: StoryblokBlok }) {
     position: 'relative',
   };
 
-  // Two-image grid (Leistungen): headline spans full width, images below.
+  // Two images (Leistungen): the header is a 12-column grid (see
+  // `.page-hero-two` in globals.css). Up to 1100px the headline spans the full
+  // width with the text + image pair below it (as in the prototype); on wider
+  // screens the images rise to the top, beside the headline.
   if (twoImages) {
     return (
-      <header {...storyblokEditable(blok)} className="wrap" data-load suppressHydrationWarning style={headerStyle}>
+      <header
+        {...storyblokEditable(blok)}
+        className="wrap page-hero-two"
+        data-load
+        suppressHydrationWarning
+        style={headerStyle}
+      >
         {headline}
-        <div className="two" style={{ marginTop: 40, alignItems: 'start' }}>
-          <div style={{ gridColumn: '1 / span 6' }}>
-            {subheadingEl}
-            {bodyEl(32)}
-          </div>
-          <div
-            className="m-full"
-            style={{ gridColumn: '8 / span 5', display: 'grid', gridTemplateColumns: '3fr 2fr', gap: 24, alignItems: 'end' }}
-          >
-            <HeroImg img={img1} height={440} delay=".6s" pos="center 50%" sizes="(max-width: 760px) 55vw, 300px" loading="priority" />
-            <HeroImg img={img2} height={320} delay=".8s" pos="center 30%" sizes="(max-width: 760px) 38vw, 200px" loading="eager" />
-          </div>
+        <div className="page-hero-text">
+          {subheadingEl}
+          {bodyEl(32)}
+        </div>
+        <div className="m-full page-hero-images">
+          <HeroImg img={img1} height={440} delay=".6s" pos="center 50%" sizes="(max-width: 760px) 55vw, 300px" loading="priority" />
+          <HeroImg img={img2} height={320} delay=".8s" pos="center 30%" sizes="(max-width: 760px) 38vw, 200px" loading="eager" />
         </div>
         <div className="spark" style={{ top: 120, right: '22%' }} />
         <div className="spark" style={{ bottom: 140, left: '44%', animationDelay: '1.3s', width: 4, height: 4 }} />

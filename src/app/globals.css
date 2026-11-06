@@ -1665,3 +1665,31 @@ html {
 .legal h3:first-child {
   margin-top: 0;
 }
+
+/* ===== Route loading screen (loading.tsx → PageLoader) ===== */
+.page-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: clamp(48px, 12vw, 120px) 24px;
+  /* Short delay so a fast navigation doesn't flash the seal. */
+  animation: loaderIn 0.4s ease-out 0.15s both;
+}
+.spin-fast {
+  animation-duration: 12s;
+}
+@keyframes loaderIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-loader,
+  .spin-fast {
+    animation: none;
+  }
+}

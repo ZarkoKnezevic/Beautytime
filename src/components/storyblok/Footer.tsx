@@ -1,10 +1,10 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { storyblokEditable } from '@storyblok/react/rsc';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
 import { localizeHref, DEFAULT_LOCALE, type Locale } from '@/utils';
 import { SITE_META } from '@/constants';
 import CookieSettingsLink from '@/components/CookieSettingsLink';
+import BrandSeal from '@/components/site/BrandSeal';
 import type { StoryblokBlok, StoryblokLink } from '@/types';
 
 interface FooterProps {
@@ -63,48 +63,7 @@ export default function Footer({
             className="rv flex flex-col gap-4"
             style={{ gridColumn: '1 / span 4' }}
           >
-            <div style={{ position: 'relative', width: 168, height: 168 }}>
-              <svg
-                className="spin"
-                viewBox="0 0 200 200"
-                width={168}
-                height={168}
-                role="img"
-                aria-label={ringText}
-                style={{ position: 'absolute', inset: 0 }}
-              >
-                <defs>
-                  <path
-                    id="ringpath"
-                    d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"
-                  />
-                </defs>
-                <text
-                  fontSize={26}
-                  fill="var(--gold-dark)"
-                  style={{ fontFamily: 'var(--font-serif), Georgia, serif', fontStyle: 'italic' }}
-                >
-                  <textPath href="#ringpath" startOffset="0" textLength={480} lengthAdjust="spacing">
-                    {ringText}
-                  </textPath>
-                </text>
-              </svg>
-              {logoSrc ? (
-                <Image
-                  src={logoSrc}
-                  alt={logoAlt}
-                  width={96}
-                  height={96}
-                  className="rounded-full object-cover"
-                  style={{
-                    position: 'absolute',
-                    left: '50%',
-                    top: '50%',
-                    transform: 'translate(-50%, -50%)',
-                  }}
-                />
-              ) : null}
-            </div>
+            <BrandSeal ringText={ringText} logoSrc={logoSrc} logoAlt={logoAlt} />
           </div>
 
           {/* Navigation */}

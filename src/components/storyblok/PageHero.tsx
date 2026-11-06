@@ -119,7 +119,10 @@ export default function PageHero({ blok }: { blok: StoryblokBlok }) {
 
   const bodyEl = (marginTop: number) =>
     body ? (
-      <p className="body rv" style={{ maxWidth: 460, margin: `${marginTop}px 0 0`, transitionDelay: '.85s' }}>
+      <p
+        className="body rv page-hero-body"
+        style={{ maxWidth: 460, '--hero-body-mt': `${marginTop}px`, transitionDelay: '.85s' } as CSSProperties}
+      >
         {body}
       </p>
     ) : null;

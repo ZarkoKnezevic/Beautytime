@@ -35,7 +35,7 @@ export default function TeamMember({ blok }: { blok: StoryblokBlok }) {
   const alt = asText(image?.alt) || name;
 
   const imageBlock = (
-    <div style={{ gridColumn: imageCol, position: 'relative' }}>
+    <div className="member-img" style={{ gridColumn: imageCol, position: 'relative' }}>
       <div className="imgw clip" style={{ aspectRatio: '4 / 5', height: 'auto' }}>
         {src ? (
           <Image
@@ -88,7 +88,7 @@ export default function TeamMember({ blok }: { blok: StoryblokBlok }) {
   );
 
   return (
-    <article {...storyblokEditable(blok)} className="wrap member two" data-io style={{ alignItems: 'center' }}>
+    <article {...storyblokEditable(blok)} className="wrap member two" data-io>
       {imageLeft ? (
         <>
           {imageBlock}

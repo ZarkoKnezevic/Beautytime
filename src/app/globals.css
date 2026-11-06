@@ -1487,6 +1487,7 @@ html {
   padding-top: 120px;
   padding-bottom: 120px;
   border-top: 1px solid var(--line);
+  align-items: center;
 }
 .member .imgw img {
   transition:
@@ -1541,6 +1542,13 @@ html {
   .member {
     padding-top: 72px !important;
     padding-bottom: 72px !important;
+    /* `.two` is a flex column here: centring would shrink the image column
+       (a `fill` image has no intrinsic width) to 0px. */
+    align-items: stretch;
+  }
+  /* Portrait first on phones, whichever side it sits on desktop. */
+  .member .member-img {
+    order: -1;
   }
   .member .nm {
     transform: none !important;

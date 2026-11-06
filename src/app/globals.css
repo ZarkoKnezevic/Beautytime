@@ -1436,18 +1436,14 @@ body.mm-lock {
     width: 260px;
     margin: 0 auto;
   }
-  /* On mobile: text first (left-aligned), then the media (phone/image) and
-     caption, which are centred. */
-  .ti-text {
+  /* Phone-video block only, on mobile: text first (left-aligned), then the
+     phone and its caption, centred. Image blocks keep their default layout. */
+  .ti-video .ti-text {
     order: 1;
   }
-  .ti-media {
+  .ti-video .ti-media {
     order: 2;
     text-align: center;
-  }
-  .ti-media .imgw {
-    margin-left: auto;
-    margin-right: auto;
   }
   /* Footer: left-align the legal links and put the cookie-settings link on its
      own line (below Impressum), aligned left. */

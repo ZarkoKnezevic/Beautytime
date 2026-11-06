@@ -58,7 +58,7 @@ export default function TextImage({ blok }: { blok: StoryblokBlok }) {
   return (
     <section
       {...storyblokEditable(blok)}
-      className="wrap"
+      className={videoSrc ? 'wrap ti-video' : 'wrap'}
       data-io
       style={{
         paddingTop: 'clamp(72px, 15vw, 140px)',

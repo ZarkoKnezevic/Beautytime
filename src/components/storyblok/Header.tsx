@@ -160,6 +160,10 @@ export default function Header({
   );
   // Locale-prefix internal CTA targets (e.g. /leistungen#termin -> /en/leistungen#termin).
   const ctaHref = loc(cta.href || '#');
+  // Hide the booking CTA on legal pages (Impressum/Datenschutz): they have no
+  // booking block for the #termin anchor to scroll to.
+  const isLegalPage = /\/(impressum|datenschutz)\/?$/.test(pathname);
+  const showCta = !!cta.text && !isLegalPage;
 
   const items = (Array.isArray(blok.nav_links) ? (blok.nav_links as StoryblokBlok[]) : []).map(
     (item) => {
@@ -314,7 +318,7 @@ export default function Header({
         </nav>
 
         <div className="mm-cta">
-          {cta.text ? (
+          {showCta ? (
             <a
               href={ctaHref}
               onClick={close}
@@ -404,7 +408,7 @@ export default function Header({
               <span className="ul-t">{it.text}</span>
             </Link>
           ))}
-          {cta.text ? (
+          {showCta ? (
             <a href={ctaHref} className="ul inline-flex items-center gap-2.5 text-sm">
               <span className="ul-t">{cta.text}</span>
               <Arrow />

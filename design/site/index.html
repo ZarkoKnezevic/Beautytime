@@ -69,6 +69,63 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
 .phone-sound:hover{background:#FFF9F0;transform:scale(1.06)}
 .phone-sound .ic-on{display:none}.phone-sound[aria-pressed="true"] .ic-on{display:block}.phone-sound[aria-pressed="true"] .ic-off{display:none}
 @media (max-width:760px){.phone{width:260px;margin:0 auto}.phone-cap{text-align:center}}
+/* review author: photo + Google badge */
+.rvw{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:16px;border-top:1px solid #E7D7C5}
+.rav{position:relative;flex:0 0 auto;width:48px;height:48px}
+.rav>img,.rav-ph{width:48px;height:48px;border-radius:50%;object-fit:cover;display:block;box-shadow:0 0 0 2px #FFF9F0,0 0 0 3px #DCC394}
+.rav-ph{display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,#EADBC4,#DCC394);color:#8C6935}
+.rav-ph{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:26px;font-weight:500;line-height:1}
+.rav-g{position:absolute;right:-5px;bottom:-4px;width:22px;height:22px;border-radius:50%;background:#FFFFFF;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(73,56,46,.22)}
+.rav-g svg{width:13px;height:13px;display:block}
+.rvw-tx{display:flex;flex-direction:column;gap:3px;min-width:0}
+.rvw-n{font-size:15px;font-weight:500;color:#49382E;line-height:1.2}
+.rvw-s{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#897465}
+/* payment block: Klarna + Traun voucher */
+.kl{display:inline-flex;align-items:center;justify-content:center;background:#FFB3C7;color:#17120f;font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:13px;letter-spacing:-.01em;line-height:1;padding:6px 9px;border-radius:6px;white-space:nowrap}
+.pay-list{display:flex;flex-direction:column;gap:22px;margin-top:40px;max-width:520px}
+.pay-item{display:flex;gap:18px;align-items:flex-start;padding:22px;border:1px solid #E7D7C5;border-radius:16px;background:#FFF9F0}
+.pay-item h3{margin:0;font-size:19px;font-weight:500;letter-spacing:-.01em;line-height:1.25}
+.pay-item p{margin:6px 0 0;font-size:15px;line-height:1.5;color:#897465}
+.pay-ic{flex:0 0 64px;height:44px;display:flex;align-items:center;justify-content:center}
+.pay-ic-v{border-radius:12px;background:linear-gradient(150deg,#EADBC4,#DCC394);color:#8C6935}
+.pay-note{margin:20px 0 0;font-size:12px;color:#897465;letter-spacing:.02em}
+.pay-glow{position:absolute;left:50%;top:50%;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(circle,rgba(220,195,148,.55),rgba(220,195,148,0) 68%);pointer-events:none}
+.ps-ui{background:#F7F0E6;color:#49382E;font-family:'Inter',system-ui,sans-serif;padding:0 14px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px}
+.ps-bar{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:600;padding:15px 10px 0 12px;height:22px}
+.ps-sig{display:inline-flex;align-items:flex-end;gap:2px}.ps-sig i{display:block;width:3px;background:#49382E;border-radius:1px}.ps-sig i:nth-child(1){height:5px}.ps-sig i:nth-child(2){height:7px}.ps-sig i:nth-child(3){height:9px}.ps-sig b{display:block;width:18px;height:9px;border:1.2px solid #49382E;border-radius:3px;margin-left:4px;box-sizing:border-box;background:linear-gradient(90deg,#49382E 70%,transparent 70%) content-box;padding:1px}
+.ps-head{display:flex;align-items:center;gap:10px;margin-top:22px}
+.ps-head img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.ps-cap{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:#897465}
+.ps-title{font-size:21px;letter-spacing:-.03em;line-height:1.1}
+.ps-card{background:#FFF9F0;border:1px solid #E7D7C5;border-radius:16px;padding:13px 14px;display:flex;flex-direction:column;gap:8px}
+.ps-line{display:flex;justify-content:space-between;gap:8px;font-size:12px;line-height:1.3}
+.ps-disc{color:#8C6935}
+.ps-line span:last-child{white-space:nowrap}
+.ps-total{border-top:1px solid #E7D7C5;padding-top:8px;font-weight:600;font-size:13px}
+.ps-total s{font-weight:400;color:#A8968A;margin-right:4px;font-size:11px}
+.ps-klarna{border-color:#17120f;box-shadow:0 0 0 1px #17120f}
+.ps-row{display:flex;justify-content:space-between;align-items:center}
+.ps-check{width:18px;height:18px;border-radius:50%;background:#17120f;position:relative}
+.ps-check::after{content:"";position:absolute;left:6px;top:3.5px;width:4px;height:8px;border:solid #FFF9F0;border-width:0 1.6px 1.6px 0;transform:rotate(45deg)}
+.ps-opt{flex-direction:row;align-items:center;gap:10px}
+.ps-tk{flex:0 0 30px;height:30px;border-radius:9px;background:linear-gradient(150deg,#EADBC4,#DCC394);color:#8C6935;display:flex;align-items:center;justify-content:center}
+.ps-opt>div{flex:1 1 auto;min-width:0}
+.ps-opt .ps-k1{font-size:13px;margin:0}
+.ps-radio{flex:0 0 16px;height:16px;border-radius:50%;border:1.5px solid #CDB99E;box-sizing:border-box}
+.ps-k1{font-size:14px;font-weight:600;margin-top:2px}
+.ps-k2{font-size:11px;color:#897465}
+.ps-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:4px}
+.ps-steps i{display:block;height:5px;border-radius:3px;background:#E7D7C5}
+.ps-steps i:first-child{background:#17120f}
+.ps-btn{margin-top:auto;margin-bottom:22px;background:#17120f;color:#FFF9F0;text-align:center;font-size:13px;font-weight:600;padding:13px;border-radius:999px}
+.ps-stamp{position:absolute;right:6px;top:232px;z-index:3;width:88px;height:88px;padding:12px;box-sizing:border-box;gap:1px;border-radius:50%;border:1.5px dashed #B99552;background:rgba(255,249,240,.95);box-shadow:0 10px 24px -10px rgba(73,56,46,.45);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#8C6935;text-align:center;opacity:0;transform:scale(1.8) rotate(-30deg);transition:opacity .35s ease 1.25s,transform .55s cubic-bezier(.34,1.56,.64,1) 1.25s}
+.ps-stamp span{font-size:6.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.25;white-space:nowrap}
+.ps-stamp b{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:600;font-size:26px;line-height:1;color:#B99552}
+.ps-in{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .8s cubic-bezier(.22,1,.36,1);transition-delay:var(--d,0s)}
+.in .ps-in{opacity:1;transform:none}
+.in .ps-stamp{opacity:1;transform:rotate(-12deg)}
+@media (max-width:760px){.pay{padding-top:80px !important;padding-bottom:80px !important}.ps-ui{padding:0 11px;gap:8px}.ps-line{font-size:11px}.ps-stamp{width:76px;height:76px;right:2px;top:212px;padding:10px}.ps-stamp span{font-size:5.6px !important}.ps-stamp span{font-size:6.5px}.ps-stamp b{font-size:21px !important}.ps-k2{font-size:10px}.pay-item{padding:18px;gap:14px}.pay-ic{flex-basis:56px}.pay-glow{width:320px;height:320px;margin:-160px 0 0 -160px}}
+@media (prefers-reduced-motion:reduce){.ps-in,.ps-stamp{transition:none !important}.ps-in{opacity:1;transform:none}.ps-stamp{opacity:1;transform:rotate(-12deg)}}
 .spark{position:absolute;width:6px;height:6px;background:#DCC394;border-radius:50%;animation:tw 3.2s ease-in-out infinite;box-shadow:0 0 12px 2px rgba(220,195,148,.9)}
 .spin{animation:spin 26s linear infinite;transform-origin:50% 50%}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -321,6 +378,61 @@ body.mm-lock{overflow:hidden}
  </div>
 </section>
 
+<!-- PAYMENT: KLARNA + TRAUN VOUCHER -->
+<section class="wrap after pay" data-io style="padding-top: 130px; padding-bottom: 130px; border-top: 1px solid #CDB99E">
+  <div class="two" style="align-items: center">
+    <div style="grid-column: 1 / span 6">
+      <div class="cap rv">Bezahlen &amp; sparen</div>
+      <h2 class="h2" style="margin-top: 20px">
+        <span class="ln" style="transition-delay: .1s"><span>Schön bleiben –</span></span>
+        <span class="ln" style="transition-delay: .22s"><span>entspannt <em class="it" style="color: #B99552">bezahlen.</em></span></span>
+      </h2>
+      <p class="body muted rv" style="max-width: 480px; margin: 32px 0 0; transition-delay: .35s">Gönn dir die Behandlung, die du dir wünschst – und bezahl sie so, wie es für dich passt.</p>
+      <div class="pay-list">
+        <div class="pay-item rv" style="transition-delay: .45s">
+          <div class="pay-ic"><span class="kl" aria-label="Klarna">Klarna.</span></div>
+          <div><h3>Ratenzahlung mit Klarna</h3><p>Ab 100&nbsp;€ bezahlst du deine Behandlung bequem in Raten – oder ganz einfach auf einmal.</p></div>
+        </div>
+        <div class="pay-item rv" style="transition-delay: .58s">
+          <div class="pay-ic pay-ic-v"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14.5 7.5v9" stroke-dasharray="1.5 2"/><path d="m7 14 4-4"/><circle cx="7.5" cy="10.5" r=".6" fill="currentColor"/><circle cx="10.5" cy="13.5" r=".6" fill="currentColor"/></svg></div>
+          <div><h3>Wir nehmen den Traun-Gutschein</h3><p>Bezahl deine Behandlung mit dem Traun-Gutschein – beim Kauf des Gutscheins übernimmt die Stadt Traun 10&nbsp;%. <a href="https://www.stadtmarketing-traun.at/traun-gutschein/" class="ul" style="color: #8C6935">Mehr zum Gutschein</a></p></div>
+        </div>
+      </div>
+      <p class="pay-note rv" style="transition-delay: .7s">Ratenzahlung vorbehaltlich der Bonitätsprüfung durch Klarna.</p>
+    </div>
+    <div style="grid-column: 8 / span 5; display: flex; justify-content: center; position: relative">
+      <div class="pay-glow" aria-hidden="true"></div>
+      <div class="phone rv" style="transition-delay: .2s" role="img" aria-label="Beispiel-Kasse am Handy: Keratinbehandlung 179 Euro, bezahlbar mit dem Traun-Gutschein oder in Raten mit Klarna">
+        <span class="phone-btn phone-btn-a" aria-hidden="true"></span><span class="phone-btn phone-btn-b" aria-hidden="true"></span><span class="phone-btn phone-btn-c" aria-hidden="true"></span>
+        <div class="phone-screen ps-ui" aria-hidden="true">
+          <span class="phone-island"></span>
+          <div class="ps-bar"><span>9:41</span><span class="ps-sig"><i></i><i></i><i></i><b></b></span></div>
+          <div class="ps-head ps-in" style="--d: .35s"><img src="assets/logo.png" alt=""><div><div class="ps-cap">Beautytime Traun</div><div class="ps-title">Bezahlen</div></div></div>
+          <div class="ps-card ps-in" style="--d: .5s">
+            <div class="ps-cap">Deine Behandlung</div>
+            <div class="ps-line"><span>Keratinbehandlung</span><span>€ 179,–</span></div>
+            <div class="ps-line ps-total"><span>Gesamt</span><span>€ 179,–</span></div>
+          </div>
+          <div class="ps-cap ps-in" style="--d: .6s; margin: 4px 0 -2px 4px">Zahlungsart</div>
+          <div class="ps-card ps-opt ps-in" style="--d: .7s">
+            <span class="ps-tk" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 8a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2a2 2 0 0 0 0 4v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a2 2 0 0 0 0-4z"/><path d="M14.5 7.5v9" stroke-dasharray="1.5 2"/></svg></span>
+            <div><div class="ps-k1">Traun-Gutschein</div><div class="ps-k2">10&nbsp;% von der Stadt Traun gefördert</div></div>
+            <span class="ps-radio"></span>
+          </div>
+          <div class="ps-card ps-klarna ps-in" style="--d: .85s">
+            <div class="ps-row"><span class="kl" aria-label="Klarna">Klarna.</span><span class="ps-check"></span></div>
+            <div class="ps-k1">In Raten bezahlen</div>
+            <div class="ps-k2">Verfügbar ab 100 € Einkaufswert</div>
+            <div class="ps-steps"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="ps-btn ps-in" style="--d: 1s">Mit Klarna bezahlen</div>
+          <div class="ps-stamp"><span>Traun-<br>Gutschein</span><b>10&nbsp;%</b><span>gefördert</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SERVICES PREVIEW -->
 <section class="wrap" data-io style="padding-bottom: 150px; position: relative">
   <div class="star" style="top: 24px; right: 9%"></div>
@@ -490,31 +602,42 @@ body.mm-lock{overflow:hidden}
         <span class="ln"><span>Was unsere</span></span>
         <span class="ln" style="transition-delay: .12s"><span>Kundinnen <em class="it" style="color: #B99552">sagen.</em></span></span>
       </h2>
-      <p class="body muted rv" style="margin: 6px 0 0; max-width: 300px; transition-delay: .4s">Ausgewählte Stimmen von Google.</p>
-      <a href="https://www.google.com/maps/search/Beautytime+Traun" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 14px; transition-delay: .5s">Auf Google ansehen
+      <a href="https://maps.google.com/?cid=14570367933471659410" class="ul rv" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; font-size: 14px; transition-delay: .5s">Auf Google ansehen
         <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true"><path d="M1 6h15M11 1l5 5-5 5" stroke="currentColor" stroke-width="1.2"/></svg>
       </a>
     </div>
     <div style="grid-column: 5 / span 8; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px" class="revs">
       <figure class="rv" style="margin: 0; background: #FFF9F0; border: 1px solid #E7D7C5; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px; transition-delay: .2s">
         <div style="color: #B99552; font-size: 16px; letter-spacing: 2px">★★★★★</div>
-        <blockquote class="it" style="margin: 0; font-size: 24px; line-height: 1.25; color: #49382E">„[Bewertung einfügen – kurzer Auszug aus einer echten Google-Rezension.]“</blockquote>
-        <figcaption class="cap">[Name] · Google</figcaption>
+        <blockquote class="it" style="margin: 0; font-size: 22px; line-height: 1.3; color: #49382E">„Die Besten weit und breit! Die Damen leisten hier mit Herz und Seele professionelle Arbeit. Man fühlt sich hier sehr wohl.“</blockquote>
+        <figcaption class="rvw">
+          <span class="rav"><span class="rav-ph">E</span><span class="rav-g" title="Google"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span></span>
+          <span class="rvw-tx"><span class="rvw-n">Emina T.</span><span class="rvw-s">Google-Rezension</span></span>
+        </figcaption>
       </figure>
       <figure class="rv" style="margin: 0; background: #FFF9F0; border: 1px solid #E7D7C5; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px; transition-delay: .35s">
         <div style="color: #B99552; font-size: 16px; letter-spacing: 2px">★★★★★</div>
-        <blockquote class="it" style="margin: 0; font-size: 24px; line-height: 1.25; color: #49382E">„[Bewertung einfügen – kurzer Auszug aus einer echten Google-Rezension.]“</blockquote>
-        <figcaption class="cap">[Name] · Google</figcaption>
+        <blockquote class="it" style="margin: 0; font-size: 22px; line-height: 1.3; color: #49382E">„Ich habe mir hier ein blondes Balayage machen lassen und bin begeistert vom Ergebnis. … Die Farbe ist genau so geworden, wie ich es mir vorgestellt habe.“</blockquote>
+        <figcaption class="rvw">
+          <span class="rav"><span class="rav-ph">A</span><span class="rav-g" title="Google"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span></span>
+          <span class="rvw-tx"><span class="rvw-n">Amelis A.</span><span class="rvw-s">Google-Rezension</span></span>
+        </figcaption>
       </figure>
       <figure class="rv" style="margin: 0; background: #FFF9F0; border: 1px solid #E7D7C5; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px; transition-delay: .5s">
         <div style="color: #B99552; font-size: 16px; letter-spacing: 2px">★★★★★</div>
-        <blockquote class="it" style="margin: 0; font-size: 24px; line-height: 1.25; color: #49382E">„[Bewertung einfügen – kurzer Auszug aus einer echten Google-Rezension.]“</blockquote>
-        <figcaption class="cap">[Name] · Google</figcaption>
+        <blockquote class="it" style="margin: 0; font-size: 22px; line-height: 1.3; color: #49382E">„Die Pediküre ist sehr professionell, sorgfältig und angenehm. Das Ergebnis war sowohl mit Farbe als auch mit French jedes Mal ausgezeichnet.“</blockquote>
+        <figcaption class="rvw">
+          <span class="rav"><span class="rav-ph">E</span><span class="rav-g" title="Google"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span></span>
+          <span class="rvw-tx"><span class="rvw-n">Elena R.</span><span class="rvw-s">Google-Rezension</span></span>
+        </figcaption>
       </figure>
       <figure class="rv" style="margin: 0; background: #FFF9F0; border: 1px solid #E7D7C5; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 14px; transition-delay: .65s">
         <div style="color: #B99552; font-size: 16px; letter-spacing: 2px">★★★★★</div>
-        <blockquote class="it" style="margin: 0; font-size: 24px; line-height: 1.25; color: #49382E">„[Bewertung einfügen – kurzer Auszug aus einer echten Google-Rezension.]“</blockquote>
-        <figcaption class="cap">[Name] · Google</figcaption>
+        <blockquote class="it" style="margin: 0; font-size: 22px; line-height: 1.3; color: #49382E">„Meine Frisur war noch schöner, als ich sie mir vorgestellt hatte, und sie hat den ganzen Tag perfekt gehalten.“</blockquote>
+        <figcaption class="rvw">
+          <span class="rav"><span class="rav-ph">V</span><span class="rav-g" title="Google"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg></span></span>
+          <span class="rvw-tx"><span class="rvw-n">Vatres N.</span><span class="rvw-s">Google-Rezension</span></span>
+        </figcaption>
       </figure>
     </div>
   </div>

@@ -48,6 +48,20 @@ a{color:#49382E;text-decoration:none}a:hover{color:#8C6935}
 .row:hover{padding-left:20px;color:#8C6935}.row:hover::before{transform:none}
 .row .pr{color:#B99552;white-space:nowrap;font-size:20px}
 .stick{position:sticky;top:96px}
+/* reduced price: old price struck diagonally, new price bold */
+.row.sale{padding-left:18px;padding-right:14px;background:linear-gradient(90deg,rgba(220,195,148,.26),rgba(220,195,148,.06) 70%,rgba(220,195,148,0))}
+.row.sale::before{transform:none;width:3px}
+.row.sale:hover{padding-left:26px}
+.row.sale .pr{display:inline-flex;align-items:baseline;gap:16px}
+.row .was{position:relative;display:inline-block;line-height:1;font-variant-numeric:lining-nums;text-decoration:none;color:#9C8778;font-size:19px;font-weight:400 !important;padding:0 3px}
+.row .was::after{content:"";position:absolute;inset:-4px -5px;pointer-events:none;background:linear-gradient(to bottom right,transparent calc(50% - 1.6px),#8C6935 calc(50% - .9px),#8C6935 calc(50% + .9px),transparent calc(50% + 1.6px));clip-path:inset(0 100% 0 0);transition:clip-path .75s cubic-bezier(.65,0,.35,1) .9s}
+.in .row .was::after{clip-path:inset(0 0 0 0)}
+.row .now{color:#B99552;font-weight:700;font-size:25px;line-height:1}
+.row .off{display:inline-block;vertical-align:2px;margin-left:12px;padding:5px 10px 4px;border-radius:999px;background:#B99552;color:#FFF9F0;font-size:11px;letter-spacing:.08em;line-height:1;font-family:'Inter',system-ui,sans-serif;font-style:normal;font-weight:600;white-space:nowrap}
+.row.sale:hover .off{background:#8C6935}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:760px){.row.sale{padding-left:14px;padding-right:10px}.row .was{font-size:16px}.row .now{font-size:21px}}
+@media (prefers-reduced-motion:reduce){.row .was::after{transition:none;clip-path:none}}
 /* all gold text bold */
 .row .pr,.gb,[style*="color: #B99552"],[style*="color:#B99552"]{font-weight:700 !important}
 .sub{font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8C6935;padding:44px 0 12px;border-bottom:1px solid #CDB99E}
@@ -212,7 +226,7 @@ body.mm-lock{overflow:hidden}
       <div class="row"><span>Gesichtsbehandlung klassisch · 80 min</span><span class="it pr">€ 109,–</span></div>
       <div class="row"><span>Teenager-Gesichtsbehandlung</span><span class="it pr">€ 69,–</span></div>
       <div class="row"><span>Rückenbehandlung</span><span class="it pr">€ 59,–</span></div>
-      <div class="row"><span>Aqua Facial</span><span class="it pr">€ 139,–</span></div>
+      <div class="row sale"><span>Aqua Facial<span class="off">−14 %</span></span><span class="it pr"><s class="was"><span class="sr">statt </span>€ 139,–</s><span class="now">€ 119,–</span></span></div>
       <div class="row"><span>Glas Facial</span><span class="it pr">€ 145,–</span></div>
       <div class="row"><span>Microneedling mit Gesichtsbehandlung</span><span class="it pr">€ 149,–</span></div>
       <div class="row"><span>Microneedling Einzelbehandlung</span><span class="it pr">€ 109,–</span></div>
@@ -236,7 +250,7 @@ body.mm-lock{overflow:hidden}
       <div class="row"><span>Maniküre</span><span class="it pr">€ 35,–</span></div>
       <div class="row"><span>+ Nägel lackieren</span><span class="it pr">€ 15,–</span></div>
       <div class="row"><span>Naturnagelverstärkung / Shellac</span><span class="it pr">€ 46,–</span></div>
-      <div class="row"><span>Neumodellage Gelnägel</span><span class="it pr">€ 64,–</span></div>
+      <div class="row sale"><span>Neumodellage Gelnägel<span class="off">−16 %</span></span><span class="it pr"><s class="was"><span class="sr">statt </span>€ 64,–</s><span class="now">€ 54,–</span></span></div>
       <div class="row"><span>Auffüllen Gelnägel</span><span class="it pr">€ 54,–</span></div>
       <div class="row"><span>Slim Nails</span><span class="it pr">€ 74,–</span></div>
       <div class="row"><span>Dual Tips / Russian Almond</span><span class="it pr">€ 84,–</span></div>
@@ -427,7 +441,7 @@ body.mm-lock{overflow:hidden}
       <div class="row"><span>Augenbrauen + Wimpern färben</span><span class="it pr">€ 25,–</span></div>
       <div class="row"><span>Kombi-Paket Augenbrauen &amp; Wimpern<small class="rn">Alles in einem: Färben und Formen</small></span><span class="it pr">€ 35,–</span></div>
       <div class="row"><span>Lashlift oder Browlift inkl. Färben</span><span class="it pr">€ 64,–</span></div>
-      <div class="row"><span>Kombiangebot Lash- &amp; Browlift</span><span class="it pr">€ 109,–</span></div>
+      <div class="row sale"><span>Kombiangebot Lash- &amp; Browlift<span class="off">−18 %</span></span><span class="it pr"><s class="was"><span class="sr">statt </span>€ 109,–</s><span class="now">€ 89,–</span></span></div>
       <div class="sub">Wimpernverlängerung · Neuset</div>
       <div class="row"><span>Klassische Wimpern (1 zu 1)</span><span class="it pr">€ 79,–</span></div>
       <div class="row"><span>Light / Volumen / Mega</span><span class="it pr">€ 89,– / 99,– / 109,–</span></div>

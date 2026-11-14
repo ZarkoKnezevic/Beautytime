@@ -13,7 +13,7 @@
     },
     "Main.dc.html": {
       "expand": "fill",
-      "h": 10300,
+      "h": 11500,
       "is_interactive": true,
       "title": "Startseite",
       "w": 1440,
@@ -31,7 +31,7 @@
     },
     "Mobile.dc.html": {
       "expand": "fill",
-      "h": 13500,
+      "h": 15400,
       "is_interactive": true,
       "title": "Startseite – Mobil",
       "w": 390,

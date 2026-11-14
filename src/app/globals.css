@@ -793,7 +793,7 @@ body.mm-lock {
 }
 /* Decorative phone-checkout mock-up */
 .ps-ui {
-  background: var(--bg);
+  background: #fff;
   color: var(--text);
   font-family: var(--font-sans), system-ui, sans-serif;
   padding: 0 14px;
@@ -1897,7 +1897,7 @@ body.mm-lock {
   height: 100%;
   border-radius: 42px;
   overflow: hidden;
-  background: #0d0b0a;
+  background: #fff;
   isolation: isolate;
 }
 .phone-video {

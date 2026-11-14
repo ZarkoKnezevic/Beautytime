@@ -16,6 +16,8 @@ import Reviews from '@/components/storyblok/Reviews';
 import AppointmentCta from '@/components/storyblok/AppointmentCta';
 import PageHero from '@/components/storyblok/PageHero';
 import ServiceCategory from '@/components/storyblok/ServiceCategory';
+import PriceSection from '@/components/storyblok/PriceSection';
+import TeamSection from '@/components/storyblok/TeamSection';
 import CancellationTerms from '@/components/storyblok/CancellationTerms';
 import PaymentBlock from '@/components/storyblok/PaymentBlock';
 import TeamMember from '@/components/storyblok/TeamMember';
@@ -49,6 +51,10 @@ export const COMPONENTS = {
   PageHero: PageHero,
   service_category: ServiceCategory,
   ServiceCategory: ServiceCategory,
+  price_section: PriceSection,
+  PriceSection: PriceSection,
+  team_section: TeamSection,
+  TeamSection: TeamSection,
   cancellation_terms: CancellationTerms,
   CancellationTerms: CancellationTerms,
   payment_block: PaymentBlock,

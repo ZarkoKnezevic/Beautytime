@@ -642,6 +642,35 @@ body.mm-lock {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
+/* Review text: fixed 6-line box so all cards match; .rq-open expands it */
+.rq {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.25;
+  color: var(--text);
+  height: calc(1.25em * 6);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  overflow: hidden;
+}
+.rq-open {
+  height: auto;
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: none;
+}
+.rq-btn {
+  align-self: flex-start;
+  margin-top: -4px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  color: var(--gold-dark);
+  cursor: pointer;
+}
 /* Review author: avatar (photo or initial) + Google badge + name/source */
 .rvw {
   display: flex;

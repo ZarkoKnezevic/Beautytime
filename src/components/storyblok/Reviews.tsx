@@ -1,4 +1,5 @@
 import { storyblokEditable } from '@storyblok/react/rsc';
+import ReviewQuote from '@/components/ReviewQuote';
 import { prepareLinkProps } from '@/lib/adapters/prepareLinkProps';
 import { getRequestLocale } from '@/lib/locale';
 import type { StoryblokBlok, Locale } from '@/types';
@@ -85,12 +86,7 @@ function ReviewCard({ item, delay, locale }: { item: StoryblokBlok; delay: strin
       }}
     >
       <Stars rating={rating} locale={locale} />
-      <blockquote
-        className="it"
-        style={{ margin: 0, fontSize: 24, lineHeight: 1.25, color: 'var(--text)' }}
-      >
-        {quote ? `„${quote}“` : ''}
-      </blockquote>
+      <ReviewQuote quote={quote} locale={locale} />
       <figcaption className="rvw">
         <span className="rav">
           {avatar ? (

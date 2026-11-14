@@ -2016,6 +2016,23 @@ html {
 }
 
 /* ===== Team members (Unser Team) ===== */
+/* Copy sits next to the (smaller) portrait, with a gap on the image-facing side
+   so it never touches the photo. Flush on mobile, where the layout stacks. */
+.member-copy {
+  max-width: 460px;
+  margin-left: 48px;
+}
+.member-copy-right {
+  margin-left: auto;
+  margin-right: 48px;
+}
+@media (max-width: 760px) {
+  .member-copy,
+  .member-copy-right {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
 .member {
   padding-top: 120px;
   padding-bottom: 120px;

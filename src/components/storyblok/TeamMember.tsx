@@ -28,8 +28,8 @@ export default function TeamMember({ blok }: { blok: StoryblokBlok }) {
   const igLabel = asText(blok.instagram_label) || 'Instagram';
   const { href: igHref } = prepareLinkProps({ link: blok.instagram_link });
 
-  const imageCol = imageLeft ? '1 / span 6' : '7 / span 6';
-  const textCol = imageLeft ? '8 / span 5' : '1 / span 5';
+  const imageCol = imageLeft ? '1 / span 4' : '9 / span 4';
+  const textCol = imageLeft ? '5 / span 8' : '1 / span 8';
 
   const src = asText(image?.filename);
   const alt = asText(image?.alt) || name;
@@ -42,7 +42,7 @@ export default function TeamMember({ blok }: { blok: StoryblokBlok }) {
             src={src}
             alt={alt}
             fill
-            sizes="(max-width: 760px) 100vw, (max-width: 1440px) 48vw, 640px"
+            sizes="(max-width: 760px) 100vw, (max-width: 1440px) 34vw, 440px"
             className="object-cover"
             style={{ objectPosition: 'center top' }}
           />
@@ -55,6 +55,9 @@ export default function TeamMember({ blok }: { blok: StoryblokBlok }) {
 
   const textBlock = (
     <div style={{ gridColumn: textCol }}>
+      {/* Keep the copy tight and next to the portrait (right-aligned block when
+          the image sits on the right) so it never drifts away from it. */}
+      <div className={`member-copy${imageLeft ? '' : ' member-copy-right'}`}>
       <h2 className="h2 nm" style={{ marginTop: 0 }} aria-label={name}>
         <span className="ln" aria-hidden="true">
           <span style={{ transitionDelay: '.1s' }}>
@@ -84,6 +87,7 @@ export default function TeamMember({ blok }: { blok: StoryblokBlok }) {
           <Arrow />
         </a>
       ) : null}
+      </div>
     </div>
   );
 

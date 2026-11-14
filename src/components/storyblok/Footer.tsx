@@ -37,6 +37,10 @@ export default function Footer({
     { link: blok.phone_link, text: asText(blok.phone_label) },
     allResolvedLinks
   );
+  const phone2 = prepareLinkProps(
+    { link: blok.phone_link_2, text: asText(blok.phone_label_2) },
+    allResolvedLinks
+  );
   const instagram = prepareLinkProps(
     { link: blok.instagram_link, text: asText(blok.instagram_label) },
     allResolvedLinks
@@ -96,6 +100,11 @@ export default function Footer({
             {phone.text ? (
               <a href={phone.href || '#'} className="ul text-[15px]">
                 <span className="ul-t">{phone.text}</span>
+              </a>
+            ) : null}
+            {phone2.text ? (
+              <a href={phone2.href || '#'} className="ul text-[15px]">
+                <span className="ul-t">{phone2.text}</span>
               </a>
             ) : null}
             {email ? (

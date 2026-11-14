@@ -642,6 +642,411 @@ body.mm-lock {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
+/* Review author: avatar (photo or initial) + Google badge + name/source */
+.rvw {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--surface);
+}
+.rav {
+  position: relative;
+  flex: 0 0 auto;
+  width: 48px;
+  height: 48px;
+}
+.rav > img,
+.rav-ph {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  box-shadow:
+    0 0 0 2px var(--ivory),
+    0 0 0 3px var(--gold-light);
+}
+.rav-ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(150deg, #eadbc4, var(--gold-light));
+  color: var(--gold-dark);
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1;
+}
+.rav-g {
+  position: absolute;
+  right: -5px;
+  bottom: -4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(73, 56, 46, 0.22);
+}
+.rav-g svg {
+  width: 13px;
+  height: 13px;
+  display: block;
+}
+.rvw-tx {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.rvw-n {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.2;
+}
+.rvw-s {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ===== Payment block (Bezahlen & sparen): Klarna + Traun voucher ===== */
+.kl {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffb3c7;
+  color: #17120f;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  padding: 6px 9px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.pay-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 40px;
+  max-width: 520px;
+}
+.pay-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 22px;
+  border: 1px solid var(--surface);
+  border-radius: 16px;
+  background: var(--ivory);
+}
+.pay-item h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.pay-item p {
+  margin: 6px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.pay-ic {
+  flex: 0 0 64px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pay-ic-v {
+  border-radius: 12px;
+  background: linear-gradient(150deg, #eadbc4, var(--gold-light));
+  color: var(--gold-dark);
+}
+.pay-note {
+  margin: 20px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.pay-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 420px;
+  height: 420px;
+  margin: -210px 0 0 -210px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 195, 148, 0.55), rgba(220, 195, 148, 0) 68%);
+  pointer-events: none;
+}
+/* Decorative phone-checkout mock-up */
+.ps-ui {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  padding: 0 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ps-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 15px 10px 0 12px;
+  height: 22px;
+}
+.ps-sig {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+.ps-sig i {
+  display: block;
+  width: 3px;
+  background: var(--text);
+  border-radius: 1px;
+}
+.ps-sig i:nth-child(1) {
+  height: 5px;
+}
+.ps-sig i:nth-child(2) {
+  height: 7px;
+}
+.ps-sig i:nth-child(3) {
+  height: 9px;
+}
+.ps-sig b {
+  display: block;
+  width: 18px;
+  height: 9px;
+  border: 1.2px solid var(--text);
+  border-radius: 3px;
+  margin-left: 4px;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, var(--text) 70%, transparent 70%) content-box;
+  padding: 1px;
+}
+.ps-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+.ps-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(150deg, #eadbc4, var(--gold-light));
+  flex: 0 0 auto;
+}
+.ps-cap {
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ps-title {
+  font-size: 21px;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+.ps-card {
+  background: var(--ivory);
+  border: 1px solid var(--surface);
+  border-radius: 16px;
+  padding: 13px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ps-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+.ps-line span:last-child {
+  white-space: nowrap;
+}
+.ps-total {
+  border-top: 1px solid var(--surface);
+  padding-top: 8px;
+  font-weight: 600;
+  font-size: 13px;
+}
+.ps-klarna {
+  border-color: #17120f;
+  box-shadow: 0 0 0 1px #17120f;
+}
+.ps-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ps-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #17120f;
+  position: relative;
+}
+.ps-check::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 3.5px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--ivory);
+  border-width: 0 1.6px 1.6px 0;
+  transform: rotate(45deg);
+}
+.ps-opt {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.ps-tk {
+  flex: 0 0 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: linear-gradient(150deg, #eadbc4, var(--gold-light));
+  color: var(--gold-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ps-opt > div {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.ps-opt .ps-k1 {
+  font-size: 13px;
+  margin: 0;
+}
+.ps-radio {
+  flex: 0 0 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  box-sizing: border-box;
+}
+.ps-k1 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.ps-k2 {
+  font-size: 11px;
+  color: var(--muted);
+}
+.ps-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin-top: 4px;
+}
+.ps-steps i {
+  display: block;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--surface);
+}
+.ps-steps i:first-child {
+  background: #17120f;
+}
+.ps-btn {
+  margin-top: auto;
+  margin-bottom: 22px;
+  background: #17120f;
+  color: var(--ivory);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 13px;
+  border-radius: 999px;
+}
+.ps-stamp {
+  position: absolute;
+  right: 2px;
+  top: 212px;
+  z-index: 3;
+  width: 76px;
+  height: 76px;
+  padding: 10px;
+  box-sizing: border-box;
+  gap: 1px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--gold);
+  background: rgba(255, 249, 240, 0.95);
+  box-shadow: 0 10px 24px -10px rgba(73, 56, 46, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-dark);
+  text-align: center;
+  opacity: 0;
+  transform: scale(1.8) rotate(-30deg);
+  transition:
+    opacity 0.35s ease 1.25s,
+    transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 1.25s;
+}
+.ps-stamp span {
+  font-size: 6.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+.ps-stamp b {
+  font-family: var(--font-serif), Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--gold);
+}
+/* Staged reveal of the mock-up contents, keyed to the section coming into view */
+.ps-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--d, 0s);
+}
+[data-in] .ps-in {
+  opacity: 1;
+  transform: none;
+}
+[data-in] .ps-stamp {
+  opacity: 1;
+  transform: rotate(-12deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ps-in,
+  .ps-stamp {
+    transition: none !important;
+  }
+}
 
 /* Responsive helpers (shared across pages) */
 @media (max-width: 760px) {
@@ -1282,6 +1687,110 @@ body.mm-lock {
   white-space: nowrap;
   font-size: 20px;
   font-weight: 700;
+}
+/* Reduced/offer price: a "−X %" badge by the name, the original struck through
+   (with an animated diagonal line), and the offer price in gold. */
+.row.sale {
+  padding-left: 18px;
+  padding-right: 14px;
+  background: linear-gradient(
+    90deg,
+    rgba(220, 195, 148, 0.26),
+    rgba(220, 195, 148, 0.06) 70%,
+    rgba(220, 195, 148, 0)
+  );
+}
+.row.sale::before {
+  transform: none;
+  width: 3px;
+}
+.row.sale:hover {
+  padding-left: 26px;
+}
+.row.sale .pr {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.now {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 1;
+}
+.was {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  font-variant-numeric: lining-nums;
+  text-decoration: none;
+  color: #9c8778;
+  font-size: 19px;
+  font-weight: 400 !important;
+  padding: 0 3px;
+}
+.was::after {
+  content: '';
+  position: absolute;
+  inset: -4px -5px;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom right,
+    transparent calc(50% - 1.6px),
+    var(--gold-dark) calc(50% - 0.9px),
+    var(--gold-dark) calc(50% + 0.9px),
+    transparent calc(50% + 1.6px)
+  );
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.75s cubic-bezier(0.65, 0, 0.35, 1) 0.9s;
+}
+[data-in] .was::after {
+  clip-path: inset(0 0 0 0);
+}
+.off {
+  display: inline-block;
+  vertical-align: 2px;
+  margin-left: 12px;
+  padding: 5px 10px 4px;
+  border-radius: 999px;
+  background: var(--gold);
+  color: var(--ivory);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.row.sale:hover .off {
+  background: var(--gold-dark);
+}
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .was::after {
+    transition: none;
+    clip-path: none;
+  }
+}
+@media (max-width: 760px) {
+  .row.sale {
+    padding-left: 14px;
+    padding-right: 10px;
+  }
+  .now {
+    font-size: 21px;
+  }
+  .was {
+    font-size: 16px;
+  }
 }
 /* Sub-group heading inside a category price list (e.g. "Damen", "Herren"). */
 .sub {

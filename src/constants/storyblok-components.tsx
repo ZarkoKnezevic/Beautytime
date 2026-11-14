@@ -17,6 +17,7 @@ import AppointmentCta from '@/components/storyblok/AppointmentCta';
 import PageHero from '@/components/storyblok/PageHero';
 import ServiceCategory from '@/components/storyblok/ServiceCategory';
 import CancellationTerms from '@/components/storyblok/CancellationTerms';
+import PaymentBlock from '@/components/storyblok/PaymentBlock';
 import TeamMember from '@/components/storyblok/TeamMember';
 import Philosophy from '@/components/storyblok/Philosophy';
 import LegalPage from '@/components/storyblok/LegalPage';
@@ -50,6 +51,8 @@ export const COMPONENTS = {
   ServiceCategory: ServiceCategory,
   cancellation_terms: CancellationTerms,
   CancellationTerms: CancellationTerms,
+  payment_block: PaymentBlock,
+  PaymentBlock: PaymentBlock,
   team_person: TeamMember,
   TeamMember: TeamMember,
   philosophy: Philosophy,

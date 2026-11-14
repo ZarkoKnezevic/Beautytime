@@ -16,6 +16,18 @@ const slugify = (s: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '');
 
+/** "−19 %" discount badge from two price strings, or '' when not computable. */
+function discountPct(oldP: string, newP: string): string {
+  const num = (s: string) => {
+    const m = s.match(/\d+(?:[.,]\d+)?/);
+    return m ? parseFloat(m[0].replace(',', '.')) : NaN;
+  };
+  const o = num(oldP);
+  const n = num(newP);
+  if (!o || !n || n >= o) return '';
+  return `−${Math.round((1 - n / o) * 100)} %`;
+}
+
 function Arrow() {
   return (
     <svg width="18" height="12" viewBox="0 0 18 12" fill="none" aria-hidden="true">
@@ -125,10 +137,28 @@ export default function ServiceCategory({ blok }: { blok: StoryblokBlok }) {
                 </p>
               );
             }
+            const price = asText(row.price);
+            const reduced = asText(row.reduced_price);
+            const off = reduced ? discountPct(price, reduced) : '';
             return (
-              <div className="row" key={key} {...storyblokEditable(row)}>
-                <span>{asText(row.label)}</span>
-                <span className="it pr">{asText(row.price) || '[Preis]'}</span>
+              <div className={reduced ? 'row sale' : 'row'} key={key} {...storyblokEditable(row)}>
+                <span>
+                  {asText(row.label)}
+                  {off ? <span className="off">{off}</span> : null}
+                </span>
+                <span className="it pr">
+                  {reduced ? (
+                    <>
+                      <s className="was">
+                        <span className="sr">statt </span>
+                        {price}
+                      </s>
+                      <span className="now">{reduced}</span>
+                    </>
+                  ) : (
+                    price || '[Preis]'
+                  )}
+                </span>
               </div>
             );
           })}
